@@ -19,7 +19,7 @@ const HeaderMenu = () =>  //this is a class actually
                 </Col>
                 <Col md={3} className="pull-right">
                 Madhuri
-                    <Image src="./src/profile.png" responsive thumbnail circle/>
+                    <Image src="./src/client/reacat.png" responsive thumbnail circle/>
                 </Col>
             </Row>
 
