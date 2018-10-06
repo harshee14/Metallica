@@ -1,10 +1,17 @@
 const express = require('express');
 const log4js = require('log4js');
-const os = require('os');
-const router = require('./Router');
+const router = require('./Router').route;
 
-const logger = log4js.getLogger();
-logger.level = 'debug';
+log4js.configure({
+    appenders: {
+      console: { type: 'console', level: 'debug'},
+    },
+    categories: {
+        default: { appenders: ['console'], level: 'debug' }
+      }
+});
+
+const logger = log4js.getLogger("MetallicaServiceIndex");
 
 const app = express();
 router(app);

@@ -4,7 +4,7 @@ class ServiceRegistry {
     constructor() {
         this._services = [];
         this._timeout = 30;
-        this.logger = log4js.getLogger();
+        this.logger = log4js.getLogger("ServiceRegistry");
     }
 
     add(service, ip, port) {
@@ -44,7 +44,7 @@ class ServiceRegistry {
 
         for(let key in this._services) {
             if(this._services[key].timestamp + this._timeout < now) {
-                this.logger.info(`Removed service ${service} on ${ip}:${port}`);
+                this.logger.info(`Removed service ${this._services[key].service} on ${this._services[key].ip}:${this._services[key].port}`);
                 delete this._services[key];
             }
         }

@@ -8,7 +8,7 @@ module.exports.process = (action, registry, cb) => {
             return cb(new Error('NoActionError'), null);
         }
 
-        if(!registry)) {
+        if(!registry){
             logger.error("Registry not present.");
             return cb(new Error('NoRegistryError'), null);
         }
