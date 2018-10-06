@@ -1,18 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const log4js = require('log4js');
 const os = require('os');
+const router = require('./Router');
 
-mongoose.connect('mongodb://localhost:27017/Metallica', {useNewUrlParser: true},(err, client) => {
-    if(err) {
-        console.log("Error in connecting to MongoDB - " + err);
-    } else {
-        console.log("Successfully connected to MongoDB");
-    }
-});
-
+const logger = log4js.getLogger();
+logger.level = 'debug';
 
 const app = express();
-
-app.use(express.static('dist'));
-app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
+router(app);
 app.listen(8080, () => console.log('Listening on port 8080!'));
