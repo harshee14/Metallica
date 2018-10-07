@@ -6,3 +6,23 @@ body {
   text-align: center;
   margin: auto;
 }
+
+#singletradecardheading
+{
+	text-align : left ;
+}
+
+#singletradecardicons
+{
+	text-align: right;
+}
+
+.margins
+{
+	margin : 10px;
+}
+
+.bottom-margins
+{
+	margin-bottom : 10px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './app.css';
 
 import HeaderMenu from './components/HeaderMenu';
+import MarketPricesDisplayPanel from './components/MarketPricesDisplayPanel';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 export default class App extends Component {
@@ -20,9 +21,14 @@ export default class App extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={12} md={12}>
-                            <HeaderMenu />
+                            <MarketPricesDisplayPanel />
                         </Col>
                     </Row>
+                    <Row className="show-grid">
+                        <Col xs={12} md={12}>
+                            <HeaderMenu />
+                        </Col>
+                    </Row> 
                 </Grid>
             </div>
         );

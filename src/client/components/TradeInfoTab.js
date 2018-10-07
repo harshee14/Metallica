@@ -2,6 +2,8 @@ import {Row, Col} from 'react-bootstrap';
 import React from 'react';
 
 import SearchBar from './SearchBar';
+import TradesTable from './TradesTable';
+import SingleTradeCard from './SingleTradeCard';
 
 const TradeInfoTab = () =>  {
 	return <div>
@@ -12,10 +14,10 @@ const TradeInfoTab = () =>  {
             </Row>
             <Row>
                 <Col md={8}>
-                //search result table
+                <TradesTable />
                 </Col>
                 <Col md={4}>
-                //trade info
+                <SingleTradeCard />               
                 </Col>
             </Row>
 		</div>;
