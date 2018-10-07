@@ -1,8 +1,18 @@
 const express = require('express');
-const os = require('os');
+const log4js = require('log4js');
+const router = require('./Router').route;
+
+log4js.configure({
+    appenders: {
+      console: { type: 'console', level: 'debug'},
+    },
+    categories: {
+        default: { appenders: ['console'], level: 'debug' }
+      }
+});
+
+const logger = log4js.getLogger("MetallicaServiceIndex");
 
 const app = express();
-
-app.use(express.static('dist'));
-app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
+router(app);
 app.listen(8080, () => console.log('Listening on port 8080!'));
