@@ -20,13 +20,40 @@ module.exports.process = (action, registry, cb) => {
 
         service = registry.get(action.service);
 
-        return request
-            .get(`http://${service.ip}:${service.port}/trade`)
-            .query(action.queryParameters)
-            .then(response => {
-                if(response.status < 3)
-                    return cb(null, response.body);
-                else
-                    return cb(response, null);
-            });
+        switch(action.intent) {
+            case "searchTrades":
+                return request
+                    .get(`http://${service.ip}:${service.port}/trade`)
+                    .query(action.queryParameters)
+                    .then(response => cb(response));
+            break;
+            case "getTrade":
+                return request
+                    .get(`http://${service.ip}:${service.port}/trade/${action.queryParameters.tradeId}`)
+                    .query(action.queryParameters)
+                    .then(response => cb(response));
+            break;
+            case "editTrade":
+                return request
+                    .put(`http://${service.ip}:${service.port}/trade/${action.queryParameters.tradeId}`)
+                    .set('Content-Type', 'application/json')
+                    .send(action.body)
+                    .then(response => cb(response));
+            break;
+
+            case "createTrade":
+                return request
+                    .post(`http://${service.ip}:${service.port}/trade/`)
+                    .set('Content-Type', 'application/json')
+                    .send(action.body)
+                    .then(response => cb(response));
+            break;
+            case "deleteTrade":
+                return request
+                    .delete(`http://${service.ip}:${service.port}/trade/${action.queryParameters.tradeId}`)
+                    .then(response => cb(response));
+            break;
+        }
+
+        
 }

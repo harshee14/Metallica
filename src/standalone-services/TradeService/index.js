@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const request = require('superagent');
 const routes = require('./trade.routes');
 const configure = require('./configure');
+const Trade = require('./trade.model');
+
+const fs = require('fs');
+const obj = JSON.parse(fs.readFileSync('./dummy.json', 'utf8'));
 
 const logger = log4js.getLogger("TradeServiceIndex");
 logger.level = 'debug';
@@ -14,8 +18,11 @@ const SERVICE_NAME = "TradeService";
 const GATEWAY_IP = "127.0.0.1";
 const GATEWAY_PORT = "8080";
 
-mongoose.connect('mongodb://localhost:27017/trades').then(() => {
+mongoose.connect(`mongodb://127.0.0.1/trades`, { useNewUrlParser: true }).then((x) => {
     logger.info("Sucessfully connected to MongoDB.");
+    Trade.insertMany(obj, (err, docs) => {
+        console.log("Added dummy trade data");
+    });
 });
 
 const app = express();

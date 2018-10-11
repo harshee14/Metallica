@@ -15,11 +15,7 @@ module.exports = (app) => {
 
     router.use('/trade', trade);
 
-    /**
-     * Search based on start date, end date, commodity, side, counterparty, location.
-     * In case, no search parameter is set, we return all trades of the user.
-     */
-    trade.get('/', tradeController.searchTrades);
+    
 
     /**
      * Get a single trade using the trade ID.
@@ -30,6 +26,12 @@ module.exports = (app) => {
      * Edit a single trade using the trade ID
      */
     trade.put('/:tradeId', tradeController.editSingleTrade);
+
+    /**
+     * Search based on start date, end date, commodity, side, counterparty, location.
+     * In case, no search parameter is set, we return all trades of the user.
+     */
+    trade.get('/', tradeController.searchTrades);
 
     /**
      * Create a trade with the creator by default in the access list

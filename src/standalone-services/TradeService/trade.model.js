@@ -38,6 +38,11 @@ const TradeSchema = new mongoose.Schema({
     accessList: {
         type: [String],
         validate: [accessListLowerBound, '{PATH} should have atleast one member']
+    },
+    tradeId: {
+        type: String,
+        required: true,
+        unique: true
     }
 });
 

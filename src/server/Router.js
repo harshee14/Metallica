@@ -31,18 +31,16 @@ module.exports.route = (app) => {
     });
 
 
-    app.get('/api/trade', (req, res) => {
+    app.get('/api/trade/:intent', (req, res) => {
         const action = {
             service: 'TradeService',
-            queryParameters: req.query
+            queryParameters: req.query,
+            intent: req.params.intent,
+            body: req.body
         }
-        res.json({result: tradeService(action, serviceRegistry, (err, res) => {
-            if(err) {
-                logger.error("TradeService sent back an error. " + JSON.stringify(err));
-            } else {
-                return res;
-            }
-        })});
+        tradeService(action, serviceRegistry, (response) => {
+            res.status(200).json(response.body);
+        });
     });
 
     app.get('/api/refdata', (req, res) => {
