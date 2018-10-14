@@ -18,8 +18,7 @@ const HeaderMenu = () =>
                             </Nav>
                         </Col>
                         <Col md={3} className="pull-right">
-                        Madhuri
-                            <Image src="./src/client/reacat.png" responsive thumbnail circle/>
+                            Harshita <Image src="./src/client/reacat.png" responsive thumbnail circle/>
                         </Col>
                     </Row>
 

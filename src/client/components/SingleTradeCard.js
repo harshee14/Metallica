@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
-import SingleTradeCardViewMode from './SingleTradeCard';
-import SingleTradeCardEditMode from './SingleTradeCard';
-import SingleTradeCardCreateMode from './SingleTradeCard';
+import SingleTradeCardViewMode from './SingleTradeCardViewMode';
+// import SingleTradeCardEditMode from './SingleTradeCard';
+// import SingleTradeCardCreateMode from './SingleTradeCard';
 
 class SingleTradeCard extends Component
 {
@@ -28,12 +28,9 @@ class SingleTradeCard extends Component
 	render()
 	{
 		return <div>
-		if(this.state.create)
-			<SingleTradeCardCreateMode />
-		if(this.state.view)
+		
 			<SingleTradeCardViewMode />
-		if(this.state.edit)
-			<SingleTradeCardEditMode />
+		
 		</div>;
 	}
 

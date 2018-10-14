@@ -19,8 +19,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "moment": "^2.22.2",
     "log4js": "^3.0.5",
+    "moment": "^2.22.2",
+    "multi-select-react": "^0.1.8",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
     "react-bootstrap-table-next": "^1.2.0",
@@ -30,6 +31,9 @@
     "react-datetime": "^2.15.0",
     "react-day-picker": "^7.2.4",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-select": "^2.1.0",
+    "redux": "^4.0.1",
     "superagent": "^4.0.0-beta.5"
   },
   "devDependencies": {

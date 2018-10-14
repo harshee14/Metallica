@@ -1,8 +1,8 @@
 import {Row, Col} from 'react-bootstrap';
 import React from 'react';
 
-import SearchBar from './SearchBar';
-import TradesTable from './TradesTable';
+import SearchBar from '../containers/SearchBar';
+import TradesTable from '../containers/TradesTable';
 import SingleTradeCard from './SingleTradeCard';
 
 const TradeInfoTab = () =>  {
@@ -14,14 +14,13 @@ const TradeInfoTab = () =>  {
             </Row>
             <Row>
                 <Col md={8}>
-                <TradesTable />
+                    <TradesTable />
                 </Col>
                 <Col md={4}>
-                <SingleTradeCard />               
+                    <SingleTradeCard />
                 </Col>
             </Row>
 		</div>;
 }
 
 export default TradeInfoTab ;
-

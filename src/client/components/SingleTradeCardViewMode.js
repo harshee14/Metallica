@@ -18,7 +18,7 @@ class SingleTradeCardViewMode extends Component
 
 
 	}
-
+	
 	render()
 	{
 		return <div>
@@ -92,4 +92,4 @@ class SingleTradeCardViewMode extends Component
 
 }
 
-export default SingleTradeCard ;
+export default SingleTradeCardViewMode ;
