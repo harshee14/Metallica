@@ -1,27 +1,47 @@
 import {Row,Col,Panel} from 'react-bootstrap';
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-import { getUpdatedPrice } from '../actions/index';
-import { bindActionCreators } from 'redux';
-
 class MarketPricesDisplayPanel extends Component
 {
-  componentDidMount() {
-           this.interval = setInterval(() => this.props.getUpdatedPrice(), 10000);
-         }
+  constructor(props)
+  {
+    super(props)
+    this.state = {
+           metalAndPrices : [{key:'Iron',price:23},{key:'Gold',price:100},{key:'Silver',price:80},{key:'Alu',price:5},{key:'Platinum',price:150},{key:'Uranium',price:500}]
+       } ;
+
+    this.getUpdatedPrice = this.getUpdatedPrice.bind(this);
+  }
+
+  componentDidMount()
+  {
+     this.timerID =  setInterval(() => {
+            this.setState({
+            metalAndPrices : this.getUpdatedPrice()
+        });
+    },10000);
+  }
 
   componentWillUnmount() {
-      clearInterval(this.interval);
-         }
+    clearInterval(this.timerID);
+  }
+  
+  getUpdatedPrice()
+  {
+    // after integration prices will come from backend
+      var metalAndPrices =  [
+                  {key:'Iron',price:23 * (Math.random()-0.5)},
+                  {key:'Gold',price:100 * (Math.random()-0.5)},
+                  {key:'Silver',price:80 * (Math.random()-0.5)},
+                  {key:'Alu',price:5 * (Math.random()-0.5)},
+                  {key:'Platinum',price:150 * (Math.random()-0.5)},
+                  {key:'Uranium',price:500 * (Math.random()-0.5)}
+                ];
+      return metalAndPrices ;
+  }
 
   render()
-    {
-      if(!this.props.metalAndPrices)
-      {
-        return <div>Loading Metal Prices...</div> ;
-      }
-
+  {
       return <div>
           <Panel bsStyle="primary">
              <Panel.Heading>
@@ -30,7 +50,7 @@ class MarketPricesDisplayPanel extends Component
             <Panel.Body>
              <Row>
                 {
-                    this.props.metalAndPrices.map((metalAndPrice, index) => {
+                    this.state.metalAndPrices.map((metalAndPrice, index) => {
                     return <Col md={2}>
                     <Panel>
                         <Panel.Heading>{metalAndPrice.key}</Panel.Heading>
@@ -41,22 +61,9 @@ class MarketPricesDisplayPanel extends Component
                 }
             </Row>
             </Panel.Body>
-
           </Panel>
-		</div>;
-       }
+		     </div>;
+      }
 }
 
-function mapStateToProps(state)
-{
-  return {
-    metalAndPrices:state.metalAndPrices
-  };
-}
-
-function mapDispatchToProps(dispatch)
-{
-  return bindActionCreators({getUpdatedPrice : getUpdatedPrice} , dispatch);
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(MarketPricesDisplayPanel);
+export default MarketPricesDisplayPanel;

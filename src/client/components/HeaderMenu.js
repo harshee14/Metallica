@@ -8,8 +8,8 @@ const HeaderMenu = () =>
 	return <div>
             <Tab.Container id="random" defaultActiveKey="first">
             <Row>
-                <Col md={12}> 
-                    <Row> 
+                <Col md={12}>
+                    <Row>
                         <Col md={9}>
                             <Nav bsStyle="tabs">
                                 <NavItem eventKey="first">Trades</NavItem>
@@ -18,7 +18,7 @@ const HeaderMenu = () =>
                             </Nav>
                         </Col>
                         <Col md={3} className="pull-right">
-                            Harshita <Image src="./src/client/reacat.png" responsive thumbnail circle/>
+                            Harshita <Image src="./src/client/react.png" responsive thumbnail circle/>
                         </Col>
                     </Row>
 

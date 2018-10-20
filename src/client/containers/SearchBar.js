@@ -11,8 +11,6 @@ import { searchTrades } from '../actions/index';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-//import css from 'react-day-picker/lib/style.css';
-//var ReactDatePicker = require('react-date-picker-cs');
 class SearchBar extends Component
 {
 	constructor(props)
@@ -35,10 +33,12 @@ class SearchBar extends Component
 		this.handleCounterPartyChange = this.handleCounterPartyChange.bind(this);
 		this.handleTradeLocationChange = this.handleTradeLocationChange.bind(this);
 		this.handleCommodityChange = this.handleCommodityChange.bind(this);
+		this.clearSearchParameters = this.clearSearchParameters.bind(this);
+
 	}
 
 	handleBuySideChange = e => this.setState({buySide : e.target.checked});
-  handleSellSideChange = e => this.setState({SellSide : e.target.checked});
+  handleSellSideChange = e => this.setState({sellSide : e.target.checked});
 	handleStartDateChange = startDate => this.setState({ startDate });
 	handleEndDateChange = endDate => this.setState({ endDate });
 	handleCounterPartyChange(selected)
@@ -64,6 +64,21 @@ class SearchBar extends Component
 		return list.map((listItem) => { return {value:listItem.name , label : listItem.name} ;}) ;
 	}
 
+	clearSearchParameters()
+	{
+ 	console.log("before clearing",this.state);
+		this.setState({
+			startDate : '',
+			endDate : '' ,
+			commodity : [],
+			buySide : false,
+			sellSide : false,
+			counterparty : [],
+			location : []
+		},()=>{	console.log("after clearing",this.state);});
+
+	}
+
 
 	render()
 	{
@@ -74,33 +89,33 @@ class SearchBar extends Component
  						<Row>
  							<Col xs={2} md={2}>
 				   			<div className = 'margins'>
-									<Select placeholder = {'Counterparty'} onChange={this.handleCounterPartyChange} options={this.provideList(this.props.counterparties)} isMulti = {true} />
+									<Select value = {this.state.counterparty} placeholder = {'Counterparty'} onChange={this.handleCounterPartyChange} options={this.provideList(this.props.counterparties)} isMulti = {true} />
 								</div>
 							</Col>
 							<Col xs={2} md={2}>
 							<div className = 'margins'>
-							<Select placeholder = {'Commodity'} onChange={this.handleCommodityChange} options={this.provideList(this.props.commodities)} isMulti = {true} />
+							<Select value = {this.state.commodity} placeholder = {'Commodity'} onChange={this.handleCommodityChange} options={this.provideList(this.props.commodities)} isMulti = {true} />
 							</div>
 						    </Col>
 						    <Col xs={2} md={2}>
 				    		<div className = 'margins'>
-								<Select placeholder = {'Trade Locations'} onChange={this.handleTradeLocationChange} options={this.provideList(this.props.tradeLocations)} isMulti = {true} />
+								<Select value = {this.state.location} placeholder = {'Trade Locations'} onChange={this.handleTradeLocationChange} options={this.provideList(this.props.tradeLocations)} isMulti = {true} />
 				    		</div>
 				    		</Col>
  							<Col xs={2}md={2}>
  							<div className = 'margins'>
-	    						<ReactDatePicker className = 'margins' placeholderText = 'Trade Start Date' selectsStart onChange={this.handleStartDateChange} selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+	    						<ReactDatePicker value = {this.state.startDate} className = 'margins' placeholderText = 'Trade Start Date' selectsStart onChange={this.handleStartDateChange} selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
 	    					</div>
 	    					</Col>
 	    					<Col xs={2} md={2}>
 	    					<div className = 'margins'>
-	    						<ReactDatePicker className = 'margins' placeholderText = 'Trade End Date'selectsEnd onChange={this.handleEndDateChange} selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+	    						<ReactDatePicker value = {this.state.endDate} className = 'margins' placeholderText = 'Trade End Date'selectsEnd onChange={this.handleEndDateChange} selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
 				    		</div>
 				    		</Col>
 				   			<Col xs={2} md={2}>
 				 		    <div className = 'margins'>
-			      				<Checkbox inline onChange={this.handleBuySideChange}>Buy</Checkbox>
-			      				<Checkbox inline onChange={this.handleSellSideChange}>Sell</Checkbox>
+			      				<Checkbox checked = {this.state.buySide} inline onChange={this.handleBuySideChange}>Buy</Checkbox>
+			      				<Checkbox checked = {this.state.sellSide} inline onChange={this.handleSellSideChange}>Sell</Checkbox>
 				  			</div>
 				  			</Col>
 						</Row>
@@ -110,7 +125,7 @@ class SearchBar extends Component
     		<Row className = 'bottom-margins'>
     			<Col md={12}>
 	    			<ButtonToolbar className = "pull-right">
-	    			  	<Button >Clear</Button>
+	    			  	<Button onClick = {this.clearSearchParameters}>Clear</Button>
 						<Button bsStyle="primary">Search</Button>
 	    			</ButtonToolbar>
     			</Col>

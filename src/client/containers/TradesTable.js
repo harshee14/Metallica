@@ -5,7 +5,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 import { connect } from 'react-redux';
-import { searchTrades } from '../actions/index';
+//import { searchTrades } from '../actions/index';
 
 class TradesTable extends Component
 {
@@ -13,9 +13,9 @@ class TradesTable extends Component
     {
         super(props);
 
-        this.state = {
-           tradeslist : []
-        } ;
+        // this.state = {
+        //    tradeslist : []
+        // } ;
 
         if(!this.props.tradeslist)
         {
@@ -65,7 +65,6 @@ class TradesTable extends Component
     {
 
     return <div>
-      this.props.tradeslist
         <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ this.selectRow } columns={ this.columns } />
 		        </div>;
       }
