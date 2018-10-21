@@ -126,13 +126,13 @@ class SearchBar extends Component
     			<Col md={12}>
 	    			<ButtonToolbar className = "pull-right">
 	    			  	<Button onClick = {this.clearSearchParameters}>Clear</Button>
-						<Button bsStyle="primary">Search</Button>
+						<Button onClick = {() => this.props.searchTrades(this.state)} bsStyle="primary">Search</Button>
 	    			</ButtonToolbar>
     			</Col>
     		</Row>
     	</div>;
 	}
-
+//onClick = {()=> this.props.selectBook(book)}
 
 }
 function mapStateToProps(state)

@@ -1,21 +1,21 @@
-export default function(state = null, action)
+export default function(state = [], action)
 {
-  //let metalAndPrices = [{key:'Iron',price:23},{key:'Gold',price:100},{key:'Silver',price:80},{key:'Alu',price:5},{key:'Platinum',price:150},{key:'Uranium',price:500}];
-  // switch(action.type)
-  //   {
-  //     case 'SEARCH_TRADES':
-  //     return action.payload;
-  //   }
 
-  //  return state;
+  switch(action.type)
+    {
+      case 'SEARCH_TRADES':
+      return action.payload;
+    }
 
-
-  let trades = [];
+// get the default trades for first rendering
+ if(state.length == 0)
+ {
   for (var i = 10; i >= 0; i--) {
-           trades.push(createSomeDummyTrades());
+           state.push(createSomeDummyTrades());
        }
+}
 
-  return trades ;
+  return state ;
 }
 
 function createSomeDummyTrades()
@@ -33,7 +33,9 @@ function createSomeDummyTrades()
       price : Math.floor(134 - 20*Math.random()),
       location : location[Math.floor(Math.random() * location.length)],
       counterparty : cp[Math.floor(Math.random() * cp.length)],
-      tradeId : Math.floor(Math.random()*10000)
+      tradeId : Math.floor(Math.random()*10000),
+      startDate : (new Date((new Date()).getTime() + 30000000000*Math.random())).toLocaleDateString("en-US"),
+      endDate : (new Date((new Date()).getTime() + 60000000000*Math.random())).toLocaleDateString("en-US")
   } ;
 
   return trade ;

@@ -5,22 +5,14 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 import { connect } from 'react-redux';
-//import { searchTrades } from '../actions/index';
+import { bindActionCreators } from 'redux';
+import { viewTrade } from '../actions/index';
 
 class TradesTable extends Component
 {
     constructor(props)
     {
         super(props);
-
-        // this.state = {
-        //    tradeslist : []
-        // } ;
-
-        if(!this.props.tradeslist)
-        {
-          return <div>Loading list trades</div> ;
-        }
 
         this.selectRow = {
           mode: 'radio',
@@ -29,7 +21,14 @@ class TradesTable extends Component
           style: { backgroundColor: '#c8e6c9' }
         };
 
-
+        this.rowEvents = {
+        onClick: (e, row, rowIndex) => {
+          this.props.viewTrade(row);
+        },
+        onMouseEnter: (e, row, rowIndex) => {
+          console.log('enter on row with index:',row);
+        }
+      };
 
         this.columns = [{
           dataField: 'tradeDate',
@@ -63,18 +62,28 @@ class TradesTable extends Component
 
     render()
     {
+      if(!this.props.tradeslist)
+      {
+        return <div>No trades searched</div> ;
+      }
 
     return <div>
-        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ this.selectRow } columns={ this.columns } />
+        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ this.selectRow } columns={ this.columns } rowEvents={this.rowEvents } />
 		        </div>;
       }
 }
 
 function mapStateToProps(state)
 {
+  console.log(state);
   return {
     tradeslist : state.tradeslist
   };
 }
 
-export default connect(mapStateToProps)(TradesTable);
+function mapDispatchToProps(dispatch)
+{
+  return bindActionCreators({viewTrade : viewTrade} , dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TradesTable);

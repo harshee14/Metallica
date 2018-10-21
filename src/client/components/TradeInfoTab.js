@@ -3,7 +3,7 @@ import React from 'react';
 
 import SearchBar from '../containers/SearchBar';
 import TradesTable from '../containers/TradesTable';
-import SingleTradeCard from './SingleTradeCard';
+import SingleTradeCard from '../containers/SingleTradeCard';
 
 const TradeInfoTab = () =>  {
 	return <div>
