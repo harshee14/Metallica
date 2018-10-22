@@ -1,12 +1,12 @@
-import {Form,Alert,Glyphicon ,FormControl,ControlLabel,Label,ButtonGroup,Panel, Button, FormGroup, Checkbox, Row, Col,ButtonToolbar, DropdownButton , MenuItem} from 'react-bootstrap';
+import {HelpBlock,Form,Alert,Glyphicon ,FormControl,ControlLabel,Label,ButtonGroup,Panel, Button, FormGroup, Checkbox, Row, Col,ButtonToolbar, DropdownButton , MenuItem} from 'react-bootstrap';
 
 import React, { Component } from 'react';
 
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { editTrade } from '../actions/index';
+import { bindActionCreators } from 'redux';
+import { saveEditedTrade } from '../actions/index';
 import Select from 'react-select'
 
 class SingleTradeCardEditMode extends Component
@@ -17,7 +17,6 @@ class SingleTradeCardEditMode extends Component
 
 		this.state =
 		{
-					fields : {
 						tradeId : this.props.tradeview.tradeId,
 						tradeDate : this.props.tradeview.TradeDate,
 						startDate : '',
@@ -28,74 +27,78 @@ class SingleTradeCardEditMode extends Component
 						location : this.props.tradeview.location,
 						quantity : '',
 						price : ''
-					},
-
-					errors : {}
 			};
 
-		this.handleChange = this.handleChange.bind(this);
-		this.handleValidation = this.handleValidation.bind(this);
-		this.doSubmit = this.doSubmit.bind(this);
+			this.errors = {
+
+			};
+
+			this.handleQuantityChange = this.handleQuantityChange.bind(this);
+			this.handlePriceChange = this.handlePriceChange.bind(this);
+			this.handleStartDateChange = this.handleStartDateChange.bind(this);
+			this.handleEndDateChange = this.handleEndDateChange.bind(this);
+			this.handleValidation = this.handleValidation.bind(this);
+			this.doSubmit = this.doSubmit.bind(this);
 		}
 
-		handleChange(field, e){
-			let fields = this.state.fields;
-			fields[field] = e.target.value;
-			this.setState({fields});
-		}
+		handleQuantityChange = e => this.setState({quantity : e.target.value});
+		handlePriceChange = e => this.setState({price : e.target.value});
+		handleStartDateChange = startDate => this.setState({ startDate });
+		handleEndDateChange = endDate => this.setState({ endDate });
+
 
 		handleValidation()
 		{
-				 let fields = this.state.fields;
-				 let errors = {};
+
+
 				 let formIsValid = true;
 
-				 if(!fields["price"]){
+				 if(!this.state.price){
 					 formIsValid = false;
-					 errors["price"] = "Cannot be empty";
+					 this.errors["price"] = "Cannot be empty";
 				 }
 
-				 if(!fields["quantity"]){
+				 if(!this.state.quantity){
 					 formIsValid = false;
-					 errors["quantity"] = "Cannot be empty";
+					 this.errors["quantity"] = "Cannot be empty";
 				 }
 
-				 if(typeof fields["name"] !== "undefined"){
-					 if(!fields["name"].match(/^[a-zA-Z]+$/)){
+				 if(!this.state.startDate){
+					 formIsValid = false;
+					this.errors["startDate"] = "Cannot be empty";
+				 }
+
+				 if(!this.state.endDate){
+					 formIsValid = false;
+					 this.errors["endDate"] = "Cannot be empty";
+				 }
+
+				 if(typeof this.state.price !== "undefined"){
+					 if(!this.state.price.match(/^\d+(\.\d{1,2})?$/)){
 						 formIsValid = false;
-						 errors["name"] = "Only letters";
+						 this.errors["price"] = "Only numbers";
 					 }
 				 }
 
-				 //Email
-				 if(!fields["email"]){
-					 formIsValid = false;
-					 errors["email"] = "Cannot be empty";
-				 }
-
-				 if(typeof fields["email"] !== "undefined"){
-					 let lastAtPos = fields["email"].lastIndexOf('@');
-					 let lastDotPos = fields["email"].lastIndexOf('.');
-
-					 if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
+				 if(typeof this.state.quantity !== "undefined"){
+					 if(!this.state.quantity.match(/^\d+(\.\d{1,2})?$/)){
 						 formIsValid = false;
-						 errors["email"] = "Email is not valid";
+						 this.errors["quantity"] = "Only numbers";
 					 }
 				 }
 
-
-
-				 this.setState({errors: errors});
 				 return formIsValid;
 		}
 
 	  doSubmit(e)
 		{
 			e.preventDefault();
+			console.log("what are my errors : " ,this.errors);
 	    if(this.handleValidation()){
+				this.props.saveEditedTrade('VIEW_TRADE',this.state);
 	      alert("Form submitted");
 	    }else{
-	      alert("Form has errors.")
+	      alert(`Errors. Check your inputs`);
 	    }
 		}
 
@@ -171,7 +174,8 @@ class SingleTradeCardEditMode extends Component
 												Quantity
 											</Col>
 											<Col sm={9} md={9}>
-												<FormControl type="number" value = {this.state.fields.quantity} onChange = {this.handleChange('quantity')} />
+												<FormControl type="text" value = {this.state.quantity} onChange = {this.handleQuantityChange} />
+												<HelpBlock className = 'helpblock'>Quantity can only be numbers.</HelpBlock>
 											</Col>
 										</FormGroup>
 
@@ -180,7 +184,8 @@ class SingleTradeCardEditMode extends Component
 												Price
 											</Col>
 											<Col sm={9} md={9}>
-												<FormControl type="text" value = {this.state.fields.price} onChange = {this.handleChange('price')} />
+												<FormControl type="text" value = {this.state.price} onChange = {this.handlePriceChange} />
+												<HelpBlock className = 'helpblock'>Price can only be numbers</HelpBlock>
 											</Col>
 										</FormGroup>
 
@@ -190,8 +195,10 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 											<div className = 'alignDate'>
-											<ReactDatePicker onChange = {this.handleChange('startDate')} value = {this.state.fields.startDate} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={this.state.fields.startDate} startDate={this.state.fields.startDate} endDate={this.state.fields.endDate}/>
+											<ReactDatePicker onChange = {this.handleStartDateChange} value = {this.state.startDate} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+
 											</div>
+											<HelpBlock className = 'helpblock'>StartDate cannot be empty</HelpBlock>
 											</Col>
 										</FormGroup>
 
@@ -200,9 +207,11 @@ class SingleTradeCardEditMode extends Component
 												EndDate
 											</Col>
 											<Col sm={9} md={9}>
-											<div className = 'alignDate' >
-											<ReactDatePicker onChange = {(e) => this.handleChange('startDate')} value = {this.state.fields.endDate} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={this.state.fields.endDate} startDate={this.state.fields.startDate} endDate={this.state.fields.endDate}/>
+											<div className = 'alignDate'>
+											<ReactDatePicker onChange = {this.handleEndDateChange} value = {this.state.endDate} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+
 											</div>
+											<HelpBlock className = 'helpblock'>End Date >=  Start Date</HelpBlock>
 											</Col>
 										</FormGroup>
 
@@ -215,7 +224,7 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 										</FormGroup>
 
-										</Form>;
+										</Form>
             </Panel.Body>
           </Panel>
 		</div>;
@@ -233,4 +242,8 @@ function mapStateToProps(state)
   };
 }
 
-export default connect(mapStateToProps)(SingleTradeCardEditMode);
+function mapDispatchToProps(dispatch)
+{
+  return bindActionCreators({saveEditedTrade : saveEditedTrade} , dispatch);
+}
+export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardViewMode);
