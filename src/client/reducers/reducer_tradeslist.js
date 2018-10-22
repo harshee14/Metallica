@@ -1,4 +1,4 @@
-export default function(state = [], action)
+export default function(state = {}, action)
 {
 
   switch(action.type)
@@ -8,12 +8,17 @@ export default function(state = [], action)
     }
 
 // get the default trades for first rendering
- if(state.length == 0)
+ //if(state.length == 0)
+ if(!state.hasOwnProperty('selectedTradeId') && !state.hasOwnProperty('trades'))
  {
+  let trades = [];
+  let selectedTradeId = 0 ;
+
   for (var i = 10; i >= 0; i--) {
-           state.push(createSomeDummyTrades());
+           trades.push(createSomeDummyTrades());
        }
-}
+       return {selectedTradeId,trades};
+  }
 
   return state ;
 }

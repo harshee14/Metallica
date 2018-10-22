@@ -40,12 +40,13 @@ export function searchTrades(searchQuery)
   //after integration , trades will come from backend based on the searchQuery
 
   let trades = [];
+  let selectedTradeId = 0 ;
   for (var i = 10; i >= 0; i--) {
       trades.push(createDummyTrades());
   }
   return {
     type : 'SEARCH_TRADES', //always instantiated
-    payload: trades  //not necessary
+    payload: {selectedTradeId,trades}  //not necessary
   };
 }
 

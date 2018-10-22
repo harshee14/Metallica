@@ -6,7 +6,7 @@ import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { saveEditedTrade } from '../actions/index';
+//import { saveEditedTrade } from '../actions/index';
 import Select from 'react-select'
 
 class SingleTradeCardEditMode extends Component
@@ -95,7 +95,7 @@ class SingleTradeCardEditMode extends Component
 			e.preventDefault();
 			console.log("what are my errors : " ,this.errors);
 	    if(this.handleValidation()){
-				this.props.saveEditedTrade('VIEW_TRADE',this.state);
+				//this.props.saveEditedTrade('VIEW_TRADE',this.state);
 	      alert("Form submitted");
 	    }else{
 	      alert(`Errors. Check your inputs`);
@@ -242,8 +242,8 @@ function mapStateToProps(state)
   };
 }
 
-function mapDispatchToProps(dispatch)
-{
-  return bindActionCreators({saveEditedTrade : saveEditedTrade} , dispatch);
-}
-export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardViewMode);
+// function mapDispatchToProps(dispatch)
+// {
+//   return bindActionCreators({saveEditedTrade : saveEditedTrade} , dispatch);
+// }
+export default connect(mapStateToProps)(SingleTradeCardEditMode);

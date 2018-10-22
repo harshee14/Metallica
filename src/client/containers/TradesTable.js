@@ -13,24 +13,29 @@ class TradesTable extends Component
     constructor(props)
     {
         super(props);
-
         this.selectRow = {
           mode: 'radio',
           clickToSelect: true,
-          hideSelectColumn: true,
-          style: { backgroundColor: '#c8e6c9' }
+          hideSelectColumn: false,
+          style: { backgroundColor: '#c8e6c9' },
+          selected : [this.props.selectedTradeId]
         };
 
         this.rowEvents = {
         onClick: (e, row, rowIndex) => {
           this.props.viewTrade('VIEW_TRADE',row);
         },
+
         onMouseEnter: (e, row, rowIndex) => {
           console.log('enter on row with index:',row);
         }
       };
 
         this.columns = [{
+          dataField: 'tradeId',
+          text: 'Trade Id',
+          sort : true
+        },{
           dataField: 'tradeDate',
           text: 'Trade Date'
         }, {
@@ -58,6 +63,10 @@ class TradesTable extends Component
         }
         ];
 
+        this.defaultSorted = [{
+            dataField: 'tradeId',
+            order: 'asc'
+          }];
     }
 
     render()
@@ -68,7 +77,7 @@ class TradesTable extends Component
       }
 
     return <div>
-        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ this.selectRow } columns={ this.columns } rowEvents={this.rowEvents } />
+        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ this.selectRow } defaultSorted = {this.defaultSorted} columns={ this.columns } rowEvents={this.rowEvents } />
 		        </div>;
       }
 }
@@ -77,7 +86,8 @@ function mapStateToProps(state)
 {
   console.log(state);
   return {
-    tradeslist : state.tradeslist
+    tradeslist : state.tradeslist.trades,
+    selectedTradeId : state.tradeslist.selectedTradeId
   };
 }
 
