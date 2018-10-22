@@ -16,7 +16,7 @@ export default function(state = 'VIEW_TRADE', action)
       return action.payload;
 
       case 'SAVE_EDITED_TRADE':
-      return action.payload;
+      return action.payload.mode;
 
       case 'CANCEL_CREATE_TRADE':
       return action.payload;

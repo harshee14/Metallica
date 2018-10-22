@@ -91,15 +91,6 @@ class SingleTradeCardViewMode extends Component
 											</Col>
 										</FormGroup>
 
-										<FormGroup controlId="formHorizontalTradeDate">
-											<Col componentClass={ControlLabel} sm={3} md={3}>
-												TradeDate
-											</Col>
-											<Col sm={9} md={9}>
-												<FormControl type="text" disabled value = {this.props.tradeview.tradeDate} />
-											</Col>
-										</FormGroup>
-
 										<FormGroup controlId="formHorizontalLocation">
 											<Col componentClass={ControlLabel} sm={3} md={3}>
 												Location

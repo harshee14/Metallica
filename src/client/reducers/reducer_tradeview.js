@@ -11,6 +11,9 @@ export default function(state = null, action)
       console.log('Is view trade action reaching here?',action.payload);
       return action.payload.trade;
 
+      case 'SAVE_EDITED_TRADE':
+      console.log('Is view trade action reaching here?',action.payload);
+      return action.payload.trade;
 
     }
 

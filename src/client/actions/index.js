@@ -14,6 +14,15 @@
 //     payload: metalAndPrices  //not necessary
 //   };
 // }
+export function saveEditedTrade(mode,trade)
+{
+  let packet = {mode : mode , trade : trade} ;
+  console.log('how does my save editedTrade packet look like ?',packet);
+  return {
+    type : 'SAVE_EDITED_TRADE',
+    payload : packet
+  };
+}
 
 export function viewTrade(mode,trade)
 {

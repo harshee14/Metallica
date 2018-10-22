@@ -6,7 +6,7 @@ import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-//import { saveEditedTrade } from '../actions/index';
+import { saveEditedTrade } from '../actions/index';
 import Select from 'react-select'
 
 class SingleTradeCardEditMode extends Component
@@ -18,7 +18,7 @@ class SingleTradeCardEditMode extends Component
 		this.state =
 		{
 						tradeId : this.props.tradeview.tradeId,
-						tradeDate : this.props.tradeview.TradeDate,
+						tradeDate : this.props.tradeview.tradeDate,
 						startDate : '',
 						endDate : '' ,
 						commodity : this.props.tradeview.commodity,
@@ -95,7 +95,7 @@ class SingleTradeCardEditMode extends Component
 			e.preventDefault();
 			console.log("what are my errors : " ,this.errors);
 	    if(this.handleValidation()){
-				//this.props.saveEditedTrade('VIEW_TRADE',this.state);
+				  this.props.saveEditedTrade('VIEW_TRADE',this.state);
 	      alert("Form submitted");
 	    }else{
 	      alert(`Errors. Check your inputs`);
@@ -148,15 +148,6 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 												<FormControl type="text" disabled value = {this.props.tradeview.side} />
-											</Col>
-										</FormGroup>
-
-										<FormGroup controlId="formHorizontalTradeDate">
-											<Col componentClass={ControlLabel} sm={3} md={3}>
-												TradeDate
-											</Col>
-											<Col sm={9} md={9}>
-												<FormControl type="text" disabled value = {this.props.tradeview.tradeDate} />
 											</Col>
 										</FormGroup>
 
@@ -242,8 +233,8 @@ function mapStateToProps(state)
   };
 }
 
-// function mapDispatchToProps(dispatch)
-// {
-//   return bindActionCreators({saveEditedTrade : saveEditedTrade} , dispatch);
-// }
-export default connect(mapStateToProps)(SingleTradeCardEditMode);
+function mapDispatchToProps(dispatch)
+{
+  return bindActionCreators({saveEditedTrade : saveEditedTrade} , dispatch);
+}
+export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardEditMode);

@@ -18,8 +18,8 @@ class SearchBar extends Component
 		super(props);
 		this.state =
 		{
-			startDate : '',
-			endDate : '' ,
+			startDate : moment(''),
+			endDate : moment('') ,
 			commodity : [],
 			buySide : false,
 			sellSide : false,
@@ -39,7 +39,7 @@ class SearchBar extends Component
 
 	handleBuySideChange = e => this.setState({buySide : e.target.checked});
   handleSellSideChange = e => this.setState({sellSide : e.target.checked});
-	handleStartDateChange = startDate => this.setState({ startDate });
+	handleStartDateChange = startDate => {console.log(typeof startDate);this.setState({ startDate })};
 	handleEndDateChange = endDate => this.setState({ endDate });
 	handleCounterPartyChange(selected)
 	{
@@ -68,8 +68,8 @@ class SearchBar extends Component
 	{
  	console.log("before clearing",this.state);
 		this.setState({
-			startDate : '',
-			endDate : '' ,
+			startDate : moment(''),
+			endDate : moment('') ,
 			commodity : [],
 			buySide : false,
 			sellSide : false,
@@ -104,12 +104,12 @@ class SearchBar extends Component
 				    		</Col>
  							<Col xs={2}md={2}>
  							<div className = 'margins'>
-	    						<ReactDatePicker value = {this.state.startDate} className = 'margins' placeholderText = 'Trade Start Date' selectsStart onChange={this.handleStartDateChange} selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+	    						<ReactDatePicker className = 'margins' placeholderText = 'Trade Start Date' selectsStart onChange={this.handleStartDateChange} selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
 	    					</div>
 	    					</Col>
 	    					<Col xs={2} md={2}>
 	    					<div className = 'margins'>
-	    						<ReactDatePicker value = {this.state.endDate} className = 'margins' placeholderText = 'Trade End Date'selectsEnd onChange={this.handleEndDateChange} selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+	    						<ReactDatePicker className = 'margins' placeholderText = 'Trade End Date' selectsEnd onChange={this.handleEndDateChange} selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
 				    		</div>
 				    		</Col>
 				   			<Col xs={2} md={2}>

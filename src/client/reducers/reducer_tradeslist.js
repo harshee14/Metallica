@@ -5,10 +5,22 @@ export default function(state = {}, action)
     {
       case 'SEARCH_TRADES':
       return action.payload;
+
+      case 'SAVE_EDITED_TRADE':
+      {
+        state.selectedTradeId = action.payload.trade.tradeId;
+        var editedTrade = action.payload.trade ;
+        var index = state.trades.findIndex(x => x.tradeId===state.selectedTradeId);
+        state.trades[index].quantity = action.payload.trade.quantity ;
+        state.trades[index].price = action.payload.trade.price ;
+        state.trades[index].startDate = action.payload.trade.startDate ;
+        state.trades[index].endDate = action.payload.trade.endDate ;
+        return state ;
+      }
+
     }
 
 // get the default trades for first rendering
- //if(state.length == 0)
  if(!state.hasOwnProperty('selectedTradeId') && !state.hasOwnProperty('trades'))
  {
   let trades = [];
@@ -20,7 +32,7 @@ export default function(state = {}, action)
        return {selectedTradeId,trades};
   }
 
-  return state ;
+  return state ; //return state as it is if action dosent impact it and it is not initializtion
 }
 
 function createSomeDummyTrades()
