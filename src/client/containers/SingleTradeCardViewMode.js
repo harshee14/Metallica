@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { editTrade } from '../actions/index';
+import { bindActionCreators } from 'redux';
+import { editTrade } from '../actions/index';
 
 class SingleTradeCardViewMode extends Component
 {
@@ -47,7 +47,7 @@ class SingleTradeCardViewMode extends Component
                  <Row>
                  <Col md = {9} id = "singletradecardheading">Trade Id : {this.props.tradeview.tradeId}</Col>
                  <Col md = {3} id = "singletradecardicons">
-                 <Button bsSize="xsmall" > <Glyphicon glyph="pencil"/> </Button>
+                 <Button bsSize="xsmall" onClick = {() => this.props.editTrade('EDIT_TRADE',this.props.tradeview)} > <Glyphicon glyph="pencil"/> </Button>
                  <Button bsSize="xsmall" > <Glyphicon glyph="trash" /> </Button>
                  </Col>
                  </Row>
@@ -161,5 +161,10 @@ function mapStateToProps(state)
   };
 }
 
+function mapDispatchToProps(dispatch)
+{
+  return bindActionCreators({editTrade : editTrade} , dispatch);
+}
+
 //export default SingleTradeCardViewMode ;
-export default connect(mapStateToProps)(SingleTradeCardViewMode);
+export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardViewMode);

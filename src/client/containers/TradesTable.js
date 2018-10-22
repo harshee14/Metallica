@@ -23,7 +23,7 @@ class TradesTable extends Component
 
         this.rowEvents = {
         onClick: (e, row, rowIndex) => {
-          this.props.viewTrade(row);
+          this.props.viewTrade('VIEW_TRADE',row);
         },
         onMouseEnter: (e, row, rowIndex) => {
           console.log('enter on row with index:',row);

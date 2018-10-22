@@ -5,6 +5,7 @@ import CommoditiesReducer from './reducer_commodities';
 import TradeLocationsReducer from './reducer_tradelocations';
 import TradesListReducer from './reducer_tradeslist';
 import TradeViewReducer from './reducer_tradeview';
+import TradeCardModeReducer from './reducer_tradecardmodes';
 
 const rootReducer = combineReducers({
   metalAndPrices: PricesReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   commodities : CommoditiesReducer,
   tradeLocations : TradeLocationsReducer,
   tradeslist : TradesListReducer,
-  tradeview : TradeViewReducer
+  tradeview : TradeViewReducer,
+  tradeCardMode : TradeCardModeReducer
 });
 
 export default rootReducer;

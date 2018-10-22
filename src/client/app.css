@@ -22,6 +22,11 @@ body {
 	margin : 10px;
 }
 
+.alignDate
+{
+	text-align : left ;
+}
+
 .bottom-margins
 {
 	margin-bottom : 10px;

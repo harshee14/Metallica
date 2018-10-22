@@ -15,11 +15,23 @@
 //   };
 // }
 
-export function viewTrade(trade)
+export function viewTrade(mode,trade)
 {
+  let packet = {mode : mode , trade : trade} ;
+  console.log('how does my packet look like ?',packet);
   return {
     type : 'VIEW_TRADE',
-    payload : trade
+    payload : packet
+  };
+}
+
+export function editTrade(mode,trade)
+{
+  let packet = {mode : mode , trade : trade} ;
+  console.log('how does my packet look like ?',packet);
+  return {
+    type : 'EDIT_TRADE',
+    payload : packet
   };
 }
 
