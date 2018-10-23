@@ -14,22 +14,23 @@ class TradesTable extends Component
     {
         super(props);
         this.selectRow = {
-          mode: 'radio',
-          clickToSelect: true,
-          hideSelectColumn: false,
-          style: { backgroundColor: '#c8e6c9' },
-          selected : [this.props.selectedTradeId]
+            mode: 'radio',
+            clickToSelect: true,
+            hideSelectColumn: false,
+            style: { backgroundColor: '#c8e6c9' },
+            selected : [this.props.selectedTradeId]
+          };
+
+          this.rowEvents = {
+          onClick: (e, row, rowIndex) => {
+            console.log('');
+            this.props.viewTrade('VIEW_TRADE',row);
+          },
+
+          onMouseEnter: (e, row, rowIndex) => {
+            console.log('enter on row with index:',row);
+          }
         };
-
-        this.rowEvents = {
-        onClick: (e, row, rowIndex) => {
-          this.props.viewTrade('VIEW_TRADE',row);
-        },
-
-        onMouseEnter: (e, row, rowIndex) => {
-          console.log('enter on row with index:',row);
-        }
-      };
 
         this.columns = [{
           dataField: 'tradeId',
@@ -71,6 +72,7 @@ class TradesTable extends Component
 
     render()
     {
+      console.log("what are my props in tradeslist ?" , this.selectRow);
       if(!this.props.tradeslist)
       {
         return <div>No trades searched</div> ;
@@ -84,10 +86,13 @@ class TradesTable extends Component
 
 function mapStateToProps(state)
 {
-  console.log(state);
+
+  var tradeslist = state.tradeslist.trades ;
+  var selectedTradeId = state.tradeslist.selectedTradeId
+    console.log("my state after editing trade and saving it ",selectedTradeId);
   return {
-    tradeslist : state.tradeslist.trades,
-    selectedTradeId : state.tradeslist.selectedTradeId
+    tradeslist ,
+    selectedTradeId
   };
 }
 

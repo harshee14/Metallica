@@ -48,6 +48,7 @@ export function searchTrades(searchQuery)
 {
   //after integration , trades will come from backend based on the searchQuery
 
+  console.log(searchQuery);
   let trades = [];
   let selectedTradeId = 0 ;
   for (var i = 10; i >= 0; i--) {

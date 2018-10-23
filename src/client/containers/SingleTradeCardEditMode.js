@@ -7,7 +7,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { saveEditedTrade } from '../actions/index';
-import Select from 'react-select'
+import Select from 'react-select';
+import moment from 'moment';
 
 class SingleTradeCardEditMode extends Component
 {
@@ -19,14 +20,14 @@ class SingleTradeCardEditMode extends Component
 		{
 						tradeId : this.props.tradeview.tradeId,
 						tradeDate : this.props.tradeview.tradeDate,
-						startDate : '',
-						endDate : '' ,
+						startDate : moment(this.props.tradeview.startDate,"MM/DD/YYYY") ,
+						endDate : moment(this.props.tradeview.endDate,"MM/DD/YYYY") ,
 						commodity : this.props.tradeview.commodity,
 						side : this.props.tradeview.side,
 						counterparty : this.props.tradeview.counterparty,
 						location : this.props.tradeview.location,
-						quantity : '',
-						price : ''
+						quantity : this.props.tradeview.quantity,
+						price : this.props.tradeview.price
 			};
 
 			this.errors = {
@@ -39,6 +40,8 @@ class SingleTradeCardEditMode extends Component
 			this.handleEndDateChange = this.handleEndDateChange.bind(this);
 			this.handleValidation = this.handleValidation.bind(this);
 			this.doSubmit = this.doSubmit.bind(this);
+
+			console.log('constructor ended?');
 		}
 
 		handleQuantityChange = e => this.setState({quantity : e.target.value});
@@ -73,6 +76,7 @@ class SingleTradeCardEditMode extends Component
 					 this.errors["endDate"] = "Cannot be empty";
 				 }
 
+				 //fails if I dont change the value as the number is still a number
 				 if(typeof this.state.price !== "undefined"){
 					 if(!this.state.price.match(/^\d+(\.\d{1,2})?$/)){
 						 formIsValid = false;
@@ -186,7 +190,7 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 											<div className = 'alignDate'>
-											<ReactDatePicker onChange = {this.handleStartDateChange} value = {this.state.startDate} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+											<ReactDatePicker onChange = {this.handleStartDateChange} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
 
 											</div>
 											<HelpBlock className = 'helpblock'>StartDate cannot be empty</HelpBlock>
@@ -199,7 +203,7 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 											<div className = 'alignDate'>
-											<ReactDatePicker onChange = {this.handleEndDateChange} value = {this.state.endDate} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+											<ReactDatePicker onChange = {this.handleEndDateChange} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
 
 											</div>
 											<HelpBlock className = 'helpblock'>End Date >=  Start Date</HelpBlock>
