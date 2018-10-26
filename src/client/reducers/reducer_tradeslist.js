@@ -15,7 +15,7 @@ export default function(state = {}, action)
         state.trades[index].price = action.payload.trade.price ;
         state.trades[index].startDate = action.payload.trade.startDate ;
         state.trades[index].endDate = action.payload.trade.endDate ;
-                console.log("my state in save edited trade",state);
+        console.log('after saving dates on the trade what is the data type :',typeof state.trades[index].endDate);
         return state ;
 
       }

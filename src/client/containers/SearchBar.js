@@ -18,8 +18,6 @@ class SearchBar extends Component
 		super(props);
 		this.state =
 		{
-			// startDate ,
-			// endDate ,
 			commodity : [],
 			buySide : false,
 			sellSide : false,
@@ -43,30 +41,25 @@ class SearchBar extends Component
 	handleEndDateChange = endDate => this.setState({ endDate });
 	handleCounterPartyChange(selected)
 	{
-		 console.log('selected : ', selected);
 		 this.setState( {counterparty : selected.map((item)=>{return {name:item.value};})},()=>{console.log('but my state : ',this.state.counterparty);}) ;
  	}
 
 	handleTradeLocationChange(selected)
 	{
-		 console.log('selected : ', selected);
 		 this.setState( {location : selected.map((item)=>{return {name:item.value};})},()=>{console.log('but my state : ',this.state.location);}) ;
 	}
 	handleCommodityChange(selected)
 	{
-		 console.log('selected : ', selected);
 		 this.setState( {commodity : selected.map((item)=>{return {name:item.value};})},()=>{console.log('but my state : ',this.state.commodity);}) ;
 	}
 
 	provideList(list)
 	{
-		//console.log(list.map((listItem) => { return {value:listItem.name , label : listItem.name};}));
 		return list.map((listItem) => { return {value:listItem.name , label : listItem.name} ;}) ;
 	}
 
 	clearSearchParameters()
 	{
- 	console.log("before clearing",this.state);
 	let tempStartDate , tempEndDate ;
 		this.setState({
 			startDate : tempStartDate ,
@@ -133,8 +126,6 @@ class SearchBar extends Component
     		</Row>
     	</div>;
 	}
-//onClick = {()=> this.props.selectBook(book)}
-
 }
 function mapStateToProps(state)
 {

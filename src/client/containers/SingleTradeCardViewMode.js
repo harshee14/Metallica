@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { editTrade } from '../actions/index';
+import moment from 'moment';
 
 class SingleTradeCardViewMode extends Component
 {
@@ -38,7 +39,6 @@ class SingleTradeCardViewMode extends Component
 					 </Panel>
 			</div> ;
 		}
-		//console.log('do I have trade to view ? ', this.prop)
 		return <div>
 
 		 <Panel bsStyle="info">
@@ -124,6 +124,7 @@ class SingleTradeCardViewMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 												<FormControl type="text" disabled value = {this.props.tradeview.startDate} />
+
 											</Col>
 										</FormGroup>
 
@@ -132,11 +133,11 @@ class SingleTradeCardViewMode extends Component
 												EndDate
 											</Col>
 											<Col sm={9} md={9}>
-												<FormControl type="text" disabled value = {this.props.tradeview.endDate} />
+												<FormControl type="text" disabled value = {this.props.tradeview.endDate.toString()} />
 											</Col>
 										</FormGroup>
 
-										</Form>;
+										</Form>
             </Panel.Body>
           </Panel>
 		</div>;
@@ -146,7 +147,6 @@ class SingleTradeCardViewMode extends Component
 
 function mapStateToProps(state)
 {
-  console.log(state);
   return {
     tradeview : state.tradeview
   };
@@ -157,5 +157,4 @@ function mapDispatchToProps(dispatch)
   return bindActionCreators({editTrade : editTrade} , dispatch);
 }
 
-//export default SingleTradeCardViewMode ;
 export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardViewMode);

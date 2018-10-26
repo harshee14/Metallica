@@ -29,7 +29,8 @@ class SingleTradeCardEditMode extends Component
 						quantity : this.props.tradeview.quantity,
 						price : this.props.tradeview.price
 			};
-
+			console.log("my editmode startdate in constructor is type of ",typeof this.state.startDate);
+			console.log("my editmode startdate in constructor is type of ",typeof this.state.endDate);
 			this.errors = {
 
 			};
@@ -40,13 +41,11 @@ class SingleTradeCardEditMode extends Component
 			this.handleEndDateChange = this.handleEndDateChange.bind(this);
 			this.handleValidation = this.handleValidation.bind(this);
 			this.doSubmit = this.doSubmit.bind(this);
-
-			console.log('constructor ended?');
 		}
 
-		handleQuantityChange = e => this.setState({quantity : e.target.value});
+		handleQuantityChange = e =>{this.setState({quantity : e.target.value}); }
 		handlePriceChange = e => this.setState({price : e.target.value});
-		handleStartDateChange = startDate => this.setState({ startDate });
+		handleStartDateChange = startDate => {this.setState({ startDate }); ()=>{console.log('but my state : ',typeof this.state.startDate)};}
 		handleEndDateChange = endDate => this.setState({ endDate });
 
 
@@ -97,8 +96,8 @@ class SingleTradeCardEditMode extends Component
 	  doSubmit(e)
 		{
 			e.preventDefault();
-			console.log("what are my errors : " ,this.errors);
 	    if(this.handleValidation()){
+				 console.log("edit view just before submitting",typeof this.state.startDate);
 				  this.props.saveEditedTrade('VIEW_TRADE',this.state);
 	      alert("Form submitted");
 	    }else{

@@ -34,7 +34,6 @@ class SingleTradeCard extends Component
 
 function mapStateToProps(state)
 {
-  console.log(state);
   return {
     tradeCardMode : state.tradeCardMode
   };

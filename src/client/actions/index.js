@@ -1,19 +1,3 @@
-// export function getUpdatedPrice()
-// {
-//   // after integration prices will come from backend
-//     let metalAndPrices = [
-//                 {key:'Iron',price:23 * (Math.random()-0.5)},
-//                 {key:'Gold',price:100 * (Math.random()-0.5)},
-//                 {key:'Silver',price:80 * (Math.random()-0.5)},
-//                 {key:'Alu',price:5 * (Math.random()-0.5)},
-//                 {key:'Platinum',price:150 * (Math.random()-0.5)},
-//                 {key:'Uranium',price:500 * (Math.random()-0.5)}
-//                 ];
-//   return {
-//     type : 'PRICES_NOTIFICATION', //always instantiated
-//     payload: metalAndPrices  //not necessary
-//   };
-// }
 export function saveEditedTrade(mode,trade)
 {
   let packet = {mode : mode , trade : trade} ;
@@ -27,7 +11,6 @@ export function saveEditedTrade(mode,trade)
 export function viewTrade(mode,trade)
 {
   let packet = {mode : mode , trade : trade} ;
-  console.log('how does my packet look like ?',packet);
   return {
     type : 'VIEW_TRADE',
     payload : packet
@@ -37,7 +20,6 @@ export function viewTrade(mode,trade)
 export function editTrade(mode,trade)
 {
   let packet = {mode : mode , trade : trade} ;
-  console.log('how does my packet look like ?',packet);
   return {
     type : 'EDIT_TRADE',
     payload : packet
@@ -46,9 +28,6 @@ export function editTrade(mode,trade)
 
 export function searchTrades(searchQuery)
 {
-  //after integration , trades will come from backend based on the searchQuery
-
-  console.log(searchQuery);
   let trades = [];
   let selectedTradeId = 0 ;
   for (var i = 10; i >= 0; i--) {
