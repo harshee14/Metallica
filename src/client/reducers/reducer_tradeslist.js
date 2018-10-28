@@ -8,31 +8,43 @@ export default function(state = {}, action)
 
       case 'SAVE_EDITED_TRADE':
       {
-        state.selectedTradeId = action.payload.trade.tradeId;
-        var editedTrade = action.payload.trade ;
-        var index = state.trades.findIndex(x => x.tradeId===state.selectedTradeId);
-        state.trades[index].quantity = action.payload.trade.quantity ;
-        state.trades[index].price = action.payload.trade.price ;
-        state.trades[index].startDate = action.payload.trade.startDate ;
-        state.trades[index].endDate = action.payload.trade.endDate ;
-        console.log('reducer_tradeslist | SAVE_EDITED_TRADE |',state);
-        return state ;
+
+        let tradesCopy = state.trades.slice();
+        let editedTrade = action.payload.trade ;
+        let index = tradesCopy.findIndex(x => x.tradeId===action.payload.trade.tradeId);
+        tradesCopy[index].quantity = action.payload.trade.quantity ;
+        tradesCopy[index].price = action.payload.trade.price ;
+        tradesCopy[index].startDate = action.payload.trade.startDate ;
+        tradesCopy[index].endDate = action.payload.trade.endDate ;
+
+        let x = {
+            ...state,
+            selectedTradeId: action.payload.trade.tradeId,
+            trades: tradesCopy
+        };
+        console.log('reducer_tradeslist | SAVE_EDITED_TRADE |', x);
+        return x;
       }
 
       case 'SAVE_CREATED_TRADE':
-      {
-        state.selectedTradeId = action.payload.trade.tradeId ;
-        state.trades.push(action.payload.trade);
+      { 
+        let x = {
+            ...state,
+            selectedTradeId: action.payload.trade.tradeId,
+            trades: state.trades.slice().push(action.payload.trade)
+        }
         console.log('reducer_tradeslist | SAVE_CREATED_TRADE |',action.payload.trade);
-        return state ;
+        return  x;
       }
 
       case 'DELETE_TRADE':
       {
-        state.selectedTradeId = 0;
-        var filtered = state.trades.filter(value => value.tradeId != action.payload.trade.tradeId);
-        state.trades = filtered ;
-        return state ;
+        let x = {
+            ...state,
+            selectedTradeId: 0,
+            trades: state.trades.slice().filter(value => value.tradeId != action.payload.trade.tradeId)
+        }
+        return x;
       }
 
     }
@@ -47,7 +59,10 @@ export default function(state = {}, action)
            trades.push(createSomeDummyTrades());
        }
 
-       return {selectedTradeId,trades};
+       return {
+           selectedTradeId,
+           trades
+        };
   }
 
  console.log("harshita yo");
