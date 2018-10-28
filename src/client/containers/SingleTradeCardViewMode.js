@@ -6,7 +6,7 @@ import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { editTrade } from '../actions/index';
+import { editTrade , deleteTrade} from '../actions/index';
 import moment from 'moment';
 
 class SingleTradeCardViewMode extends Component
@@ -39,6 +39,19 @@ class SingleTradeCardViewMode extends Component
 					 </Panel>
 			</div> ;
 		}
+
+		var startDate, endDate ;
+		if(typeof this.props.tradeview.startDate === "object")
+			startDate = this.props.tradeview.startDate.format("MM/DD/YYYY");
+		else {
+			startDate = this.props.tradeview.startDate;
+		}
+		if(typeof this.props.tradeview.endDate === "object")
+			endDate = this.props.tradeview.endDate.format("MM/DD/YYYY");
+		else {
+			endDate = this.props.tradeview.endDate;
+		}
+
 		return <div>
 
 		 <Panel bsStyle="info">
@@ -48,7 +61,7 @@ class SingleTradeCardViewMode extends Component
                  <Col md = {9} id = "singletradecardheading">Trade Id : {this.props.tradeview.tradeId}</Col>
                  <Col md = {3} id = "singletradecardicons">
                  <Button bsSize="xsmall" onClick = {() => this.props.editTrade('EDIT_TRADE',this.props.tradeview)} > <Glyphicon glyph="pencil"/> </Button>
-                 <Button bsSize="xsmall" > <Glyphicon glyph="trash" /> </Button>
+                 <Button bsSize="xsmall" type="submit" onClick = {() => this.props.deleteTrade('VIEW_TRADE',this.props.tradeview)}> <Glyphicon glyph="trash" /> </Button>
                  </Col>
                  </Row>
                  </Panel.Title>
@@ -123,7 +136,7 @@ class SingleTradeCardViewMode extends Component
 												StartDate
 											</Col>
 											<Col sm={9} md={9}>
-												<FormControl type="text" disabled value = {this.props.tradeview.startDate} />
+												<FormControl type="text" disabled value = {startDate} />
 
 											</Col>
 										</FormGroup>
@@ -133,7 +146,7 @@ class SingleTradeCardViewMode extends Component
 												EndDate
 											</Col>
 											<Col sm={9} md={9}>
-												<FormControl type="text" disabled value = {this.props.tradeview.endDate.toString()} />
+												<FormControl type="text" disabled value = {endDate} />
 											</Col>
 										</FormGroup>
 
@@ -154,7 +167,7 @@ function mapStateToProps(state)
 
 function mapDispatchToProps(dispatch)
 {
-  return bindActionCreators({editTrade : editTrade} , dispatch);
+  return bindActionCreators({editTrade : editTrade , deleteTrade : deleteTrade} , dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardViewMode);

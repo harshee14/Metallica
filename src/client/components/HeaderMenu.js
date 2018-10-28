@@ -1,7 +1,7 @@
 import { Tab, Row, Col, Nav, NavItem, Image } from 'react-bootstrap';
 import React from 'react';
 
-import TradeInfoTab from './TradeInfoTab';
+import TradeInfoTab from '../containers/TradeInfoTab';
 
 const HeaderMenu = () =>
 {

@@ -43,8 +43,8 @@ class SingleTradeCardEditMode extends Component
 			this.doSubmit = this.doSubmit.bind(this);
 		}
 
-		handleQuantityChange = e =>{this.setState({quantity : e.target.value}); }
-		handlePriceChange = e => this.setState({price : e.target.value});
+		handleQuantityChange = e =>{this.setState({quantity : parseFloat(e.target.value)}); }
+		handlePriceChange = e => this.setState({price : parseFloat(e.target.value)});
 		handleStartDateChange = startDate => {this.setState({ startDate }); ()=>{console.log('but my state : ',typeof this.state.startDate)};}
 		handleEndDateChange = endDate => this.setState({ endDate });
 
@@ -76,19 +76,19 @@ class SingleTradeCardEditMode extends Component
 				 }
 
 				 //fails if I dont change the value as the number is still a number
-				 if(typeof this.state.price !== "undefined"){
-					 if(!this.state.price.match(/^\d+(\.\d{1,2})?$/)){
-						 formIsValid = false;
-						 this.errors["price"] = "Only numbers";
-					 }
-				 }
-
-				 if(typeof this.state.quantity !== "undefined"){
-					 if(!this.state.quantity.match(/^\d+(\.\d{1,2})?$/)){
-						 formIsValid = false;
-						 this.errors["quantity"] = "Only numbers";
-					 }
-				 }
+				 // if(typeof this.state.price !== "undefined"){
+					//  if(!this.state.price.match(/^\d+(\.\d{1,2})?$/)){
+					// 	 formIsValid = false;
+					// 	 this.errors["price"] = "Only numbers";
+					//  }
+				 // }
+				 //
+				 // if(typeof this.state.quantity !== "undefined"){
+					//  if(!this.state.quantity.match(/^\d+(\.\d{1,2})?$/)){
+					// 	 formIsValid = false;
+					// 	 this.errors["quantity"] = "Only numbers";
+					//  }
+				 // }
 
 				 return formIsValid;
 		}
@@ -97,7 +97,7 @@ class SingleTradeCardEditMode extends Component
 		{
 			e.preventDefault();
 	    if(this.handleValidation()){
-				 console.log("edit view just before submitting",typeof this.state.startDate);
+				 console.log("edit view just before submitting",this.state.startDate);
 				  this.props.saveEditedTrade('VIEW_TRADE',this.state);
 	      alert("Form submitted");
 	    }else{
@@ -213,7 +213,6 @@ class SingleTradeCardEditMode extends Component
 											<Col sm={12} md={12}>
 											<ButtonToolbar className = "pull-right">
 													<Button type="submit" bsStyle="primary" >Save</Button>
-													<Button>Clear</Button>
 											</ButtonToolbar>
 											</Col>
 										</FormGroup>

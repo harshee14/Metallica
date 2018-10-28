@@ -15,9 +15,24 @@ export default function(state = {}, action)
         state.trades[index].price = action.payload.trade.price ;
         state.trades[index].startDate = action.payload.trade.startDate ;
         state.trades[index].endDate = action.payload.trade.endDate ;
-        console.log('after saving dates on the trade what is the data type :',typeof state.trades[index].endDate);
+        console.log('reducer_tradeslist | SAVE_EDITED_TRADE |',state);
         return state ;
+      }
 
+      case 'SAVE_CREATED_TRADE':
+      {
+        state.selectedTradeId = action.payload.trade.tradeId ;
+        state.trades.push(action.payload.trade);
+        console.log('reducer_tradeslist | SAVE_CREATED_TRADE |',action.payload.trade);
+        return state ;
+      }
+
+      case 'DELETE_TRADE':
+      {
+        state.selectedTradeId = 0;
+        var filtered = state.trades.filter(value => value.tradeId != action.payload.trade.tradeId);
+        state.trades = filtered ;
+        return state ;
       }
 
     }
@@ -31,9 +46,11 @@ export default function(state = {}, action)
   for (var i = 10; i >= 0; i--) {
            trades.push(createSomeDummyTrades());
        }
+
        return {selectedTradeId,trades};
   }
 
+ console.log("harshita yo");
   return state ; //return state as it is if action dosent impact it and it is not initializtion
 }
 

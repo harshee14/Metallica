@@ -8,8 +8,51 @@ export function saveEditedTrade(mode,trade)
   };
 }
 
+export function saveCreatedTrade(mode,trade)
+{
+  let temptrade = {
+     tradeDate : trade.tradeDate,
+     commodity : trade.commodity,
+     side : trade.side,
+     quantity : trade.quantity,
+     price : trade.price,
+     location : trade.location,
+     counterparty : trade.counterparty,
+     tradeId : Math.floor(Math.random()*10000),
+     startDate : trade.startDate.format("MM/DD/YYYY"),
+     endDate : trade.endDate.format("MM/DD/YYYY")
+ } ;
+  let packet = {mode : mode , trade : temptrade} ;
+
+  console.log('how does my save createdTrade packet look like ?',packet);
+  return {
+    type : 'SAVE_CREATED_TRADE',
+    payload : packet
+  };
+}
+
+export function createTrade(mode)
+{
+  let packet = {mode : mode} ;
+  return {
+    type : 'CREATE_TRADE',
+    payload : packet
+  };
+}
+
+export function deleteTrade(mode,trade)
+{
+  let packet = {mode : mode , trade : trade} ;
+  console.log('how does my save deletedTrade packet look like ?',packet);
+  return {
+    type : 'DELETE_TRADE',
+    payload : packet
+  };
+}
+
 export function viewTrade(mode,trade)
 {
+    console.log('how does my save viewTrade packet look like ?',packet);
   let packet = {mode : mode , trade : trade} ;
   return {
     type : 'VIEW_TRADE',

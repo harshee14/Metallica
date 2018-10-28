@@ -32,6 +32,7 @@ class SearchBar extends Component
 		this.handleTradeLocationChange = this.handleTradeLocationChange.bind(this);
 		this.handleCommodityChange = this.handleCommodityChange.bind(this);
 		this.clearSearchParameters = this.clearSearchParameters.bind(this);
+		this.provideList = this.provideList.bind(this);
 
 	}
 

@@ -6,7 +6,7 @@ import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css';
 import SingleTradeCardViewMode from './SingleTradeCardViewMode';
 import SingleTradeCardEditMode from './SingleTradeCardEditMode';
-// import SingleTradeCardCreateMode from './SingleTradeCard';
+import SingleTradeCardCreateMode from './SingleTradeCardCreateMode';
 import { connect } from 'react-redux';
 
 class SingleTradeCard extends Component
@@ -19,7 +19,7 @@ class SingleTradeCard extends Component
 	render()
 	{
 		console.log('which mode am I in ?',this.props.tradeCardMode);
-		if(this.props.tradeCardMode === 'VIEW_TRADE')
+		if(this.props.tradeCardMode === 'VIEW_TRADE' || this.props.tradeCardMode === 'SAVE_CREATED_TRADE')
 		return <div>
 			<SingleTradeCardViewMode />
 		</div>;
@@ -27,6 +27,11 @@ class SingleTradeCard extends Component
 		if(this.props.tradeCardMode === 'EDIT_TRADE')
 		return <div>
 			<SingleTradeCardEditMode />
+		</div>;
+
+		if(this.props.tradeCardMode === 'CREATE_TRADE')
+		return <div>
+			<SingleTradeCardCreateMode />
 		</div>;
 	}
 

@@ -13,53 +13,64 @@ class TradesTable extends Component
     constructor(props)
     {
         super(props);
-        this.selectRow = {
-            mode: 'radio',
-            clickToSelect: true,
-            hideSelectColumn: false,
-            style: { backgroundColor: '#c8e6c9' },
-            selected : [this.props.selectedTradeId],
-          };
+        // this.state = {
+        //     tradeslist : this.props.tradeslist,
+        //     selectedTradeId : this.props.selectedTradeId
+        // };
 
           this.rowEvents = {
           onClick: (e, row, rowIndex) => {
             this.props.viewTrade('VIEW_TRADE',row);
           }
 
+          // onSelect : (row,isSelect) => {
+          //   this.props.viewTrade('VIEW_TRADE',row);
+          //}
+
           // onMouseEnter: (e, row, rowIndex) => {
           //   console.log('enter on row with index:',row);
           //}
         };
 
-        this.columns = [{
+        this.columns = [
+          {
           dataField: 'tradeId',
           text: 'Trade Id',
           sort : true
-        },{
+        },
+        {
           dataField: 'tradeDate',
-          text: 'Trade Date'
-        }, {
+          text: 'Trade Date',
+          headerAlign: 'center'
+        },
+         {
           dataField: 'commodity',
-          text: 'Commodity'
+          text: 'Commodity',
+          headerAlign: 'center'
         }, {
           dataField: 'price',
-          text: 'Price'
+          text: 'Price',
+          headerAlign: 'center'
         },
          {
           dataField: 'quantity',
-          text: 'Quantity'
+          text: 'Quantity',
+          headerAlign: 'center'
         },
          {
           dataField: 'location',
-          text: 'Location'
+          text: 'Location',
+          headerAlign: 'center'
         },
          {
           dataField: 'counterparty',
-          text: 'Counterparty'
+          text: 'Counterparty',
+          headerAlign: 'center'
         },
         {
           dataField: 'side',
-          text: 'Side'
+          text: 'Side',
+          headerAlign: 'center'
         }
         ];
 
@@ -68,25 +79,38 @@ class TradesTable extends Component
             order: 'asc'
           }];
 
-      	this.handleOnSelect = this.handleOnSelect.bind(this);
+      this.handleOnSelect = this.handleOnSelect.bind(this);
     }
 
-    handleOnSelect(row,isSelect)
+    handleOnSelect = (row,isSelect) =>
     {
       console.log('what is my row on handleOnSelect',row);
       this.props.viewTrade('VIEW_TRADE',row);
     }
 
+
     render()
     {
+        console.log('my tradeslist ?',this.props.tradeslist);
+      var selectRow = {
+              mode: 'radio',
+              clickToSelect: true,
+              hideSelectColumn: true,
+              style: { backgroundColor: '#c8e6c9' },
+              selected : [this.props.selectedTradeId],
+              onSelect: this.handleOnSelect
+          };
       if(!this.props.tradeslist)
       {
         return <div>No trades searched</div> ;
       }
-      this.selectRow.selected = [this.props.selectedTradeId];
-      this.selectRow.onSelect = this.handleOnSelect ;
+
+      selectRow.selected = [this.props.selectedTradeId];
+
+      //this.selectRow.onSelect = this.handleOnSelect ;
+      console.log('How does my delctRow object look like ?', selectRow.selected);
       return <div>
-        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ this.selectRow } defaultSorted = {this.defaultSorted} columns={ this.columns } rowEvents={this.rowEvents } />
+        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ selectRow } defaultSorted = {this.defaultSorted} columns={ this.columns } rowEvents={this.rowEvents } />
 		        </div>;
       }
 }
@@ -96,6 +120,7 @@ function mapStateToProps(state)
 
   var tradeslist = state.tradeslist.trades ;
   var selectedTradeId = state.tradeslist.selectedTradeId
+  console.log("what ismy tradeslist",tradeslist);
   return {
     tradeslist ,
     selectedTradeId
