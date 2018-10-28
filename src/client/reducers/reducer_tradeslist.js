@@ -8,31 +8,42 @@ export default function(state = {}, action)
 
       case 'SAVE_EDITED_TRADE':
       {
-        state.selectedTradeId = action.payload.trade.tradeId;
-        var editedTrade = action.payload.trade ;
-        var index = state.trades.findIndex(x => x.tradeId===state.selectedTradeId);
-        state.trades[index].quantity = action.payload.trade.quantity ;
-        state.trades[index].price = action.payload.trade.price ;
-        state.trades[index].startDate = action.payload.trade.startDate ;
-        state.trades[index].endDate = action.payload.trade.endDate ;
-        console.log('reducer_tradeslist | SAVE_EDITED_TRADE |',state);
-        return state ;
+        let tradesCopy = state.trades.slice();
+        let editedTrade = action.payload.trade ;
+        let index = tradesCopy.findIndex(x => x.tradeId===action.payload.trade.tradeId);
+        tradesCopy[index].quantity = action.payload.trade.quantity ;
+        tradesCopy[index].price = action.payload.trade.price ;
+        tradesCopy[index].startDate = action.payload.trade.startDate ;
+        tradesCopy[index].endDate = action.payload.trade.endDate ;
+
+        let x = {
+            ...state,
+            selectedTradeId: action.payload.trade.tradeId,
+            trades: tradesCopy
+        };
+        return x;
       }
 
       case 'SAVE_CREATED_TRADE':
       {
-        state.selectedTradeId = action.payload.trade.tradeId ;
-        state.trades.push(action.payload.trade);
-        console.log('reducer_tradeslist | SAVE_CREATED_TRADE |',action.payload.trade);
-        return state ;
+        let tradesCopy = state.trades.slice();
+        tradesCopy.push(action.payload.trade) ;
+        let x = {
+            ...state,
+            selectedTradeId: action.payload.trade.tradeId,
+            trades: tradesCopy
+        }
+        return  x;
       }
 
       case 'DELETE_TRADE':
       {
-        state.selectedTradeId = 0;
-        var filtered = state.trades.filter(value => value.tradeId != action.payload.trade.tradeId);
-        state.trades = filtered ;
-        return state ;
+        let x = {
+            ...state,
+            selectedTradeId:0,
+            trades: state.trades.slice().filter(value => value.tradeId != action.payload.trade.tradeId)
+        }
+        return x;
       }
 
     }
@@ -41,16 +52,18 @@ export default function(state = {}, action)
  if(!state.hasOwnProperty('selectedTradeId') && !state.hasOwnProperty('trades'))
  {
   let trades = [];
-  let selectedTradeId = 0 ;
+  //let selectedTradeId =[ 0 ];
 
   for (var i = 10; i >= 0; i--) {
            trades.push(createSomeDummyTrades());
        }
 
-       return {selectedTradeId,trades};
+       return {
+           selectedTradeId : 0,
+           trades
+        };
   }
 
- console.log("harshita yo");
   return state ; //return state as it is if action dosent impact it and it is not initializtion
 }
 

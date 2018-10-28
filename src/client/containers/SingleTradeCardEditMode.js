@@ -20,8 +20,10 @@ class SingleTradeCardEditMode extends Component
 		{
 						tradeId : this.props.tradeview.tradeId,
 						tradeDate : this.props.tradeview.tradeDate,
-						startDate : moment(this.props.tradeview.startDate,"MM/DD/YYYY") ,
-						endDate : moment(this.props.tradeview.endDate,"MM/DD/YYYY") ,
+						startDate : this.props.tradeview.startDate ,
+						endDate : this.props.tradeview.endDate ,
+						// startDate : moment(this.props.tradeview.startDate,"MM/DD/YYYY") ,
+						// endDate : moment(this.props.tradeview.endDate,"MM/DD/YYYY") ,
 						commodity : this.props.tradeview.commodity,
 						side : this.props.tradeview.side,
 						counterparty : this.props.tradeview.counterparty,
@@ -29,8 +31,6 @@ class SingleTradeCardEditMode extends Component
 						quantity : this.props.tradeview.quantity,
 						price : this.props.tradeview.price
 			};
-			console.log("my editmode startdate in constructor is type of ",typeof this.state.startDate);
-			console.log("my editmode startdate in constructor is type of ",typeof this.state.endDate);
 			this.errors = {
 
 			};
@@ -43,16 +43,14 @@ class SingleTradeCardEditMode extends Component
 			this.doSubmit = this.doSubmit.bind(this);
 		}
 
-		handleQuantityChange = e =>{this.setState({quantity : parseFloat(e.target.value)}); }
+		handleQuantityChange = e => this.setState({quantity : parseFloat(e.target.value)});
 		handlePriceChange = e => this.setState({price : parseFloat(e.target.value)});
-		handleStartDateChange = startDate => {this.setState({ startDate }); ()=>{console.log('but my state : ',typeof this.state.startDate)};}
-		handleEndDateChange = endDate => this.setState({ endDate });
+		handleStartDateChange = startDate => this.setState({ startDate : startDate.format("MM/DD/YYYY") });
+		handleEndDateChange = endDate => this.setState({ endDate : endDate.format("MM/DD/YYYY")});
 
 
 		handleValidation()
 		{
-
-
 				 let formIsValid = true;
 
 				 if(!this.state.price){
@@ -97,7 +95,6 @@ class SingleTradeCardEditMode extends Component
 		{
 			e.preventDefault();
 	    if(this.handleValidation()){
-				 console.log("edit view just before submitting",this.state.startDate);
 				  this.props.saveEditedTrade('VIEW_TRADE',this.state);
 	      alert("Form submitted");
 	    }else{
@@ -189,7 +186,7 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 											<div className = 'alignDate'>
-											<ReactDatePicker onChange = {this.handleStartDateChange} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+											<ReactDatePicker onChange = {this.handleStartDateChange} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={moment(this.state.startDate,"MM/DD/YYYY")} startDate={moment(this.state.startDate,"MM/DD/YYYY")} endDate={moment(this.state.endDate,"MM/DD/YYYY")}/>
 
 											</div>
 											<HelpBlock className = 'helpblock'>StartDate cannot be empty</HelpBlock>
@@ -202,7 +199,7 @@ class SingleTradeCardEditMode extends Component
 											</Col>
 											<Col sm={9} md={9}>
 											<div className = 'alignDate'>
-											<ReactDatePicker onChange = {this.handleEndDateChange} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
+											<ReactDatePicker onChange = {this.handleEndDateChange} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={moment(this.state.endDate,"MM/DD/YYYY")} startDate={moment(this.state.startDate,"MM/DD/YYYY")} endDate={moment(this.state.endDate,"MM/DD/YYYY")}/>
 
 											</div>
 											<HelpBlock className = 'helpblock'>End Date >=  Start Date</HelpBlock>

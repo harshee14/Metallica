@@ -19,7 +19,7 @@ class SingleTradeCard extends Component
 	render()
 	{
 		console.log('which mode am I in ?',this.props.tradeCardMode);
-		if(this.props.tradeCardMode === 'VIEW_TRADE' || this.props.tradeCardMode === 'SAVE_CREATED_TRADE')
+		if(this.props.tradeCardMode === 'VIEW_TRADE')
 		return <div>
 			<SingleTradeCardViewMode />
 		</div>;

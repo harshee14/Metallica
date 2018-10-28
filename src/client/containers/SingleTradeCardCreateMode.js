@@ -46,26 +46,26 @@ class SingleTradeCardCreateMode extends Component
 
   handleQuantityChange = e =>{this.setState({quantity : parseFloat(e.target.value)}); }
   handlePriceChange = e => this.setState({price : parseFloat(e.target.value)});
-  handleStartDateChange = startDate => {this.setState({ startDate }); ()=>{console.log('but my state : ',typeof this.state.startDate)};}
-  handleEndDateChange = endDate => this.setState({ endDate });
+  handleStartDateChange = startDate => this.setState({startDate : startDate.format("MM/DD/YYYY") });
+  handleEndDateChange = endDate => this.setState({endDate : endDate.format("MM/DD/YYYY") });
 
   handleCounterPartyChange(selected)
   {
-     this.setState( {counterparty : selected.value},()=>{console.log('but my state : ',this.state.counterparty);}) ;
+     this.setState( {counterparty : selected.value}) ;
   }
 
   handleTradeLocationChange(selected)
   {
-     this.setState( {location : selected.value},()=>{console.log('but my state : ',this.state.location);}) ;
+     this.setState( {location : selected.value}) ;
   }
   handleCommodityChange(selected)
   {
-     this.setState( {commodity : selected.value},()=>{console.log('but my state : ',this.state.commodity);}) ;
+     this.setState( {commodity : selected.value}) ;
   }
 
   handleSideChange(selected)
   {
-     this.setState( {side : selected.value},()=>{console.log('but my state : ',this.state.side);}) ;
+     this.setState({side : selected.value}) ;
   }
 
   provideList(list)
@@ -134,7 +134,6 @@ class SingleTradeCardCreateMode extends Component
   {
     e.preventDefault();
     if(this.handleValidation()){
-       console.log("edit view just before submitting",this.state.startDate);
         this.props.saveCreatedTrade('VIEW_TRADE',this.state);
       alert("Form submitted");
     }else{

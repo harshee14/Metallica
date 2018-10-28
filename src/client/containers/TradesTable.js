@@ -105,10 +105,10 @@ class TradesTable extends Component
         return <div>No trades searched</div> ;
       }
 
-      selectRow.selected = [this.props.selectedTradeId];
+      //selectRow.selected = this.props.selectedTradeId;
 
       //this.selectRow.onSelect = this.handleOnSelect ;
-      console.log('How does my delctRow object look like ?', selectRow.selected);
+
       return <div>
         <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ selectRow } defaultSorted = {this.defaultSorted} columns={ this.columns } rowEvents={this.rowEvents } />
 		        </div>;
@@ -117,13 +117,8 @@ class TradesTable extends Component
 
 function mapStateToProps(state)
 {
-
-  var tradeslist = state.tradeslist.trades ;
-  var selectedTradeId = state.tradeslist.selectedTradeId
-  console.log("what ismy tradeslist",tradeslist);
   return {
-    tradeslist ,
-    selectedTradeId
+    tradeslist : state.tradeslist.trades, selectedTradeId : state.tradeslist.selectedTradeId
   };
 }
 
