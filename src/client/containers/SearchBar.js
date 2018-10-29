@@ -1,4 +1,4 @@
-import {ButtonGroup,Panel, Button, FormGroup, Checkbox, Row, Col,ButtonToolbar, DropdownButton , MenuItem} from 'react-bootstrap';
+import {Form,ButtonGroup,Panel, Button, FormGroup, Checkbox, Row, Col,ButtonToolbar, DropdownButton , MenuItem} from 'react-bootstrap';
 
 import ReactDatePicker from 'react-datepicker'
 
@@ -33,6 +33,7 @@ class SearchBar extends Component
 		this.handleCommodityChange = this.handleCommodityChange.bind(this);
 		this.clearSearchParameters = this.clearSearchParameters.bind(this);
 		this.provideList = this.provideList.bind(this);
+		this.doSubmit = this.doSubmit.bind(this);
 
 	}
 
@@ -73,11 +74,26 @@ class SearchBar extends Component
 		},()=>{	console.log("after clearing",this.state);});
 
 	}
+	doSubmit(e)
+	{
+		e.preventDefault();
+		let tempState = {
+			...this.state,
+			startDate : this.state.startDate.format("MM/DD/YYYY"),
+			endDate : this.state.endDate.format("MM/DD/YYYY")
+		};
+
+		console.log(tempState);
+		this.props.searchTrades(tempState);
+		alert("Form submitted");
+
+	}
 
 
 	render()
 	{
 		return <div>
+		<Form onSubmit={this.doSubmit}>
 			<Row>
     			<Col md={12}>
     				<Panel>
@@ -121,10 +137,11 @@ class SearchBar extends Component
     			<Col md={12}>
 	    			<ButtonToolbar className = "pull-right">
 	    			  	<Button onClick = {this.clearSearchParameters}>Clear</Button>
-						<Button onClick = {() => this.props.searchTrades(this.state)} bsStyle="primary">Search</Button>
+						<Button type="submit" bsStyle="primary">Search</Button>
 	    			</ButtonToolbar>
     			</Col>
     		</Row>
+				</Form>
     	</div>;
 	}
 }
