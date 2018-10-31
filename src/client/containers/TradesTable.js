@@ -1,11 +1,10 @@
-import {Row,Col,Panel} from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import BootstrapTable from 'react-bootstrap-table-next';
 import React, { Component } from 'react';
 
-import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { viewTrade } from '../actions/index';
 
 class TradesTable extends Component
@@ -18,101 +17,93 @@ class TradesTable extends Component
         //     selectedTradeId : this.props.selectedTradeId
         // };
 
-          this.rowEvents = {
-          onClick: (e, row, rowIndex) => {
-            this.props.viewTrade('VIEW_TRADE',row);
-          }
+        this.rowEvents = {
+            onClick: (e, row, rowIndex) => {
+                this.props.viewTrade('VIEW_TRADE',row);
+            }
 
-          // onSelect : (row,isSelect) => {
-          //   this.props.viewTrade('VIEW_TRADE',row);
-          //}
+            // onSelect : (row,isSelect) => {
+            //   this.props.viewTrade('VIEW_TRADE',row);
+            //}
 
-          // onMouseEnter: (e, row, rowIndex) => {
-          //   console.log('enter on row with index:',row);
-          //}
+            // onMouseEnter: (e, row, rowIndex) => {
+            //   console.log('enter on row with index:',row);
+            //}
         };
 
         this.columns = [
-          {
-          dataField: 'tradeId',
-          text: 'Trade Id',
-          sort : true
-        },
-        {
-          dataField: 'tradeDate',
-          text: 'Trade Date',
-          headerAlign: 'center'
-        },
-         {
-          dataField: 'commodity',
-          text: 'Commodity',
-          headerAlign: 'center'
-        }, {
-          dataField: 'price',
-          text: 'Price',
-          headerAlign: 'center'
-        },
-         {
-          dataField: 'quantity',
-          text: 'Quantity',
-          headerAlign: 'center'
-        },
-         {
-          dataField: 'location',
-          text: 'Location',
-          headerAlign: 'center'
-        },
-         {
-          dataField: 'counterparty',
-          text: 'Counterparty',
-          headerAlign: 'center'
-        },
-        {
-          dataField: 'side',
-          text: 'Side',
-          headerAlign: 'center'
-        }
+            {
+                dataField: 'tradeId',
+                text: 'Trade Id',
+                sort : true
+            }, {
+                dataField: 'tradeDate',
+                text: 'Trade Date',
+                headerAlign: 'center'
+            }, {
+                dataField: 'commodity',
+                text: 'Commodity',
+                headerAlign: 'center'
+            }, {
+                dataField: 'price',
+                text: 'Price',
+                headerAlign: 'center'
+            }, {
+                dataField: 'quantity',
+                text: 'Quantity',
+                headerAlign: 'center'
+            }, {
+                dataField: 'location',
+                text: 'Location',
+                headerAlign: 'center'
+            }, {
+                dataField: 'counterparty',
+                text: 'Counterparty',
+                headerAlign: 'center'
+            }, {
+                dataField: 'side',
+                text: 'Side',
+                headerAlign: 'center'
+            }
         ];
 
         this.defaultSorted = [{
             dataField: 'tradeId',
             order: 'asc'
-          }];
-
-      this.handleOnSelect = this.handleOnSelect.bind(this);
+        }];
+        this.handleOnSelect = this.handleOnSelect.bind(this);
     }
 
-    handleOnSelect = (row,isSelect) =>
-    {
+    handleOnSelect = (row,isSelect) => {
       console.log('what is my row on handleOnSelect',row);
       this.props.viewTrade('VIEW_TRADE',row);
     }
 
 
-    render()
-    {
+    render() {
         console.log('my tradeslist ?',this.props.tradeslist);
-      var selectRow = {
-              mode: 'radio',
-              clickToSelect: true,
-              hideSelectColumn: true,
-              style: { backgroundColor: '#c8e6c9' },
-              selected : [this.props.selectedTradeId],
-              onSelect: this.handleOnSelect
-          };
-      if(!this.props.tradeslist)
-      {
-        return <div>No trades searched</div> ;
-      }
+        var selectRow = {
+            mode: 'radio',
+            clickToSelect: true,
+            hideSelectColumn: true,
+            style: { 
+                backgroundColor: '#c8e6c9' 
+            },
+            selected : [ this.props.selectedTradeId ],
+            onSelect: this.handleOnSelect
+        };
 
-      //selectRow.selected = this.props.selectedTradeId;
-
-      //this.selectRow.onSelect = this.handleOnSelect ;
-
-      return <div>
-        <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ selectRow } defaultSorted = {this.defaultSorted} columns={ this.columns } rowEvents={this.rowEvents } />
-		        </div>;
-      }
+        if(!this.props.tradeslist) {
+            return <div>No trades searched</div> ;
+        }
+        //selectRow.selected = this.props.selectedTradeId;
+        //this.selectRow.onSelect = this.handleOnSelect ;
+        return (
+            <div>
+                <BootstrapTable keyField='tradeId' data={this.props.tradeslist} selectRow={ selectRow } defaultSorted = {this.defaultSorted} columns={ this.columns } rowEvents={this.rowEvents } />
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state)

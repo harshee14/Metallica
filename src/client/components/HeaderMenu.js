@@ -5,7 +5,8 @@ import TradeInfoTab from '../containers/TradeInfoTab';
 
 const HeaderMenu = () =>
 {
-	return <div>
+	return (
+        <div>
             <Tab.Container id="random" defaultActiveKey="first">
             <Row>
                 <Col md={12}>
@@ -33,7 +34,8 @@ const HeaderMenu = () =>
                 </Col>
             </Row>
             </Tab.Container>
-		</div>;
+        </div>
+    );
 }
 
-export default HeaderMenu ;
+export default HeaderMenu;

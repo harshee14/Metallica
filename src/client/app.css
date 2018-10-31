@@ -7,27 +7,22 @@ body {
   margin: auto;
 }
 
-#singletradecardheading
-{
+#singletradecardheading {
 	text-align : left ;
 }
 
-#singletradecardicons
-{
+#singletradecardicons {
 	text-align: right;
 }
 
-.margins
-{
+.margins {
 	margin : 10px;
 }
 
-.alignDate
-{
+.alignDate {
 	text-align : left ;
 }
 
-.bottom-margins
-{
+.bottom-margins {
 	margin-bottom : 10px;
 }

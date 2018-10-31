@@ -1,9 +1,10 @@
+import { Grid, Row, Col } from 'react-bootstrap';
 import React, { Component } from 'react';
-import './app.css';
 
 import HeaderMenu from './components/HeaderMenu';
 import MarketPricesDisplayPanel from './containers/MarketPricesDisplayPanel';
-import { Grid, Row, Col } from 'react-bootstrap';
+
+import './app.css';
 
 export default class App extends Component {
     state = { username: null };
