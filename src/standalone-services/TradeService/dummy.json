@@ -1,521 +1,636 @@
-[{
-    "side": "BUY",
-    "quantity": 78,
-    "price": 11,
-    "tradeDate": "1441310827",
-    "status": "OPEN",
-    "counterpartyId": "Robel Inc",
-    "commodityId": "Carvedilol",
-    "location": "Cancas",
-    "accessList": [
-      "lcaslake0"
-    ],
-    "tradeId": "190T8O9"
-  }, {
-    "side": "BUY",
-    "quantity": 90,
-    "price": 12,
-    "tradeDate": "1354978451",
-    "status": "OPEN",
-    "counterpartyId": "Cruickshank LLC",
-    "commodityId": "Potassium Chloride",
-    "location": "Itacoatiara",
-    "accessList": [
-      "gketton1"
-    ],
-    "tradeId": "076M5N1"
-  }, {
-    "side": "BUY",
-    "quantity": 60,
-    "price": 10,
-    "tradeDate": "1244873867",
-    "status": "OPEN",
-    "counterpartyId": "Mills Group",
-    "commodityId": "Clario Free Foaming Hand Sanitizer",
-    "location": "Mandor",
-    "accessList": [
-      "draddan2"
-    ],
-    "tradeId": "460V7M8"
-  }, {
-    "side": "SELL",
-    "quantity": 95,
-    "price": 11,
-    "tradeDate": "1228352307",
-    "status": "OPEN",
-    "counterpartyId": "Wolff and Sons",
-    "commodityId": "Right Guard Xtreme Clear",
-    "location": "Tawa",
-    "accessList": [
-      "dtitterington3"
-    ],
-    "tradeId": "085V8T3"
-  }, {
-    "side": "SELL",
-    "quantity": 30,
-    "price": 11,
-    "tradeDate": "1351667848",
-    "status": "NOMINATED",
-    "counterpartyId": "McClure Inc",
-    "commodityId": "Allergy Multi-Symptom",
-    "location": "North Cowichan",
-    "accessList": [
-      "wkasperski4"
-    ],
-    "tradeId": "795O4F4"
-  }, {
-    "side": "SELL",
-    "quantity": 25,
-    "price": 13,
-    "tradeDate": "1403756790",
-    "status": "OPEN",
-    "counterpartyId": "Kub, O'Connell and MacGyver",
-    "commodityId": "Phenazopyridine Hydrochloride",
-    "location": "Jiujie",
-    "accessList": [
-      "clead5"
-    ],
-    "tradeId": "153U1J1"
-  }, {
-    "side": "BUY",
-    "quantity": 96,
-    "price": 12,
-    "tradeDate": "1536152429",
-    "status": "NOMINATED",
-    "counterpartyId": "Halvorson, Lueilwitz and Frami",
-    "commodityId": "Western Cottonwood",
-    "location": "Aoluguya Ewenke Minzu",
-    "accessList": [
-      "fbolam6"
-    ],
-    "tradeId": "604Y2Y4"
-  }, {
-    "side": "BUY",
-    "quantity": 61,
-    "price": 12,
-    "tradeDate": "1305862000",
-    "status": "NOMINATED",
-    "counterpartyId": "Jast-Crona",
-    "commodityId": "Arava",
-    "location": "Mucurapo",
-    "accessList": [
-      "ccastelyn7"
-    ],
-    "tradeId": "123D7S0"
-  }, {
-    "side": "BUY",
-    "quantity": 30,
-    "price": 10,
-    "tradeDate": "1305329772",
-    "status": "OPEN",
-    "counterpartyId": "O'Keefe-Wintheiser",
-    "commodityId": "Temazepam",
-    "location": "Pleven",
-    "accessList": [
-      "cdelucia8"
-    ],
-    "tradeId": "429J3R4"
-  }, {
-    "side": "BUY",
-    "quantity": 45,
-    "price": 10,
-    "tradeDate": "1324486338",
-    "status": "OPEN",
-    "counterpartyId": "Ullrich-Turcotte",
-    "commodityId": "CVS Daily Acne Clearing Scrub",
-    "location": "Cieurih Satu",
-    "accessList": [
-      "scalderbank9"
-    ],
-    "tradeId": "432T6X1"
-  }, {
-    "side": "BUY",
-    "quantity": 58,
-    "price": 12,
-    "tradeDate": "1417679231",
-    "status": "OPEN",
-    "counterpartyId": "Connelly Group",
-    "commodityId": "Dexamethasone",
-    "location": "Pontevedra",
-    "accessList": [
-      "epopplea"
-    ],
-    "tradeId": "379F7X3"
-  }, {
-    "side": "BUY",
-    "quantity": 85,
-    "price": 11,
-    "tradeDate": "1310673268",
-    "status": "OPEN",
-    "counterpartyId": "Rodriguez-O'Reilly",
-    "commodityId": "Warfarin Sodium",
-    "location": "Sobontoro",
-    "accessList": [
-      "bwhimpennyb"
-    ],
-    "tradeId": "232E4E1"
-  }, {
-    "side": "SELL",
-    "quantity": 5,
-    "price": 10,
-    "tradeDate": "1467330565",
-    "status": "NOMINATED",
-    "counterpartyId": "Bergstrom, Bradtke and Bashirian",
-    "commodityId": "Neut Sodium Bicarbonate",
-    "location": "Haparanda",
-    "accessList": [
-      "ccremenc"
-    ],
-    "tradeId": "311Y0S7"
-  }, {
-    "side": "BUY",
-    "quantity": 72,
-    "price": 13,
-    "tradeDate": "1395788796",
-    "status": "NOMINATED",
-    "counterpartyId": "Price-Schmitt",
-    "commodityId": "White Real Time Pain Relief",
-    "location": "Krapina",
-    "accessList": [
-      "ngonneaud"
-    ],
-    "tradeId": "355I8Z4"
-  }, {
-    "side": "BUY",
-    "quantity": 33,
-    "price": 11,
-    "tradeDate": "1226946080",
-    "status": "OPEN",
-    "counterpartyId": "Barrows Group",
-    "commodityId": "SyImmune",
-    "location": "Tužno",
-    "accessList": [
-      "mgodmane"
-    ],
-    "tradeId": "767I4A3"
-  }, {
-    "side": "SELL",
-    "quantity": 43,
-    "price": 13,
-    "tradeDate": "1296737482",
-    "status": "NOMINATED",
-    "counterpartyId": "Langosh-Bernier",
-    "commodityId": "Ibuprofen",
-    "location": "Log pri Brezovici",
-    "accessList": [
-      "hmalingf"
-    ],
-    "tradeId": "347H2T2"
-  }, {
-    "side": "SELL",
-    "quantity": 92,
-    "price": 13,
-    "tradeDate": "1302532366",
-    "status": "NOMINATED",
-    "counterpartyId": "Rolfson and Sons",
-    "commodityId": "Byetta",
-    "location": "Wuku",
-    "accessList": [
-      "cshureyg"
-    ],
-    "tradeId": "584Y9A4"
-  }, {
-    "side": "BUY",
-    "quantity": 26,
-    "price": 12,
-    "tradeDate": "1258764716",
-    "status": "NOMINATED",
-    "counterpartyId": "Kertzmann LLC",
-    "commodityId": "NEOSPORIN G.U.",
-    "location": "Guaduas",
-    "accessList": [
-      "dpickerinh"
-    ],
-    "tradeId": "065T6K6"
-  }, {
-    "side": "SELL",
-    "quantity": 89,
-    "price": 13,
-    "tradeDate": "1443370104",
-    "status": "OPEN",
-    "counterpartyId": "Bruen Inc",
-    "commodityId": "Heparin Sodium",
-    "location": "Vybor",
-    "accessList": [
-      "rburnitti"
-    ],
-    "tradeId": "595M4E9"
-  }, {
-    "side": "SELL",
-    "quantity": 98,
-    "price": 15,
-    "tradeDate": "1286809860",
-    "status": "NOMINATED",
-    "counterpartyId": "Jones, Spinka and Walsh",
-    "commodityId": "JAFRA DAILY",
-    "location": "Oroin Xibe",
-    "accessList": [
-      "kwalbyj"
-    ],
-    "tradeId": "093Y7V3"
-  }, {
-    "side": "SELL",
-    "quantity": 7,
-    "price": 12,
-    "tradeDate": "1299048165",
-    "status": "OPEN",
-    "counterpartyId": "Wilkinson Inc",
-    "commodityId": "Amoxicillin",
-    "location": "Capela",
-    "accessList": [
-      "njeunek"
-    ],
-    "tradeId": "415I5V0"
-  }, {
-    "side": "SELL",
-    "quantity": 51,
-    "price": 13,
-    "tradeDate": "1407172634",
-    "status": "OPEN",
-    "counterpartyId": "Wiegand, Abernathy and O'Keefe",
-    "commodityId": "SkinTx Acne Treatment System",
-    "location": "Tongzilin",
-    "accessList": [
-      "dstallibrassl"
-    ],
-    "tradeId": "133Y0A0"
-  }, {
-    "side": "BUY",
-    "quantity": 99,
-    "price": 15,
-    "tradeDate": "1451063805",
-    "status": "OPEN",
-    "counterpartyId": "Maggio-Oberbrunner",
-    "commodityId": "Docusate Sodium",
-    "location": "Curahnongko",
-    "accessList": [
-      "gfilippovm"
-    ],
-    "tradeId": "220I2T9"
-  }, {
-    "side": "SELL",
-    "quantity": 12,
-    "price": 12,
-    "tradeDate": "1384049755",
-    "status": "NOMINATED",
-    "counterpartyId": "Murray-Orn",
-    "commodityId": "Pure Petroleum Cocoa Butter Scented",
-    "location": "Yelwa",
-    "accessList": [
-      "mgiacovazzon"
-    ],
-    "tradeId": "880Z2T7"
-  }, {
-    "side": "SELL",
-    "quantity": 61,
-    "price": 15,
-    "tradeDate": "1272776615",
-    "status": "NOMINATED",
-    "counterpartyId": "Lang-Krajcik",
-    "commodityId": "RUNNY NOSE",
-    "location": "Yangxiang",
-    "accessList": [
-      "apinhorno"
-    ],
-    "tradeId": "623W7X9"
-  }, {
-    "side": "SELL",
-    "quantity": 16,
-    "price": 11,
-    "tradeDate": "1313501808",
-    "status": "NOMINATED",
-    "counterpartyId": "Hayes LLC",
-    "commodityId": "Hongo Killer",
-    "location": "Acevedo",
-    "accessList": [
-      "kdemalcharp"
-    ],
-    "tradeId": "193W6P8"
-  }, {
-    "side": "SELL",
-    "quantity": 12,
-    "price": 11,
-    "tradeDate": "1382419070",
-    "status": "NOMINATED",
-    "counterpartyId": "Stanton-Marvin",
-    "commodityId": "Ambien CR",
-    "location": "Rizal",
-    "accessList": [
-      "rwillingaleq"
-    ],
-    "tradeId": "876R3V4"
-  }, {
-    "side": "BUY",
-    "quantity": 13,
-    "price": 14,
-    "tradeDate": "1239853587",
-    "status": "OPEN",
-    "counterpartyId": "Moen-Nolan",
-    "commodityId": "CUCUMBER",
-    "location": "Wanasari Baleran",
-    "accessList": [
-      "zgallagherr"
-    ],
-    "tradeId": "333A9Q7"
-  }, {
-    "side": "BUY",
-    "quantity": 68,
-    "price": 14,
-    "tradeDate": "1453452811",
-    "status": "OPEN",
-    "counterpartyId": "Medhurst-VonRueden",
-    "commodityId": "rexall anti diarrheal",
-    "location": "Simpang",
-    "accessList": [
-      "jnaylors"
-    ],
-    "tradeId": "418M4R3"
-  }, {
-    "side": "SELL",
-    "quantity": 19,
-    "price": 15,
-    "tradeDate": "1354473731",
-    "status": "OPEN",
-    "counterpartyId": "Boyle-Legros",
-    "commodityId": "ibuprofen",
-    "location": "Gentilly",
-    "accessList": [
-      "abatet"
-    ],
-    "tradeId": "323M8L7"
-  }, {
-    "side": "BUY",
-    "quantity": 26,
-    "price": 13,
-    "tradeDate": "1366156747",
-    "status": "OPEN",
-    "counterpartyId": "O'Connell LLC",
-    "commodityId": "Weed Grass Antigens",
-    "location": "Wamba",
-    "accessList": [
-      "mbolleru"
-    ],
-    "tradeId": "900P5S9"
-  }, {
-    "side": "BUY",
-    "quantity": 24,
-    "price": 11,
-    "tradeDate": "1373114511",
-    "status": "NOMINATED",
-    "counterpartyId": "Wiza Inc",
-    "commodityId": "Cultivated Oat",
-    "location": "San Jose",
-    "accessList": [
-      "jpiolav"
-    ],
-    "tradeId": "246Q1C8"
-  }, {
-    "side": "BUY",
-    "quantity": 82,
-    "price": 10,
-    "tradeDate": "1358003906",
-    "status": "OPEN",
-    "counterpartyId": "Nolan-Wilkinson",
-    "commodityId": "ANTIBACTERIAL",
-    "location": "Thành Phố Lạng Sơn",
-    "accessList": [
-      "cwindebankw"
-    ],
-    "tradeId": "222Q3Z0"
-  }, {
-    "side": "BUY",
-    "quantity": 28,
-    "price": 13,
-    "tradeDate": "1289227266",
-    "status": "NOMINATED",
-    "counterpartyId": "Kerluke, Cremin and Kiehn",
-    "commodityId": "Verapamil",
-    "location": "Caozhen",
-    "accessList": [
-      "sblagburnx"
-    ],
-    "tradeId": "200M8Q8"
-  }, {
-    "side": "BUY",
-    "quantity": 24,
-    "price": 10,
-    "tradeDate": "1278984597",
-    "status": "OPEN",
-    "counterpartyId": "Nikolaus-Heller",
-    "commodityId": "TOPIRAMATE",
-    "location": "Gurupi",
-    "accessList": [
-      "schillesy"
-    ],
-    "tradeId": "568U3I5"
-  }, {
-    "side": "SELL",
-    "quantity": 59,
-    "price": 14,
-    "tradeDate": "1481723376",
-    "status": "NOMINATED",
-    "counterpartyId": "Nitzsche-Schamberger",
-    "commodityId": "traveler spf15",
-    "location": "Glinojeck",
-    "accessList": [
-      "mmoubrayz"
-    ],
-    "tradeId": "084I8I3"
-  }, {
-    "side": "SELL",
-    "quantity": 29,
-    "price": 12,
-    "tradeDate": "1478617675",
-    "status": "OPEN",
-    "counterpartyId": "White Inc",
-    "commodityId": "Phenytoin Sodium",
-    "location": "Ribeiro",
-    "accessList": [
-      "hkernley10"
-    ],
-    "tradeId": "957L3N7"
-  }, {
-    "side": "BUY",
-    "quantity": 36,
-    "price": 12,
-    "tradeDate": "1408615749",
-    "status": "NOMINATED",
-    "counterpartyId": "Rice, O'Connell and Gulgowski",
-    "commodityId": "Alcortin",
-    "location": "Tuanshan",
-    "accessList": [
-      "tmorad11"
-    ],
-    "tradeId": "741G4U4"
-  }, {
-    "side": "BUY",
-    "quantity": 43,
-    "price": 11,
-    "tradeDate": "1505804408",
-    "status": "NOMINATED",
-    "counterpartyId": "Murphy-Bins",
-    "commodityId": "Headache relief",
-    "location": "Banī an Nahārī",
-    "accessList": [
-      "ihellicar12"
-    ],
-    "tradeId": "658M7P3"
-  }, {
-    "side": "SELL",
-    "quantity": 45,
-    "price": 11,
-    "tradeDate": "1362989300",
-    "status": "NOMINATED",
-    "counterpartyId": "Quigley, Lockman and Fahey",
-    "commodityId": "Fever - Infection",
-    "location": "Baratleke",
-    "accessList": [
-      "ryalden13"
-    ],
-    "tradeId": "442S9U9"
-  }]
+[
+    {
+        "side": "SELL",
+        "quantity": 36,
+        "price": 333,
+        "tradeDate": 1568842216,
+        "status": "OPEN",
+        "counterpartyId": "YNPS",
+        "commodityId": "IRON",
+        "location": "Glenville",
+        "accessList": [
+            "anamay@applideck.com",
+            "alexandriagallagher@magnemo.com",
+            "inabaxter@vicon.com",
+            "mirandajarvis@rockabye.com",
+            "alejandraguerra@housedown.com",
+            "oliverlogan@zomboid.com",
+            "loweingram@phuel.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 35,
+        "price": 677,
+        "tradeDate": 1549811047,
+        "status": "OPEN",
+        "counterpartyId": "QAZO",
+        "commodityId": "GOLD",
+        "location": "Wacissa",
+        "accessList": [
+            "diaznorris@medcom.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 30,
+        "price": 244,
+        "tradeDate": 1541691643,
+        "status": "NOMINATED",
+        "counterpartyId": "LZED",
+        "commodityId": "PLAT",
+        "location": "Heil",
+        "accessList": [
+            "lyndanunez@verton.com",
+            "dyerschultz@orbalix.com",
+            "mccrayvalentine@corepan.com",
+            "watkinsortega@ohmnet.com",
+            "kiddcarroll@pulze.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 28,
+        "price": 223,
+        "tradeDate": 1546287543,
+        "status": "NOMINATED",
+        "counterpartyId": "LYEK",
+        "commodityId": "PLAT",
+        "location": "Norfolk",
+        "accessList": [
+            "hopperchan@deminimum.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 25,
+        "price": 509,
+        "tradeDate": 1550604548,
+        "status": "NOMINATED",
+        "counterpartyId": "JMAZ",
+        "commodityId": "ALU",
+        "location": "Kent",
+        "accessList": [
+            "krystalmcmillan@sultrax.com",
+            "rileymills@memora.com",
+            "faithfrancis@quantalia.com",
+            "ingramhampton@zerbina.com",
+            "shannadodson@singavera.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 20,
+        "price": 385,
+        "tradeDate": 1563279795,
+        "status": "NOMINATED",
+        "counterpartyId": "DRBX",
+        "commodityId": "SILVER",
+        "location": "Coldiron",
+        "accessList": [
+            "hahnemerson@fuelton.com",
+            "hoganhardin@quailcom.com",
+            "changhiggins@entroflex.com",
+            "lilianabriggs@zosis.com",
+            "riddlediaz@jamnation.com",
+            "yvonnegilliam@vertide.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 29,
+        "price": 477,
+        "tradeDate": 1541311136,
+        "status": "NOMINATED",
+        "counterpartyId": "PFYR",
+        "commodityId": "IRON",
+        "location": "Bath",
+        "accessList": [
+            "nadinecunningham@slax.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 25,
+        "price": 510,
+        "tradeDate": 1570520687,
+        "status": "OPEN",
+        "counterpartyId": "WNIC",
+        "commodityId": "PLAT",
+        "location": "Moquino",
+        "accessList": [
+            "ayersberg@cytrek.com",
+            "myrnahorne@aquafire.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 31,
+        "price": 443,
+        "tradeDate": 1556413129,
+        "status": "OPEN",
+        "counterpartyId": "MHZB",
+        "commodityId": "SILVER",
+        "location": "Carbonville",
+        "accessList": [
+            "goodmansantiago@insurety.com",
+            "monafields@bittor.com",
+            "hullbray@comtent.com",
+            "wallacedonovan@moltonic.com",
+            "oconnorwelch@photobin.com",
+            "estellamckinney@cogentry.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 33,
+        "price": 637,
+        "tradeDate": 1559932306,
+        "status": "NOMINATED",
+        "counterpartyId": "JLNQ",
+        "commodityId": "PLAT",
+        "location": "Noblestown",
+        "accessList": [
+            "chelseaboyle@zappix.com",
+            "shafferruiz@isodrive.com",
+            "calliecervantes@goko.com",
+            "meredithcarrillo@obliq.com",
+            "kellerherring@zillar.com",
+            "mcfaddenprince@zentility.com",
+            "bullockcardenas@ginkogene.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 28,
+        "price": 510,
+        "tradeDate": 1564881383,
+        "status": "OPEN",
+        "counterpartyId": "DQJE",
+        "commodityId": "GOLD",
+        "location": "Blende",
+        "accessList": [
+            "bridgetroberts@suremax.com",
+            "keriserrano@manglo.com",
+            "nguyenwhitehead@imant.com",
+            "brooksespinoza@corpulse.com",
+            "jacobselliott@maximind.com",
+            "marksyork@zolarity.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 40,
+        "price": 463,
+        "tradeDate": 1565516140,
+        "status": "NOMINATED",
+        "counterpartyId": "KPUP",
+        "commodityId": "SILVER",
+        "location": "Ryderwood",
+        "accessList": [
+            "halliemanning@virva.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 37,
+        "price": 409,
+        "tradeDate": 1548132024,
+        "status": "NOMINATED",
+        "counterpartyId": "YKTB",
+        "commodityId": "SILVER",
+        "location": "Goochland",
+        "accessList": [
+            "sancheztaylor@hivedom.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 38,
+        "price": 609,
+        "tradeDate": 1561518843,
+        "status": "NOMINATED",
+        "counterpartyId": "QXAJ",
+        "commodityId": "SILVER",
+        "location": "Strong",
+        "accessList": [
+            "earlenechase@hatology.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 24,
+        "price": 337,
+        "tradeDate": 1542663615,
+        "status": "NOMINATED",
+        "counterpartyId": "VDSC",
+        "commodityId": "IRON",
+        "location": "Southmont",
+        "accessList": [
+            "terrycarson@roughies.com",
+            "bowerscaldwell@geekular.com",
+            "monroeenglish@zinca.com",
+            "frenchblake@halap.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 35,
+        "price": 264,
+        "tradeDate": 1551028819,
+        "status": "NOMINATED",
+        "counterpartyId": "WXNV",
+        "commodityId": "PLAT",
+        "location": "Ventress",
+        "accessList": [
+            "krisschmidt@extragen.com",
+            "evansstanton@lumbrex.com",
+            "andrewsross@genmom.com",
+            "luciawalker@accupharm.com",
+            "summersshelton@firewax.com",
+            "kelleycampbell@kongle.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 38,
+        "price": 286,
+        "tradeDate": 1567739530,
+        "status": "OPEN",
+        "counterpartyId": "FZOK",
+        "commodityId": "SILVER",
+        "location": "Caln",
+        "accessList": [
+            "tashakennedy@ecosys.com",
+            "marystephenson@polaria.com",
+            "beardbrown@zenco.com",
+            "maritzarogers@xleen.com",
+            "owenshoward@andershun.com",
+            "hurleychristian@gronk.com",
+            "spencersheppard@accidency.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 21,
+        "price": 683,
+        "tradeDate": 1557834318,
+        "status": "NOMINATED",
+        "counterpartyId": "MQAI",
+        "commodityId": "PLAT",
+        "location": "Ogema",
+        "accessList": [
+            "acevedorichards@viagrand.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 26,
+        "price": 336,
+        "tradeDate": 1545391119,
+        "status": "NOMINATED",
+        "counterpartyId": "QJUC",
+        "commodityId": "IRON",
+        "location": "Noxen",
+        "accessList": [
+            "contrerassampson@comvene.com",
+            "mckinneybowers@qualitern.com",
+            "lesterharrington@danja.com",
+            "joniwilcox@franscene.com",
+            "beverlydunn@velity.com",
+            "mcfarlandburns@plexia.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 28,
+        "price": 423,
+        "tradeDate": 1560864434,
+        "status": "OPEN",
+        "counterpartyId": "LZMS",
+        "commodityId": "ALU",
+        "location": "Finzel",
+        "accessList": [
+            "dianeadams@mazuda.com",
+            "lydiastokes@valpreal.com",
+            "richardsoncrawford@conjurica.com",
+            "gracemcfarland@applica.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 37,
+        "price": 509,
+        "tradeDate": 1567829197,
+        "status": "OPEN",
+        "counterpartyId": "RIKZ",
+        "commodityId": "GOLD",
+        "location": "Faxon",
+        "accessList": [
+            "meadowsmooney@codact.com",
+            "bethwalter@netur.com",
+            "kleinrollins@nixelt.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 22,
+        "price": 699,
+        "tradeDate": 1558397812,
+        "status": "OPEN",
+        "counterpartyId": "WESX",
+        "commodityId": "SILVER",
+        "location": "Chelsea",
+        "accessList": [
+            "selenasargent@premiant.com",
+            "baldwincantrell@insuresys.com",
+            "birdpowell@junipoor.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 32,
+        "price": 596,
+        "tradeDate": 1559420473,
+        "status": "OPEN",
+        "counterpartyId": "DCRJ",
+        "commodityId": "PLAT",
+        "location": "Darbydale",
+        "accessList": [
+            "pattiwhite@orboid.com",
+            "rosalindbush@exoblue.com",
+            "lucasrivas@anarco.com",
+            "nolanbenson@concility.com",
+            "mcmahonwilson@skybold.com",
+            "agnesdixon@zogak.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 35,
+        "price": 467,
+        "tradeDate": 1552999217,
+        "status": "OPEN",
+        "counterpartyId": "QTKH",
+        "commodityId": "GOLD",
+        "location": "Kimmell",
+        "accessList": [
+            "adelinekline@zillactic.com",
+            "ileneburks@zerology.com",
+            "mckeewarren@strezzo.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 27,
+        "price": 624,
+        "tradeDate": 1558660493,
+        "status": "OPEN",
+        "counterpartyId": "SMDA",
+        "commodityId": "GOLD",
+        "location": "Cataract",
+        "accessList": [
+            "humphreyguzman@magneato.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 21,
+        "price": 530,
+        "tradeDate": 1553606278,
+        "status": "NOMINATED",
+        "counterpartyId": "YHRI",
+        "commodityId": "PLAT",
+        "location": "Strykersville",
+        "accessList": [
+            "caseylevine@cuizine.com",
+            "zelmafigueroa@canopoly.com",
+            "deloresking@iplax.com",
+            "guzmanmorales@jumpstack.com",
+            "flossiesantana@quilk.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 27,
+        "price": 540,
+        "tradeDate": 1569634842,
+        "status": "NOMINATED",
+        "counterpartyId": "QBEB",
+        "commodityId": "PLAT",
+        "location": "Troy",
+        "accessList": [
+            "russoswanson@atomica.com",
+            "hydebennett@zidox.com",
+            "marilynjensen@earbang.com",
+            "wolfrichardson@dancity.com",
+            "celialeblanc@comveyer.com",
+            "lillianneal@kongene.com",
+            "steelebrowning@quarex.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 24,
+        "price": 265,
+        "tradeDate": 1543924444,
+        "status": "OPEN",
+        "counterpartyId": "WWZC",
+        "commodityId": "SILVER",
+        "location": "Holtville",
+        "accessList": [
+            "barlowvaldez@kegular.com",
+            "frazierhayden@endipin.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 37,
+        "price": 614,
+        "tradeDate": 1547508838,
+        "status": "OPEN",
+        "counterpartyId": "QXEL",
+        "commodityId": "PLAT",
+        "location": "Marysville",
+        "accessList": [
+            "meyerwheeler@lyria.com",
+            "laceywebster@cujo.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 35,
+        "price": 293,
+        "tradeDate": 1549728719,
+        "status": "NOMINATED",
+        "counterpartyId": "YAVW",
+        "commodityId": "PLAT",
+        "location": "Harviell",
+        "accessList": [
+            "kittyleach@fanfare.com",
+            "mortonfranklin@egypto.com",
+            "donacalderon@acumentor.com",
+            "amaliamcgowan@momentia.com",
+            "kanehowell@fishland.com",
+            "sweeneyhinton@emoltra.com",
+            "jeanpierce@dognost.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 29,
+        "price": 682,
+        "tradeDate": 1541141897,
+        "status": "OPEN",
+        "counterpartyId": "VRUQ",
+        "commodityId": "GOLD",
+        "location": "Urbana",
+        "accessList": [
+            "angeliamcdonald@klugger.com",
+            "porterbrooks@phormula.com",
+            "hardingsherman@teraprene.com",
+            "coleenlancaster@ontagene.com",
+            "jordansolis@ginkle.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 33,
+        "price": 538,
+        "tradeDate": 1542081640,
+        "status": "OPEN",
+        "counterpartyId": "AFKF",
+        "commodityId": "SILVER",
+        "location": "Boomer",
+        "accessList": [
+            "josephinealvarez@sultraxin.com",
+            "tessacarr@ontality.com",
+            "lizziehart@zenthall.com",
+            "georgiakerr@accusage.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 33,
+        "price": 407,
+        "tradeDate": 1552883764,
+        "status": "NOMINATED",
+        "counterpartyId": "ZJAH",
+        "commodityId": "IRON",
+        "location": "Morgandale",
+        "accessList": [
+            "headdaugherty@zytrek.com",
+            "maciasbooker@biolive.com",
+            "audraryan@neurocell.com",
+            "anthonyfuentes@ziggles.com",
+            "ellamcleod@cubicide.com",
+            "pittmanholloway@isonus.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 35,
+        "price": 325,
+        "tradeDate": 1548127360,
+        "status": "NOMINATED",
+        "counterpartyId": "NRJJ",
+        "commodityId": "PLAT",
+        "location": "Blodgett",
+        "accessList": [
+            "tiffanyhammond@hometown.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 34,
+        "price": 424,
+        "tradeDate": 1545944507,
+        "status": "OPEN",
+        "counterpartyId": "ORPR",
+        "commodityId": "IRON",
+        "location": "Fostoria",
+        "accessList": [
+            "dinacase@corecom.com",
+            "mercerwade@anixang.com",
+            "rosacarver@furnitech.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 21,
+        "price": 317,
+        "tradeDate": 1561699894,
+        "status": "OPEN",
+        "counterpartyId": "IYWO",
+        "commodityId": "GOLD",
+        "location": "Hemlock",
+        "accessList": [
+            "jannarobbins@qaboos.com",
+            "vasquezburris@pearlesex.com",
+            "burtwebb@chillium.com",
+            "rasmussensilva@orbin.com",
+            "clarissasummers@pholio.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 32,
+        "price": 200,
+        "tradeDate": 1568732127,
+        "status": "NOMINATED",
+        "counterpartyId": "OMPY",
+        "commodityId": "IRON",
+        "location": "Winesburg",
+        "accessList": [
+            "jennychristensen@melbacor.com",
+            "natashamolina@eyeris.com",
+            "mayandrews@musix.com",
+            "waltermccarty@globoil.com",
+            "shelbyhaley@hopeli.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 22,
+        "price": 419,
+        "tradeDate": 1547601795,
+        "status": "OPEN",
+        "counterpartyId": "LYKS",
+        "commodityId": "ALU",
+        "location": "Lorraine",
+        "accessList": [
+            "gallaghertran@krag.com",
+            "toddnieves@parleynet.com",
+            "estradawalls@waretel.com",
+            "clemonsbuckner@exospeed.com",
+            "violalangley@anocha.com"
+        ]
+    },
+    {
+        "side": "SELL",
+        "quantity": 26,
+        "price": 445,
+        "tradeDate": 1558331690,
+        "status": "NOMINATED",
+        "counterpartyId": "NMJN",
+        "commodityId": "ALU",
+        "location": "Murillo",
+        "accessList": [
+            "petersdonaldson@comcur.com"
+        ]
+    },
+    {
+        "side": "BUY",
+        "quantity": 24,
+        "price": 575,
+        "tradeDate": 1549642088,
+        "status": "NOMINATED",
+        "counterpartyId": "KSMB",
+        "commodityId": "ALU",
+        "location": "Libertytown",
+        "accessList": [
+            "luanngordon@dognosis.com",
+            "vanessalucas@vendblend.com"
+        ]
+    }
+]

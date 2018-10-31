@@ -15,7 +15,10 @@ module.exports = (app) => {
 
     router.use('/trade', trade);
 
-    
+    /**
+     * Create a trade with the creator by default in the access list
+     */
+    trade.post('/', tradeController.createTrade);
 
     /**
      * Get a single trade using the trade ID.
@@ -33,10 +36,7 @@ module.exports = (app) => {
      */
     trade.get('/', tradeController.searchTrades);
 
-    /**
-     * Create a trade with the creator by default in the access list
-     */
-    trade.post('/', tradeController.createTrade);
+    
 
     /**
      * Delete a single trade by its trade ID.

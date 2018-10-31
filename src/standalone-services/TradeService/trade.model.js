@@ -5,7 +5,8 @@ const TradeSchema = new mongoose.Schema({
     side: {
         type: String,
         enum: ["BUY", "SELL"],
-        required: true
+        required: true,
+        uppercase: true
     },
     quantity: {
         type: Number,
@@ -51,3 +52,29 @@ function accessListLowerBound(accessList) {
 }
 
 module.exports = mongoose.model('Trade', TradeSchema);
+
+/***
+ * To generate dummy data:
+ * https://www.json-generator.com/#
+[
+    '{{repeat(40)}}',
+    {
+      
+      side: '{{random("BUY", "SELL")}}',
+      quantity: '{{integer(20, 40)}}',
+      price: '{{integer(200, 700)}}',
+      tradeDate: '{{integer(1541020449, 1572556448)}}',
+      status: '{{random("OPEN", "NOMINATED")}}',
+      counterpartyId: function makeid() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          for (var i = 0; i < 4; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+          return text;
+      },
+      commodityId: '{{random("IRON", "GOLD", "ALU", "PLAT", "SILVER")}}',
+      location: '{{city()}}',
+      accessList: ['{{repeat(1,7)}}','{{email(true)}}']
+    }
+  ]
+*/

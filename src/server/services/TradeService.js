@@ -42,11 +42,15 @@ module.exports.process = (action, registry, cb) => {
             break;
 
             case "createTrade":
+                console.log(action.body);
                 return request
                     .post(`http://${service.ip}:${service.port}/trade/`)
                     .set('Content-Type', 'application/json')
                     .send(action.body)
-                    .then(response => cb(response));
+                    .then(response => cb(response))
+                    .catch(err => {
+                        console.log(err);
+                    });
             break;
             case "deleteTrade":
                 return request

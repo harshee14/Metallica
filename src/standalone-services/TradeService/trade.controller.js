@@ -10,26 +10,26 @@ module.exports = class TradeController {
 
         if(queryParameters["startDate"] !== undefined && queryParameters["startDate"] !== "") {
             if(searchParameters["tradeDate"]) {
-                searchParameters["tradeDate"]["$gte"] = new Date(parseInt(queryParameters["startDate"])*1000);
+                searchParameters["tradeDate"]["$gte"] = new Date(Number(queryParameters["startDate"])*1000);
             } else {
                 searchParameters["tradeDate"] = {
-                    $gte: new Date(parseInt(queryParameters["startDate"])*1000)
+                    $gte: new Date(Number(queryParameters["startDate"])*1000)
                 }
             }
         }
 
         if(queryParameters["endDate"] !== undefined && queryParameters["endDate"] !== "") {
             if(searchParameters["tradeDate"]) {
-                searchParameters["tradeDate"]["$lte"] = new Date(parseInt(queryParameters["endDate"])*1000);
+                searchParameters["tradeDate"]["$lte"] = new Date(Number(queryParameters["endDate"])*1000);
             } else {
                 searchParameters["tradeDate"] = {
-                    $gte: new Date(parseInt(queryParameters["endDate"])*1000)
+                    $gte: new Date(Number(queryParameters["endDate"])*1000)
                 }
             }
         }
 
         if(queryParameters["commodity"] !== undefined && queryParameters["commodity"] !== "") {
-            searchParameters["commodity"] = queryParameters["commodity"];
+            searchParameters["commodityId"] = queryParameters["commodity"];
         }
 
         if(queryParameters["buy"] !== undefined && queryParameters["buy"] !== "") {
@@ -80,26 +80,40 @@ module.exports = class TradeController {
         Trade.find({tradeId: req.query.tradeId}, (err, result) => {
             if(err) {
                 console.log("Record not found. Got some error - " + err);
+            } else {
+                res.status(200).json({trade: result});
             }
-            res.status(200).json({trade: result});
         })
     }
 
     editSingleTrade(req, res) {
         Trade.update({tradeId: req.params.tradeId}, {$set: req.body}, (err, doc) => {
-            res.status(200).json(doc);
+            if(err) {
+                res.status(500).json({error: "Encountered error during updating the trade: " + err});
+            } else {
+                res.status(200).json(doc);
+            }
         })
     }
 
     createTrade(req, res) {
         const newTrade = new Trade(req.body);
         newTrade.save((err) => {
-            if(err) res.status(500).json({result: "Error"});
-            res.status(200).json({result: "Successfully created trade"});
+            if(err) {
+                res.status(500).json({result: "Error"});
+            } else {
+                res.status(200).json({result: "Successfully created trade"});
+            }
         })
     }
 
     deleteSingleTrade(req, res) {
-        return {};
+        Trade.deleteOne({tradeId: req.params.tradeId}, (err, doc) => {
+            if(err) {
+                res.status(500).json({error: "Encountered error while deleting the trade: " + err});
+            } else {
+                res.status(200).json(doc);
+            }
+        })
     }
 }

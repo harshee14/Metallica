@@ -2,6 +2,7 @@ const express = require('express');
 const ServiceRegistry = require('./ServiceRegistry');
 const os = require('os');
 const log4js = require('log4js');
+const bodyParser = require('body-parser');
 
 const tradeService = require('./services/TradeService').process;
 const notificationService = require('./services/NotificationService').process;
@@ -17,6 +18,7 @@ module.exports.route = (app) => {
 
 
     app.use(express.static('dist'));
+    app.use(bodyParser.urlencoded());
     app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
     
     app.put('/service/:serviceName/:port', (req, res, next) => {
@@ -31,7 +33,15 @@ module.exports.route = (app) => {
     });
 
 
-    app.get('/api/trade/:intent', (req, res) => {
+    /**
+     * Available APIs:
+     * - GET /api/trade/searchTrades?buy={0,1}&sell={0,1}&startDate={new Date()}&endDate={new Date()}&commodity={commodityId}&counterParty={counterParty}&location={location}
+     * - GET /api/trade/getTrade?tradeId={tradeId}
+     * - PUT /api/trade/editTrade?tradeId={tradeId} <TRADE BODY>
+     * - POST /api/trade/createTrade <TRADE BODY>
+     * - DELETE /api/trade/deleteTrade?tradeId={tradeId}
+     */
+    app.all('/api/trade/:intent', (req, res) => {
         const action = {
             service: 'TradeService',
             queryParameters: req.query,

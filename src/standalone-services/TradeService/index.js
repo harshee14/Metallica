@@ -20,9 +20,21 @@ const GATEWAY_PORT = "8080";
 
 mongoose.connect(`mongodb://127.0.0.1/trades`, { useNewUrlParser: true }).then((x) => {
     logger.info("Sucessfully connected to MongoDB.");
-    Trade.insertMany(obj, (err, docs) => {
-        console.log("Added dummy trade data");
-    });
+    Trade.deleteMany({}, () => {
+        console.log("Cleared Trades database.");
+        for(let index in dummyData) {
+            let row = dummyData[index];
+            row.tradeDate = new Date(Number(row.tradeDate)*1000);
+            const trade = new Trade(row);
+            trade.save((err, docs) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    // console.log("Added dummy trade data");
+                }
+            });
+        }
+    })
 });
 
 const app = express();
