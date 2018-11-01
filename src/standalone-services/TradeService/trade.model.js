@@ -74,7 +74,14 @@ module.exports = mongoose.model('Trade', TradeSchema);
       },
       commodityId: '{{random("IRON", "GOLD", "ALU", "PLAT", "SILVER")}}',
       location: '{{city()}}',
-      accessList: ['{{repeat(1,7)}}','{{email(true)}}']
+      accessList: ['{{repeat(1,7)}}','{{email(true)}}'],
+      tradeId: function tradeId() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+          for (var i = 0; i < 7; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+          return text;
+      }
     }
   ]
 */
