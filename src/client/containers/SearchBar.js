@@ -80,8 +80,8 @@ class SearchBar extends Component
 		e.preventDefault();
 		let tempState = {
 			...this.state,
-			startDate : this.state.startDate.format("MM/DD/YYYY"),
-			endDate : this.state.endDate.format("MM/DD/YYYY")
+			startDate :  (typeof this.state.startDate === "undefined") ? "" : this.state.startDate.format("MM/DD/YYYY"),
+			endDate :  (typeof this.state.endDate === "undefined") ? "" : this.state.endDate.format("MM/DD/YYYY")
 		};
 		console.log(tempState);
 		this.props.searchTrades(tempState);
