@@ -7,7 +7,7 @@ const configure = require('./configure');
 const Trade = require('./trade.model');
 
 const fs = require('fs');
-const obj = JSON.parse(fs.readFileSync('./dummy.json', 'utf8'));
+const dummyData = JSON.parse(fs.readFileSync('./dummy.json', 'utf8'));
 
 const logger = log4js.getLogger("TradeServiceIndex");
 logger.level = 'debug';
