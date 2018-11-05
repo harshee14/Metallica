@@ -28,23 +28,18 @@ class SingleTradeCardEditMode extends Component
             quantity : this.props.tradeview.quantity,
             price : this.props.tradeview.price
         };
-        
+
         this.errors = {
         };
 
         this.handleQuantityChange = this.handleQuantityChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
-        this.handleStartDateChange = this.handleStartDateChange.bind(this);
-        this.handleEndDateChange = this.handleEndDateChange.bind(this);
         this.handleValidation = this.handleValidation.bind(this);
         this.doSubmit = this.doSubmit.bind(this);
     }
 
     handleQuantityChange = e => this.setState({quantity : parseFloat(e.target.value)});
     handlePriceChange = e => this.setState({price : parseFloat(e.target.value)});
-    handleStartDateChange = startDate => this.setState({ startDate : startDate.format("MM/DD/YYYY") });
-    handleEndDateChange = endDate => this.setState({ endDate : endDate.format("MM/DD/YYYY")});
-
 
     handleValidation() {
         let formIsValid = true;
@@ -57,16 +52,6 @@ class SingleTradeCardEditMode extends Component
         if(!this.state.quantity){
             formIsValid = false;
             this.errors["quantity"] = "Cannot be empty";
-        }
-
-        if(!this.state.startDate){
-            formIsValid = false;
-        this.errors["startDate"] = "Cannot be empty";
-        }
-
-        if(!this.state.endDate){
-            formIsValid = false;
-            this.errors["endDate"] = "Cannot be empty";
         }
 
         //fails if I dont change the value as the number is still a number
@@ -165,28 +150,6 @@ class SingleTradeCardEditMode extends Component
                         <Col sm={9} md={9}>
                             <FormControl type="text" value = {this.state.price} onChange = {this.handlePriceChange} />
                             <HelpBlock className = 'helpblock'>Price can only be numbers</HelpBlock>
-                        </Col>
-                    </FormGroup>
-                    <FormGroup controlId="formHorizontalStartDate">
-                        <Col componentClass={ControlLabel} sm={3} md={3}>
-                            StartDate
-                        </Col>
-                        <Col sm={9} md={9}>
-                            <div className = 'alignDate'>
-                                <ReactDatePicker onChange = {this.handleStartDateChange} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={moment(this.state.startDate,"MM/DD/YYYY")} startDate={moment(this.state.startDate,"MM/DD/YYYY")} endDate={moment(this.state.endDate,"MM/DD/YYYY")}/>
-                            </div>
-                            <HelpBlock className = 'helpblock'>StartDate cannot be empty</HelpBlock>
-                        </Col>
-                    </FormGroup>
-                    <FormGroup controlId="formHorizontalEndDate">
-                        <Col componentClass={ControlLabel} sm={3} md={3}>
-                            EndDate
-                        </Col>
-                        <Col sm={9} md={9}>
-                            <div className = 'alignDate'>
-                                <ReactDatePicker onChange = {this.handleEndDateChange} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={moment(this.state.endDate,"MM/DD/YYYY")} startDate={moment(this.state.startDate,"MM/DD/YYYY")} endDate={moment(this.state.endDate,"MM/DD/YYYY")}/>
-                            </div>
-                            <HelpBlock className = 'helpblock'>End Date >=  Start Date</HelpBlock>
                         </Col>
                     </FormGroup>
                     <FormGroup>

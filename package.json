@@ -35,6 +35,9 @@
     "react-redux": "^5.0.7",
     "react-select": "^2.1.0",
     "redux": "^4.0.1",
+    "redux-promise": "^0.6.0",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0",
     "superagent": "^4.0.0-beta.5"
   },
   "devDependencies": {

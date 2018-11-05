@@ -1,3 +1,5 @@
+import request from 'superagent' ;
+
 export function saveEditedTrade(mode, trade) {
     let packet = { mode: mode, trade: trade };
     console.log('how does my save editedTrade packet look like ?', packet);
@@ -64,14 +66,46 @@ export function editTrade(mode, trade) {
 }
 
 export function searchTrades(searchQuery) {
-    let trades = [];
-    let selectedTradeId = 0;
-    for (var i = 10; i >= 0; i--) {
-        trades.push(createDummyTrades());
-    }
+ const selectedTradeId = 0
+   let servicePromise =  request.get('/api/trade/searchTrades')
+          .query({
+            buy : searchQuery.buySide ? 1 : 0,
+            sell : searchQuery.sellSide ? 1 : 0,
+            startDate : Math.floor(new Date(searchQuery.startDate).getTime()/1000),
+            endDate : Math.floor(new Date(searchQuery.endDate).getTime()/1000),
+            commodity : searchQuery.commodity[0].name ,
+            counterpartyId : searchQuery.counterparty[0].name,
+            location : searchQuery.location[0].name
+          })
+          .then(
+            res => {
+              console.log(res);
+
+              const trades = res.body.trades ;
+              const mappedTrades = trades.map(trade => {
+                return {
+                        tradeDate: new Date(trade.tradeDate).toLocaleDateString("en-US") ,
+                        commodity: trade.commodityId,
+                        side: trade.side,
+                        quantity: trade.quantity,
+                        price: trade.price,
+                        location: trade.location,
+                        counterparty: trade.counterpartyId,
+                        tradeId: trade.tradeId
+                      }
+              });
+
+              return {selectedTradeId : 0, trades : mappedTrades}
+            }
+          ).catch(err => {console.log(1,err)})
+    // let trades = [];
+    // let selectedTradeId = 0;
+    // for (var i = 10; i >= 0; i--) {
+    //     trades.push(createDummyTrades());
+    // }
     return {
         type: 'SEARCH_TRADES', //always instantiated
-        payload: { selectedTradeId, trades } //not necessary
+        payload: servicePromise //not necessary
     };
 }
 

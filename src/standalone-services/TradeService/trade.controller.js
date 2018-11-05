@@ -58,8 +58,8 @@ module.exports = class TradeController {
             }
         }
 
-        if(queryParameters["counterParty"] !== undefined && queryParameters["counterParty"] !== "") {
-            searchParameters["counterParty"] = queryParameters["counterParty"];
+        if(queryParameters["counterpartyId"] !== undefined && queryParameters["counterpartyId"] !== "") {
+            searchParameters["counterpartyId"] = queryParameters["counterpartyId"];
         }
 
         if(queryParameters["location"] !== undefined && queryParameters["location"] !== "") {

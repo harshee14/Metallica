@@ -1,6 +1,6 @@
 export default function(state = {}, action) {
     switch(action.type) {
-        case 'SEARCH_TRADES':
+        case 'SEARCH_TRADES_FULFILLED':
             return action.payload;
 
         case 'SAVE_EDITED_TRADE': {

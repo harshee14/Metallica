@@ -16,7 +16,7 @@ class MarketPricesDisplayPanel extends Component {
             this.setState({
                 metalAndPrices : this.getUpdatedPrice()
             });
-        },100);
+        },10000);
     }
 
     componentWillUnmount() {
