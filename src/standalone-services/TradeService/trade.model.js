@@ -24,11 +24,11 @@ const TradeSchema = new mongoose.Schema({
         type: String,
         enum: ["OPEN", "NOMINATED"]
     },
-    counterpartyId: {
+    counterparty: {
         type: String,
         required: true,
     },
-    commodityId: {
+    commodity: {
         type: String,
         required: true
     },
@@ -36,20 +36,16 @@ const TradeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    accessList: {
-        type: [String],
-        validate: [accessListLowerBound, '{PATH} should have atleast one member']
+    trader: {
+        type: String,
+        required: true
     },
     tradeId: {
-        type: String,
+        type: Number,
         required: true,
         unique: true
     }
 });
-
-function accessListLowerBound(accessList) {
-    return accessList.length > 0;
-}
 
 module.exports = mongoose.model('Trade', TradeSchema);
 
@@ -59,7 +55,7 @@ module.exports = mongoose.model('Trade', TradeSchema);
 [
     '{{repeat(40)}}',
     {
-      
+
       side: '{{random("BUY", "SELL")}}',
       quantity: '{{integer(20, 40)}}',
       price: '{{integer(200, 700)}}',

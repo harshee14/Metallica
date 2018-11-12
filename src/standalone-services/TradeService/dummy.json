@@ -5,17 +5,11 @@
         "price": 473,
         "tradeDate": 1521638393,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Copper",
+        "counterparty": "Godrej",
+        "commodity": "Copper",
         "location": "Bihar",
-        "accessList": [
-            "bairdgomez@acium.com",
-            "kelleywallace@ecrater.com",
-            "taracervantes@navir.com",
-            "morrisvinson@xylar.com",
-            "euniceoneil@geeknet.com"
-        ],
-        "tradeId": "DYAQNVS"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 1
     },
     {
         "side": "BUY",
@@ -23,13 +17,11 @@
         "price": 580,
         "tradeDate": 1544618614,
         "status": "NOMINATED",
-        "counterpartyId": "Reliance",
-        "commodityId": "Gold",
+        "counterparty": "Reliance",
+        "commodity": "Gold",
         "location": "Kashmir",
-        "accessList": [
-            "minniecole@idetica.com"
-        ],
-        "tradeId": "G9SW9EM"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 2
     },
     {
         "side": "SELL",
@@ -37,16 +29,11 @@
         "price": 225,
         "tradeDate": 1544110809,
         "status": "OPEN",
-        "counterpartyId": "Airtel",
-        "commodityId": "Aluminium",
+        "counterparty": "Airtel",
+        "commodity": "Aluminium",
         "location": "Kashmir",
-        "accessList": [
-            "alberttownsend@petigems.com",
-            "garzabarton@yogasm.com",
-            "esteseverett@fuelton.com",
-            "nobleweaver@daido.com"
-        ],
-        "tradeId": "5PUP8D0"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 3
     },
     {
         "side": "SELL",
@@ -54,16 +41,11 @@
         "price": 685,
         "tradeDate": 1529747744,
         "status": "OPEN",
-        "counterpartyId": "Godrej",
-        "commodityId": "Copper",
+        "counterparty": "Godrej",
+        "commodity": "Copper",
         "location": "Bihar",
-        "accessList": [
-            "chasegood@kyaguru.com",
-            "josefalawrence@kengen.com",
-            "davenporthines@podunk.com",
-            "kathrynmoody@gogol.com"
-        ],
-        "tradeId": "CY5AEEG"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 4
     },
     {
         "side": "SELL",
@@ -71,17 +53,11 @@
         "price": 405,
         "tradeDate": 1517003162,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Gold",
+        "counterparty": "Godrej",
+        "commodity": "Gold",
         "location": "Orissa",
-        "accessList": [
-            "mcculloughhurley@jumpstack.com",
-            "maribelvaldez@digigen.com",
-            "sandovalfrost@progenex.com",
-            "martamcdonald@dentrex.com",
-            "conwayhanson@fleetmix.com"
-        ],
-        "tradeId": "A3U2A06"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 5
     },
     {
         "side": "BUY",
@@ -89,19 +65,11 @@
         "price": 627,
         "tradeDate": 1518919348,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Gold",
+        "counterparty": "Reliance",
+        "commodity": "Gold",
         "location": "Orissa",
-        "accessList": [
-            "ramossanchez@nikuda.com",
-            "molliecollins@sarasonic.com",
-            "pamwood@nurplex.com",
-            "mathisherman@pharmacon.com",
-            "margiehammond@grupoli.com",
-            "stevensonkim@solgan.com",
-            "kaufmangill@telpod.com"
-        ],
-        "tradeId": "ZYDU2EG"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 6
     },
     {
         "side": "SELL",
@@ -109,18 +77,11 @@
         "price": 312,
         "tradeDate": 1527473150,
         "status": "NOMINATED",
-        "counterpartyId": "Tata",
-        "commodityId": "Copper",
+        "counterparty": "Tata",
+        "commodity": "Copper",
         "location": "Kashmir",
-        "accessList": [
-            "dayrojas@synkgen.com",
-            "darleneglass@visualix.com",
-            "floresbecker@zytrek.com",
-            "ballardcarter@steeltab.com",
-            "robertsonroberson@urbanshee.com",
-            "naomiroman@gorganic.com"
-        ],
-        "tradeId": "W3VECM4"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 7
     },
     {
         "side": "SELL",
@@ -128,18 +89,11 @@
         "price": 366,
         "tradeDate": 1535337896,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Copper",
+        "counterparty": "Godrej",
+        "commodity": "Copper",
         "location": "Kashmir",
-        "accessList": [
-            "concepcionwhitley@joviold.com",
-            "nortoncoffey@hyplex.com",
-            "knightcrawford@rugstars.com",
-            "gonzaleshall@flotonic.com",
-            "smithpoole@ronelon.com",
-            "deidremassey@apex.com"
-        ],
-        "tradeId": "EYQWU10"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 8
     },
     {
         "side": "BUY",
@@ -147,13 +101,11 @@
         "price": 437,
         "tradeDate": 1540680835,
         "status": "OPEN",
-        "counterpartyId": "Godrej",
-        "commodityId": "Copper",
+        "counterparty": "Godrej",
+        "commodity": "Copper",
         "location": "Karnataka",
-        "accessList": [
-            "loraarmstrong@eyewax.com"
-        ],
-        "tradeId": "JQU2D6W"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 9
     },
     {
         "side": "SELL",
@@ -161,16 +113,11 @@
         "price": 390,
         "tradeDate": 1525691347,
         "status": "NOMINATED",
-        "counterpartyId": "Reliance",
-        "commodityId": "Aluminium",
+        "counterparty": "Reliance",
+        "commodity": "Aluminium",
         "location": "Kashmir",
-        "accessList": [
-            "danielshale@comstar.com",
-            "lesleyirwin@newcube.com",
-            "nicoletaylor@eweville.com",
-            "newtonshannon@octocore.com"
-        ],
-        "tradeId": "LSTIFBY"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 10
     },
     {
         "side": "SELL",
@@ -178,17 +125,11 @@
         "price": 424,
         "tradeDate": 1523550214,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Iron",
+        "counterparty": "Reliance",
+        "commodity": "Iron",
         "location": "Orissa",
-        "accessList": [
-            "inesnorman@plasmos.com",
-            "mcguireclarke@housedown.com",
-            "marinacarroll@zillidium.com",
-            "guzmanmitchell@liquidoc.com",
-            "pearlscott@zogak.com"
-        ],
-        "tradeId": "SOW2NHS"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 11
     },
     {
         "side": "SELL",
@@ -196,16 +137,11 @@
         "price": 291,
         "tradeDate": 1530737662,
         "status": "NOMINATED",
-        "counterpartyId": "Tata",
-        "commodityId": "Iron",
+        "counterparty": "Tata",
+        "commodity": "Iron",
         "location": "Kashmir",
-        "accessList": [
-            "christinameyer@mantrix.com",
-            "lorenaespinoza@koffee.com",
-            "mcdowellwiley@eplode.com",
-            "prestonwarren@locazone.com"
-        ],
-        "tradeId": "QZBZDXZ"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 12
     },
     {
         "side": "SELL",
@@ -213,18 +149,11 @@
         "price": 427,
         "tradeDate": 1516020808,
         "status": "OPEN",
-        "counterpartyId": "Publicis",
-        "commodityId": "Gold",
+        "counterparty": "Publicis",
+        "commodity": "Gold",
         "location": "Karnataka",
-        "accessList": [
-            "shirleyramirez@microluxe.com",
-            "boyermarsh@endipine.com",
-            "essiebartlett@imaginart.com",
-            "donnabranch@equitax.com",
-            "gilmorefuller@scentric.com",
-            "bonitasalas@techade.com"
-        ],
-        "tradeId": "VW72KZA"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 13
     },
     {
         "side": "SELL",
@@ -232,18 +161,11 @@
         "price": 239,
         "tradeDate": 1523508847,
         "status": "OPEN",
-        "counterpartyId": "Tata",
-        "commodityId": "Aluminium",
+        "counterparty": "Tata",
+        "commodity": "Aluminium",
         "location": "Orissa",
-        "accessList": [
-            "holderosborn@comvey.com",
-            "burgessnewton@medesign.com",
-            "vargasodonnell@zolavo.com",
-            "stanleymueller@edecine.com",
-            "palmerblake@extremo.com",
-            "holmeshorn@concility.com"
-        ],
-        "tradeId": "GLA1FO6"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 14
     },
     {
         "side": "SELL",
@@ -251,17 +173,11 @@
         "price": 360,
         "tradeDate": 1546024386,
         "status": "OPEN",
-        "counterpartyId": "Publicis",
-        "commodityId": "Gold",
+        "counterparty": "Publicis",
+        "commodity": "Gold",
         "location": "Orissa",
-        "accessList": [
-            "ivakeller@prismatic.com",
-            "estellafarley@deviltoe.com",
-            "fisherstevens@zenthall.com",
-            "griffithweber@lunchpad.com",
-            "tabithasullivan@undertap.com"
-        ],
-        "tradeId": "UW0EUS1"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 15
     },
     {
         "side": "SELL",
@@ -269,16 +185,11 @@
         "price": 479,
         "tradeDate": 1528941222,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Silver",
+        "counterparty": "Reliance",
+        "commodity": "Silver",
         "location": "Kashmir",
-        "accessList": [
-            "espinozawilkinson@furnigeer.com",
-            "mcleodcase@bisba.com",
-            "meyerbowen@kineticut.com",
-            "isabellafrazier@geekmosis.com"
-        ],
-        "tradeId": "ZTPRKMT"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 16
     },
     {
         "side": "BUY",
@@ -286,15 +197,11 @@
         "price": 523,
         "tradeDate": 1541116466,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Iron",
+        "counterparty": "Reliance",
+        "commodity": "Iron",
         "location": "Bihar",
-        "accessList": [
-            "sellersgarrett@ebidco.com",
-            "maureenanderson@rotodyne.com",
-            "nelsonrichard@netur.com"
-        ],
-        "tradeId": "0JX0NI7"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 17
     },
     {
         "side": "BUY",
@@ -302,19 +209,11 @@
         "price": 375,
         "tradeDate": 1529694057,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Copper",
+        "counterparty": "Reliance",
+        "commodity": "Copper",
         "location": "Gujarat",
-        "accessList": [
-            "foleygilmore@candecor.com",
-            "nashjoseph@plasmox.com",
-            "elviahobbs@solaren.com",
-            "hayeshowe@verbus.com",
-            "weissmann@anivet.com",
-            "nicholsoncamacho@springbee.com",
-            "debbiewatson@exoplode.com"
-        ],
-        "tradeId": "8CI7XTA"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 18
     },
     {
         "side": "SELL",
@@ -322,16 +221,11 @@
         "price": 569,
         "tradeDate": 1519947317,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Silver",
+        "counterparty": "Godrej",
+        "commodity": "Silver",
         "location": "Kashmir",
-        "accessList": [
-            "evangelinaflynn@inquala.com",
-            "wigginsnixon@ewaves.com",
-            "miafrye@accupharm.com",
-            "leannaochoa@supremia.com"
-        ],
-        "tradeId": "GISLY24"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 19
     },
     {
         "side": "SELL",
@@ -339,17 +233,11 @@
         "price": 479,
         "tradeDate": 1543932948,
         "status": "NOMINATED",
-        "counterpartyId": "Airtel",
-        "commodityId": "Aluminium",
+        "counterparty": "Airtel",
+        "commodity": "Aluminium",
         "location": "Orissa",
-        "accessList": [
-            "bethanyromero@greeker.com",
-            "annettemccall@phormula.com",
-            "lavernegilliam@uni.com",
-            "cochrankey@multron.com",
-            "joycehill@dancerity.com"
-        ],
-        "tradeId": "4HJ25JE"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 20
     },
     {
         "side": "BUY",
@@ -357,19 +245,11 @@
         "price": 373,
         "tradeDate": 1538132360,
         "status": "OPEN",
-        "counterpartyId": "Airtel",
-        "commodityId": "Aluminium",
+        "counterparty": "Airtel",
+        "commodity": "Aluminium",
         "location": "Orissa",
-        "accessList": [
-            "marilyncantu@earthwax.com",
-            "deanaboyd@bolax.com",
-            "patrickcortez@geekfarm.com",
-            "craftcotton@plexia.com",
-            "lillykeith@conjurica.com",
-            "shepardmelton@klugger.com",
-            "zelmaharding@sequitur.com"
-        ],
-        "tradeId": "AK610MH"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 21
     },
     {
         "side": "BUY",
@@ -377,19 +257,11 @@
         "price": 606,
         "tradeDate": 1544288523,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Aluminium",
+        "counterparty": "Reliance",
+        "commodity": "Aluminium",
         "location": "Orissa",
-        "accessList": [
-            "douglasbennett@namebox.com",
-            "schultzmclaughlin@golistic.com",
-            "antoniaconner@zilidium.com",
-            "susanbonner@miracula.com",
-            "yolandasears@virxo.com",
-            "robertknowles@tropolis.com",
-            "leapierce@cipromox.com"
-        ],
-        "tradeId": "FCQF2MC"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 22
     },
     {
         "side": "BUY",
@@ -397,13 +269,11 @@
         "price": 686,
         "tradeDate": 1529306192,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Aluminium",
+        "counterparty": "Godrej",
+        "commodity": "Aluminium",
         "location": "Kashmir",
-        "accessList": [
-            "housebates@comtours.com"
-        ],
-        "tradeId": "AGOZCNX"
+      "trader": "hbhatnagar@sapient.com",
+        "tradeId": 23
     },
     {
         "side": "SELL",
@@ -411,19 +281,11 @@
         "price": 401,
         "tradeDate": 1545474835,
         "status": "OPEN",
-        "counterpartyId": "Tata",
-        "commodityId": "Copper",
+        "counterparty": "Tata",
+        "commodity": "Copper",
         "location": "Bihar",
-        "accessList": [
-            "noemihopper@boilcat.com",
-            "brookegamble@comtrail.com",
-            "saundramooney@kegular.com",
-            "ramireznavarro@emtrac.com",
-            "taylornolan@enaut.com",
-            "lenoreclark@fishland.com",
-            "conradwilcox@zolar.com"
-        ],
-        "tradeId": "P1VY4QA"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 24
     },
     {
         "side": "SELL",
@@ -431,16 +293,11 @@
         "price": 577,
         "tradeDate": 1528474404,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Iron",
+        "counterparty": "Reliance",
+        "commodity": "Iron",
         "location": "Kashmir",
-        "accessList": [
-            "barbaracameron@providco.com",
-            "lorainebrady@photobin.com",
-            "reynabradshaw@entogrok.com",
-            "revanguyen@zolarity.com"
-        ],
-        "tradeId": "HHSDLYJ"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 25
     },
     {
         "side": "SELL",
@@ -448,15 +305,11 @@
         "price": 620,
         "tradeDate": 1515134358,
         "status": "NOMINATED",
-        "counterpartyId": "Airtel",
-        "commodityId": "Silver",
+        "counterparty": "Airtel",
+        "commodity": "Silver",
         "location": "Gujarat",
-        "accessList": [
-            "chambersspears@zensus.com",
-            "whitleyhendrix@capscreen.com",
-            "stefanieglover@cognicode.com"
-        ],
-        "tradeId": "ANUYKEH"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 26
     },
     {
         "side": "BUY",
@@ -464,14 +317,11 @@
         "price": 488,
         "tradeDate": 1523794766,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Gold",
+        "counterparty": "Godrej",
+        "commodity": "Gold",
         "location": "Bihar",
-        "accessList": [
-            "aishamiddleton@tribalog.com",
-            "tuckerfigueroa@mediot.com"
-        ],
-        "tradeId": "BKASBOB"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 27
     },
     {
         "side": "BUY",
@@ -479,17 +329,11 @@
         "price": 227,
         "tradeDate": 1532706496,
         "status": "NOMINATED",
-        "counterpartyId": "Publicis",
-        "commodityId": "Silver",
+        "counterparty": "Publicis",
+        "commodity": "Silver",
         "location": "Bihar",
-        "accessList": [
-            "gallaghersampson@roughies.com",
-            "alishamcneil@zillatide.com",
-            "nevatrevino@terragen.com",
-            "kariwhite@isodrive.com",
-            "valeriehuff@zentury.com"
-        ],
-        "tradeId": "HKYQ7GE"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 28
     },
     {
         "side": "SELL",
@@ -497,14 +341,11 @@
         "price": 663,
         "tradeDate": 1529151303,
         "status": "NOMINATED",
-        "counterpartyId": "Reliance",
-        "commodityId": "Aluminium",
+        "counterparty": "Reliance",
+        "commodity": "Aluminium",
         "location": "Orissa",
-        "accessList": [
-            "kennedyduncan@ecratic.com",
-            "wendyvillarreal@viasia.com"
-        ],
-        "tradeId": "0BBJTOR"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 29
     },
     {
         "side": "BUY",
@@ -512,17 +353,11 @@
         "price": 448,
         "tradeDate": 1515187293,
         "status": "NOMINATED",
-        "counterpartyId": "Airtel",
-        "commodityId": "Silver",
+        "counterparty": "Airtel",
+        "commodity": "Silver",
         "location": "Kashmir",
-        "accessList": [
-            "evangelinewilder@tersanki.com",
-            "leejensen@zyple.com",
-            "whitneyturner@zenolux.com",
-            "whiteharris@neocent.com",
-            "littlebender@aquoavo.com"
-        ],
-        "tradeId": "YM325XS"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 30
     },
     {
         "side": "BUY",
@@ -530,14 +365,11 @@
         "price": 327,
         "tradeDate": 1530720992,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Iron",
+        "counterparty": "Reliance",
+        "commodity": "Iron",
         "location": "Kashmir",
-        "accessList": [
-            "kleinsuarez@tingles.com",
-            "gamblemarquez@pyramia.com"
-        ],
-        "tradeId": "4VH8YLV"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 31
     },
     {
         "side": "SELL",
@@ -545,13 +377,11 @@
         "price": 345,
         "tradeDate": 1542338624,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Iron",
+        "counterparty": "Godrej",
+        "commodity": "Iron",
         "location": "Bihar",
-        "accessList": [
-            "vondacleveland@katakana.com"
-        ],
-        "tradeId": "K6JMI5J"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 32
     },
     {
         "side": "SELL",
@@ -559,15 +389,11 @@
         "price": 469,
         "tradeDate": 1543593013,
         "status": "NOMINATED",
-        "counterpartyId": "Godrej",
-        "commodityId": "Silver",
+        "counterparty": "Godrej",
+        "commodity": "Silver",
         "location": "Gujarat",
-        "accessList": [
-            "underwoodmacias@bizmatic.com",
-            "carolehooper@menbrain.com",
-            "virginiasimmons@kongene.com"
-        ],
-        "tradeId": "YYW6139"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 33
     },
     {
         "side": "SELL",
@@ -575,19 +401,11 @@
         "price": 374,
         "tradeDate": 1532710497,
         "status": "NOMINATED",
-        "counterpartyId": "Publicis",
-        "commodityId": "Copper",
+        "counterparty": "Publicis",
+        "commodity": "Copper",
         "location": "Karnataka",
-        "accessList": [
-            "sybilmorris@rodemco.com",
-            "haneyashley@premiant.com",
-            "mariajames@sultraxin.com",
-            "gonzaleznorris@zaggles.com",
-            "elisabethklein@exoteric.com",
-            "perezelliott@fortean.com",
-            "wilkinshaynes@visalia.com"
-        ],
-        "tradeId": "UT6XA80"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 34
     },
     {
         "side": "SELL",
@@ -595,13 +413,11 @@
         "price": 684,
         "tradeDate": 1541664022,
         "status": "NOMINATED",
-        "counterpartyId": "Airtel",
-        "commodityId": "Silver",
+        "counterparty": "Airtel",
+        "commodity": "Silver",
         "location": "Bihar",
-        "accessList": [
-            "jacklyngibson@iplax.com"
-        ],
-        "tradeId": "BMHVPL2"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 35
     },
     {
         "side": "BUY",
@@ -609,14 +425,11 @@
         "price": 437,
         "tradeDate": 1527615641,
         "status": "OPEN",
-        "counterpartyId": "Airtel",
-        "commodityId": "Silver",
+        "counterparty": "Airtel",
+        "commodity": "Silver",
         "location": "Gujarat",
-        "accessList": [
-            "branchbeach@accufarm.com",
-            "rondamiles@lumbrex.com"
-        ],
-        "tradeId": "2FMPXE8"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 36
     },
     {
         "side": "BUY",
@@ -624,19 +437,11 @@
         "price": 603,
         "tradeDate": 1539912641,
         "status": "OPEN",
-        "counterpartyId": "Reliance",
-        "commodityId": "Copper",
+        "counterparty": "Reliance",
+        "commodity": "Copper",
         "location": "Karnataka",
-        "accessList": [
-            "richardsonpickett@tetratrex.com",
-            "gracecross@comdom.com",
-            "wolfwall@zaj.com",
-            "bernadettefrancis@zilladyne.com",
-            "navarrolucas@syntac.com",
-            "alisonriley@oronoko.com",
-            "lyndamoreno@exostream.com"
-        ],
-        "tradeId": "DY75Q7J"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 37
     },
     {
         "side": "BUY",
@@ -644,18 +449,11 @@
         "price": 633,
         "tradeDate": 1540739873,
         "status": "OPEN",
-        "counterpartyId": "Godrej",
-        "commodityId": "Silver",
+        "counterparty": "Godrej",
+        "commodity": "Silver",
         "location": "Gujarat",
-        "accessList": [
-            "mariemays@uxmox.com",
-            "haydenratliff@imperium.com",
-            "mcgeebond@codax.com",
-            "cathywalker@viagrand.com",
-            "deleonstout@zaphire.com",
-            "churchbrennan@gynk.com"
-        ],
-        "tradeId": "PZC3K12"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 38
     },
     {
         "side": "BUY",
@@ -663,17 +461,11 @@
         "price": 346,
         "tradeDate": 1521775478,
         "status": "NOMINATED",
-        "counterpartyId": "Tata",
-        "commodityId": "Copper",
+        "counterparty": "Tata",
+        "commodity": "Copper",
         "location": "Bihar",
-        "accessList": [
-            "francescathompson@xumonk.com",
-            "valenzuelamccullough@techmania.com",
-            "corinetanner@ersum.com",
-            "deborahuber@plutorque.com",
-            "caseymoses@netility.com"
-        ],
-        "tradeId": "DLTKGIY"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 39
     },
     {
         "side": "BUY",
@@ -681,18 +473,10 @@
         "price": 405,
         "tradeDate": 1532751671,
         "status": "OPEN",
-        "counterpartyId": "Godrej",
-        "commodityId": "Gold",
+        "counterparty": "Godrej",
+        "commodity": "Gold",
         "location": "Bihar",
-        "accessList": [
-            "mallorydalton@nutralab.com",
-            "cynthiagallegos@kraggle.com",
-            "crosscraft@aquacine.com",
-            "phoebecarpenter@boilicon.com",
-            "rosalindcooper@gazak.com",
-            "ebonystafford@rocklogic.com",
-            "jacksonhorne@comstruct.com"
-        ],
-        "tradeId": "L91E3ZK"
+        "trader": "hbhatnagar@sapient.com",
+        "tradeId": 40
     }
 ]

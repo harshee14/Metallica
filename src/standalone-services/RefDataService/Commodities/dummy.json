@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Gold",
+    "identifier": "GOL"
+  },
+  {
+    "name": "Silver",
+    "identifier": "SIL"
+  },
+  {
+    "name": "Aluminium",
+    "identifier": "ALU"
+  },
+  {
+    "name": "Iron",
+    "identifier": "IRO"
+  },
+  {
+    "name": "Copper",
+    "identifier": "COP"
+  }
+]

@@ -13,14 +13,18 @@ export default function(state = 'VIEW_TRADE', action)
         case 'CANCEL_EDITED_TRADE':
         return action.payload;
 
-        case 'SAVE_EDITED_TRADE':
+        case 'SAVE_EDITED_TRADE_FULFILLED':
         return action.payload.mode;
 
         case 'CANCEL_CREATE_TRADE':
         return action.payload;
 
-        case 'SAVE_CREATED_TRADE':
+        case 'SAVE_CREATED_TRADE_FULFILLED':
         return action.payload.mode;
+
+        case 'SEARCH_TRADES_FULFILLED':
+        return state;
+
     }
     return state ;
 }

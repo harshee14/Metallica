@@ -8,6 +8,7 @@ const tradeService = require('./services/TradeService').process;
 const notificationService = require('./services/NotificationService').process;
 const refDataService = require('./services/RefDataService').process;
 const marketdataService = require('./services/MarketDataService').process;
+const cors = require('cors')
 
 const logger = log4js.getLogger("MetallicaServiceRouter");
 
@@ -18,18 +19,20 @@ module.exports.route = (app) => {
 
 
     app.use(express.static('dist'));
-    app.use(bodyParser.urlencoded());
+    app.use(cors({credentials: true, origin: true}));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: true}));
     app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
-    
+
     app.put('/service/:serviceName/:port', (req, res, next) => {
         const serviceName = req.params.serviceName;
         const servicePort = req.params.port;
-        const serviceIp = req.connection.remoteAddress.includes('::') ? 
+        const serviceIp = req.connection.remoteAddress.includes('::') ?
             `[${req.connection.remoteAddress}]` : req.connection.remoteAddress;
 
         serviceRegistry.add(serviceName, serviceIp, servicePort);
         res.json({result: `${serviceName} at ${serviceIp}:${servicePort}`});
-        
+
     });
 
 
@@ -48,23 +51,25 @@ module.exports.route = (app) => {
             intent: req.params.intent,
             body: req.body
         }
+        logger.debug('what does my action look',action);
         tradeService(action, serviceRegistry, (response) => {
             res.status(200).json(response.body);
         });
     });
 
     app.get('/api/refdata', (req, res) => {
+       console.log(req);
         const action = {
             service: 'RefDataService',
             queryParameters: req.query
         }
-        res.json({result: refDataService(action, serviceRegistry, (err, res) => {
+        refDataService(action, serviceRegistry, (err, response) => {
             if(err) {
                 logger.error("RefDataService sent back an error. " + JSON.stringify(err));
             } else {
-                return res;
+                res.status(200).json(response);
             }
-        })});
+        });
     });
 
     app.get('/api/marketdata', (req, res) => {

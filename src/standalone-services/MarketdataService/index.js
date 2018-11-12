@@ -1,6 +1,8 @@
 const express = require('express');
 const log4js = require('log4js');
+  log4js.configure('./logconfig.json');
 const request = require('superagent');
+const configure = require('./configure');
 
 const logger = log4js.getLogger("MarketdataServiceIndex");
 logger.level = 'debug';
@@ -15,6 +17,7 @@ const GATEWAY_IP = "127.0.0.1";
 const GATEWAY_PORT = "8080";
 
 const app = express();
+configure(app);
 
 app.get('/marketdata', (req, res) => {
     process(req, (err, res) => {
@@ -28,7 +31,7 @@ app.get('/marketdata', (req, res) => {
 
 app.listen(port, () => {
     logger.info(`MarketdataService listening on ${port}`);
-    
+
     const announce = (timeout) => {
         request.put(`http://${GATEWAY_IP}:${GATEWAY_PORT}/service/${SERVICE_NAME}/${port}`, (err, res) => {
             if(err) {

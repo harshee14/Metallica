@@ -2,12 +2,63 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {HelpBlock, Form, FormControl, ControlLabel, Panel, Button, FormGroup, Row, Col, ButtonToolbar} from 'react-bootstrap';
 import React, { Component } from 'react';
-import ReactDatePicker from 'react-datepicker'
-import Select from 'react-select'
 
-import 'react-datepicker/dist/react-datepicker.css';
+import Select from 'react-select/lib/Async'
+import SyncSelect from 'react-select'
+import request from 'superagent' ;
 
 import { saveCreatedTrade} from '../actions/index';
+
+const counterpartyOptions = (inputValue) =>
+request.get('/api/refdata?entity=counterparty&operation=getAllCounterparties')
+          .query({})
+          .then(
+            res => {
+              console.log("my mapped counterparties :" ,res.body.counterparties);
+              const counterparties =  res.body.counterparties ;
+              const mappedCounterparties = counterparties.map(counterparty => {
+                return {
+                  value: counterparty.name ,
+                  label : counterparty.name
+                }
+              });
+
+             return mappedCounterparties;
+            }
+          ).catch(err => {console.log(1,err)}) ;
+
+const commodityOptions = inputValue =>
+          request.get('/api/refdata?entity=commodity&operation=getAllCommodities')
+                    .query({})
+                    .then(
+                      res => {
+                        const commodities = res.body.commodities ;
+                        const mappedCommodities = commodities.map(commodity => {
+                          return {
+                                  value: commodity.name ,
+                                  label : commodity.name
+                                }
+                        });
+                        return mappedCommodities;
+                      }
+                    ).catch(err => {console.log(1,err)});
+
+const tradelocationOptions = inputValue =>
+                              request.get('/api/refdata?entity=tradelocation&operation=getAllTradeLocations')
+                                        .query({})
+                                        .then(
+                                          res => {
+                                            const tradeLocations = res.body.tradelocations ;
+                                            const mappedTradeLocations = tradeLocations.map(location => {
+                                              return {
+                                                      value: location.name ,
+                                                      label : location.name
+                                                    }
+                                            });
+
+                                            return mappedTradeLocations;
+                                          }
+                                        ).catch(err => {console.log(1,err)}) ;
 
 class SingleTradeCardCreateMode extends Component
 {
@@ -15,14 +66,14 @@ class SingleTradeCardCreateMode extends Component
 	{
 		super(props);
         this.state = {
-            tradeId : 0,
             tradeDate : (new Date()).toLocaleDateString("en-US"),
             commodity : '',
             side : '',
             counterparty : '',
             location : '',
             quantity : '',
-            price : ''
+            price : '',
+						trader : "hbhatnagar@sapient.com"
         };
 
         this.errors = {
@@ -34,8 +85,6 @@ class SingleTradeCardCreateMode extends Component
         this.handleCommodityChange = this.handleCommodityChange.bind(this);
         this.handleQuantityChange = this.handleQuantityChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
-        this.handleStartDateChange = this.handleStartDateChange.bind(this);
-        this.handleEndDateChange = this.handleEndDateChange.bind(this);
         this.handleSideChange = this.handleSideChange.bind(this);
         this.handleValidation = this.handleValidation.bind(this);
         this.doSubmit = this.doSubmit.bind(this);
@@ -43,8 +92,6 @@ class SingleTradeCardCreateMode extends Component
 
     handleQuantityChange = e =>{this.setState({quantity : parseFloat(e.target.value)}); }
     handlePriceChange = e => this.setState({price : parseFloat(e.target.value)});
-    handleStartDateChange = startDate => this.setState({startDate : startDate.format("MM/DD/YYYY") });
-    handleEndDateChange = endDate => this.setState({endDate : endDate.format("MM/DD/YYYY") });
 
     handleCounterPartyChange(selected) {
         this.setState( {counterparty : selected.value}) ;
@@ -93,16 +140,6 @@ class SingleTradeCardCreateMode extends Component
             this.errors["quantity"] = "Cannot be empty";
         }
 
-        if(!this.state.startDate){
-            formIsValid = false;
-        this.errors["startDate"] = "Cannot be empty";
-        }
-
-        if(!this.state.endDate){
-            formIsValid = false;
-            this.errors["endDate"] = "Cannot be empty";
-        }
-
         //fails if I dont change the value as the number is still a number
         // if(typeof this.state.price !== "undefined"){
         //   if(!this.state.price.match(/^\d+(\.\d{1,2})?$/)){
@@ -124,9 +161,14 @@ class SingleTradeCardCreateMode extends Component
     doSubmit(e)
     {
         e.preventDefault();
+				console.log("how does my commodity look like?",this.state);
         if(this.handleValidation()){
-            this.props.saveCreatedTrade('VIEW_TRADE',this.state);
-            alert("Form submitted");
+						let tempState = {
+							...this.state,
+						};
+						console.log("CreateTrade: my request state is :" ,tempState);
+	            this.props.saveCreatedTrade('VIEW_TRADE',tempState);
+	            alert("Form submitted");
         }else{
             alert(`Errors. Check your inputs`);
         }
@@ -139,7 +181,7 @@ class SingleTradeCardCreateMode extends Component
                 <Panel.Heading>
                     <Panel.Title componentClass="h4">
                         <Row>
-                            <Col md = {12} id = "singletradecardheading">Trade Id : {this.state.tradeId}</Col>
+                            <Col md = {12} id = "singletradecardheading">Trade Id : 0</Col>
                         </Row>
                     </Panel.Title>
                 </Panel.Heading>
@@ -159,7 +201,7 @@ class SingleTradeCardCreateMode extends Component
                                 Counter Party
                             </Col>
                             <Col sm={9} md={9}>
-                                <Select value = {[{name:this.state.counterparty,label:this.state.counterparty}]} placeholder = {'Counterparty'} onChange={this.handleCounterPartyChange} options={this.provideList(this.props.counterparties)} isMulti = {false} />
+                                <Select value = {[{name:this.state.counterparty,label:this.state.counterparty}]} placeholder = {'Counterparty'} onChange={this.handleCounterPartyChange} cacheOptions defaultOptions loadOptions={counterpartyOptions} isMulti = {false} />
                             </Col>
                         </FormGroup>
 
@@ -168,7 +210,7 @@ class SingleTradeCardCreateMode extends Component
                                 Commodity
                             </Col>
                             <Col sm={9} md={9}>
-                                <Select value = {[{name:this.state.commodity,label:this.state.commodity}]} placeholder = {'Commodity'} onChange={this.handleCommodityChange} options={this.provideList(this.props.commodities)} isMulti = {false} />
+                                <Select value = {[{name:this.state.commodity,label:this.state.commodity}]} placeholder = {'Commodity'} onChange={this.handleCommodityChange} cacheOptions defaultOptions loadOptions={commodityOptions} isMulti = {false} />
                             </Col>
                         </FormGroup>
 
@@ -177,7 +219,7 @@ class SingleTradeCardCreateMode extends Component
                                 Side
                             </Col>
                             <Col sm={9} md={9}>
-                                <Select value = {[{name:this.state.side,label:this.state.side}]} placeholder = {'Side'} onChange={this.handleSideChange} options={this.provideList(sides)} isMulti = {false} />
+                                <SyncSelect value = {[{name:this.state.side,label:this.state.side}]} placeholder = {'Side'} onChange={this.handleSideChange} options={this.provideList(sides)} isMulti = {false} />
                             </Col>
                         </FormGroup>
 
@@ -186,7 +228,7 @@ class SingleTradeCardCreateMode extends Component
                                 Locations
                             </Col>
                             <Col sm={9} md={9}>
-                                <Select value = {[{name:this.state.location,label:this.state.location}]} placeholder = {'Trade Locations'} onChange={this.handleTradeLocationChange} options={this.provideList(this.props.tradeLocations)} isMulti = {false} />
+                                <Select value = {[{name:this.state.location,label:this.state.location}]} placeholder = {'Trade Locations'} onChange={this.handleTradeLocationChange}  cacheOptions defaultOptions loadOptions={tradelocationOptions} isMulti = {false} />
                             </Col>
                         </FormGroup>
 
@@ -210,30 +252,6 @@ class SingleTradeCardCreateMode extends Component
                             </Col>
                         </FormGroup>
 
-                        <FormGroup controlId="formHorizontalStartDate">
-                            <Col componentClass={ControlLabel} sm={3} md={3}>
-                                StartDate
-                            </Col>
-                            <Col sm={9} md={9}>
-                                <div className = 'alignDate'>
-                                    <ReactDatePicker onChange = {this.handleStartDateChange} className = 'margins' placeholderText = 'Trade Start Date' selectsStart selected={this.state.startDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
-                                </div>
-                                <HelpBlock className = 'helpblock'>StartDate cannot be empty</HelpBlock>
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup controlId="formHorizontalEndDate">
-                            <Col componentClass={ControlLabel} sm={3} md={3}>
-                                EndDate
-                            </Col>
-                            <Col sm={9} md={9}>
-                                <div className = 'alignDate'>
-                                    <ReactDatePicker onChange = {this.handleEndDateChange} className = 'margins' placeholderText = 'Trade End Date'selectsEnd selected={this.state.endDate} startDate={this.state.startDate} endDate={this.state.endDate}/>
-                                </div>
-                                <HelpBlock className = 'helpblock'>End Date >=  Start Date</HelpBlock>
-                            </Col>
-                        </FormGroup>
-
                         <FormGroup>
                             <Col sm={12} md={12}>
                                 <ButtonToolbar className = "pull-right">
@@ -248,17 +266,9 @@ class SingleTradeCardCreateMode extends Component
   }
 }
 
-function mapStateToProps(state) {
-  return {
-		counterparties : state.counterparties ,
-		commodities : state.commodities ,
-		tradeLocations : state.tradeLocations
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({saveCreatedTrade : saveCreatedTrade} , dispatch);
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardCreateMode);
+export default connect(null,mapDispatchToProps)(SingleTradeCardCreateMode);

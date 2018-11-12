@@ -21,12 +21,13 @@ module.exports.process = (action, registry, cb) => {
         service = registry.get(action.service);
 
         return request
-            .get(`http://${service.ip}:${service.port}/refdata`)
-            .query(action.queryParameters)
+            .get(`http://${service.ip}:${service.port}/${action.queryParameters.entity}`)
             .then(response => {
-                if(response.status < 3)
-                    return cb(null, response.body);
-                else
+              console.log(Object.keys(response));
+              console.log(response.body);
+                if(response.status != 200)
                     return cb(response, null);
+                else
+                    return cb(null, response.body);
             });
 }

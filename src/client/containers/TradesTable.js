@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BootstrapTable from 'react-bootstrap-table-next';
 import React, { Component } from 'react';
+import {Alert ,Panel, Row, Col} from 'react-bootstrap';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
@@ -81,20 +82,37 @@ class TradesTable extends Component
 
 
     render() {
-        console.log('my tradeslist ?',this.props.tradeslist);
+        console.log('TradesTable -> my tradeslist on rendering is :',this.props.tradeslist);
         var selectRow = {
             mode: 'radio',
             clickToSelect: true,
             hideSelectColumn: true,
-            style: { 
-                backgroundColor: '#c8e6c9' 
+            style: {
+                backgroundColor: '#c8e6c9'
             },
             selected : [ this.props.selectedTradeId ],
             onSelect: this.handleOnSelect
         };
 
         if(!this.props.tradeslist) {
-            return <div>No trades searched</div> ;
+            return <div>
+                    <Panel bsStyle="info">
+                        <Panel.Heading>
+                            <Panel.Title componentClass="h4">
+                                <Row>
+                                    <Col md = {12}>Trade Listing</Col>
+                                </Row>
+                            </Panel.Title>
+                        </Panel.Heading>
+                        <Panel.Body>
+                            <Row>
+                                <Col md={12}>
+                                    <Alert bsStyle="info"><h3> <strong>No Trades Searched ! <br /> Begin with Search Bar above.</strong></h3> </Alert>
+                                </Col>
+                            </Row>
+                        </Panel.Body>
+                    </Panel>
+                </div> ;
         }
         //selectRow.selected = this.props.selectedTradeId;
         //this.selectRow.onSelect = this.handleOnSelect ;

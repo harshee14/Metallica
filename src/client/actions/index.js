@@ -2,33 +2,46 @@ import request from 'superagent' ;
 
 export function saveEditedTrade(mode, trade) {
     let packet = { mode: mode, trade: trade };
-    console.log('how does my save editedTrade packet look like ?', packet);
+    console.log("what is the trade I am sending for editing",trade.quantity);
+    let servicePromise = request.put('/api/trade/editTrade')
+            .query({
+              tradeId : trade.tradeId
+            })
+            //.set('Content-Type', 'application/json')
+            //.send(JSON.stringify(trade))
+            .send(trade)
+            .then(
+              res => {
+                console.log("my edited trade response",res);
+                return {mode,trade} ;
+              }
+            );
     return {
         type: 'SAVE_EDITED_TRADE',
-        payload: packet
+        payload: servicePromise
     };
 }
 
 export function saveCreatedTrade(mode, trade) {
-    let temptrade = {
-        tradeDate: trade.tradeDate,
-        commodity: trade.commodity,
-        side: trade.side,
-        quantity: trade.quantity,
-        price: trade.price,
-        location: trade.location,
-        counterparty: trade.counterparty,
-        tradeId: Math.floor(Math.random() * 10000),
-        startDate: trade.startDate.format("MM/DD/YYYY"),
-        endDate: trade.endDate.format("MM/DD/YYYY")
-    };
-    let packet = { mode: mode, trade: temptrade };
 
-    console.log('how does my save createdTrade packet look like ?', packet);
-    return {
-        type: 'SAVE_CREATED_TRADE',
-        payload: packet
-    };
+  console.log("what is the trade I am sending for creating",trade);
+  let servicePromise = request.put('/api/trade/createTrade')
+          // .query({
+          //   tradeId : trade.tradeId
+          // })
+          //.set('Content-Type', 'application/json')
+          //.send(JSON.stringify(trade))
+          .send(trade)
+          .then(
+            res => {
+              console.log("my created trade response",res);
+              return {mode,trade} ;
+            }
+          );
+  return {
+      type: 'SAVE_CREATED_TRADE',
+      payload: servicePromise
+  };
 }
 
 export function createTrade(mode) {
@@ -41,7 +54,7 @@ export function createTrade(mode) {
 
 export function deleteTrade(mode, trade) {
     let packet = { mode: mode, trade: trade };
-    console.log('how does my save deletedTrade packet look like ?', packet);
+
     return {
         type: 'DELETE_TRADE',
         payload: packet
@@ -49,7 +62,7 @@ export function deleteTrade(mode, trade) {
 }
 
 export function viewTrade(mode, trade) {
-    console.log('how does my save viewTrade packet look like ?', packet);
+
     let packet = { mode: mode, trade: trade };
     return {
         type: 'VIEW_TRADE',
@@ -71,26 +84,27 @@ export function searchTrades(searchQuery) {
           .query({
             buy : searchQuery.buySide ? 1 : 0,
             sell : searchQuery.sellSide ? 1 : 0,
-            startDate : Math.floor(new Date(searchQuery.startDate).getTime()/1000),
-            endDate : Math.floor(new Date(searchQuery.endDate).getTime()/1000),
-            commodity : searchQuery.commodity[0].name ,
-            counterpartyId : searchQuery.counterparty[0].name,
-            location : searchQuery.location[0].name
+            startDate : searchQuery.startDate,
+            endDate : searchQuery.endDate,
+            commodity : searchQuery.commodity ,
+            counterparty : searchQuery.counterparty,
+            location : searchQuery.location,
+            trader : searchQuery.trader
           })
           .then(
             res => {
-              console.log(res);
+              console.log("actions/index.js/Searchtrades : Search query response",res);
 
               const trades = res.body.trades ;
               const mappedTrades = trades.map(trade => {
                 return {
                         tradeDate: new Date(trade.tradeDate).toLocaleDateString("en-US") ,
-                        commodity: trade.commodityId,
+                        commodity: trade.commodity,
                         side: trade.side,
                         quantity: trade.quantity,
                         price: trade.price,
                         location: trade.location,
-                        counterparty: trade.counterpartyId,
+                        counterparty: trade.counterparty,
                         tradeId: trade.tradeId
                       }
               });
@@ -109,6 +123,7 @@ export function searchTrades(searchQuery) {
     };
 }
 
+
 function createDummyTrades() {
     const metal = ['Iron', 'Gold', 'Silver', 'Platinum', 'Alu', 'Uranium'];
     const cp = ['ABC', 'XYZ', 'WRU', 'PS', 'Corp'];
@@ -123,8 +138,6 @@ function createDummyTrades() {
         price: Math.floor(134 - 20 * Math.random()),
         location: location[Math.floor(Math.random() * location.length)],
         counterparty: cp[Math.floor(Math.random() * cp.length)],
-        tradeId: Math.floor(Math.random() * 10000),
-        startDate: (new Date((new Date()).getTime() + 30000000000 * Math.random())).toLocaleDateString("en-US"),
-        endDate: (new Date((new Date()).getTime() + 60000000000 * Math.random())).toLocaleDateString("en-US")
+        tradeId: Math.floor(Math.random() * 10000)
     };
 }

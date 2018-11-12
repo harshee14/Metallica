@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Form, Alert, Glyphicon, FormControl, ControlLabel, Panel, Button, FormGroup, Row, Col } from 'react-bootstrap';
 import React, { Component } from 'react';
 
-import 'react-datepicker/dist/react-datepicker.css';
-
 import { editTrade, deleteTrade } from '../actions/index';
 
 class SingleTradeCardViewMode extends Component
@@ -35,18 +33,6 @@ class SingleTradeCardViewMode extends Component
                     </Panel>
                 </div>
             );
-		}
-
-		let startDate, endDate ;
-		if(typeof this.props.tradeview.startDate === "object")
-			startDate = this.props.tradeview.startDate.format("MM/DD/YYYY");
-		else {
-			startDate = this.props.tradeview.startDate;
-		}
-		if(typeof this.props.tradeview.endDate === "object")
-			endDate = this.props.tradeview.endDate.format("MM/DD/YYYY");
-		else {
-			endDate = this.props.tradeview.endDate;
 		}
 
 		return (
@@ -119,23 +105,6 @@ class SingleTradeCardViewMode extends Component
                             </Col>
                             <Col sm={9} md={9}>
                                 <FormControl type="text" disabled value = {this.props.tradeview.price} />
-                            </Col>
-                        </FormGroup>
-                        <FormGroup controlId="formHorizontalStartDate">
-                            <Col componentClass={ControlLabel} sm={3} md={3}>
-                                StartDate
-                            </Col>
-                            <Col sm={9} md={9}>
-                                <FormControl type="text" disabled value = {startDate} />
-
-                            </Col>
-                        </FormGroup>
-                        <FormGroup controlId="formHorizontalEndDate">
-                            <Col componentClass={ControlLabel} sm={3} md={3}>
-                                EndDate
-                            </Col>
-                            <Col sm={9} md={9}>
-                                <FormControl type="text" disabled value = {endDate} />
                             </Col>
                         </FormGroup>
                     </Form>

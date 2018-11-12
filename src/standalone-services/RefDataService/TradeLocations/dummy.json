@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Bihar",
+    "identifier": "BIH"
+  },
+  {
+    "name": "Kashmir",
+    "identifier": "KAS"
+  },
+  {
+    "name": "Gujarat",
+    "identifier": "GUJ"
+  },
+  {
+    "name": "Orissa",
+    "identifier": "ORI"
+  },
+  {
+    "name": "Karnataka",
+    "identifier": "KAR"
+  }
+]

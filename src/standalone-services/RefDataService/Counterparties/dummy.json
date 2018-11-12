@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Godrej",
+    "identifier": "GOD"
+  },
+  {
+    "name": "Tata",
+    "identifier": "TAT"
+  },
+  {
+    "name": "Reliance",
+    "identifier": "REL"
+  },
+  {
+    "name": "Publicis",
+    "identifier": "PUB"
+  },
+  {
+    "name": "Airtel",
+    "identifier": "AIR"
+  }
+]

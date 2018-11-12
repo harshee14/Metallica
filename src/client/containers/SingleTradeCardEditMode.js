@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { HelpBlock, Form, FormControl, ControlLabel, Panel, Button, FormGroup, Row, Col, ButtonToolbar } from 'react-bootstrap';
 import moment from 'moment';
 import React, { Component } from 'react';
-import ReactDatePicker from 'react-datepicker'
-
-import 'react-datepicker/dist/react-datepicker.css';
 
 import { saveEditedTrade } from '../actions/index';
 
@@ -17,10 +14,6 @@ class SingleTradeCardEditMode extends Component
 		this.state = {
             tradeId : this.props.tradeview.tradeId,
             tradeDate : this.props.tradeview.tradeDate,
-            startDate : this.props.tradeview.startDate ,
-            endDate : this.props.tradeview.endDate ,
-            // startDate : moment(this.props.tradeview.startDate,"MM/DD/YYYY") ,
-            // endDate : moment(this.props.tradeview.endDate,"MM/DD/YYYY") ,
             commodity : this.props.tradeview.commodity,
             side : this.props.tradeview.side,
             counterparty : this.props.tradeview.counterparty,
@@ -74,8 +67,11 @@ class SingleTradeCardEditMode extends Component
 
 	doSubmit(e) {
         e.preventDefault();
+				let tempState = Object.assign({}, this.state);
+				console.log("my temp state",tempState);
         if(this.handleValidation()){
-            this.props.saveEditedTrade('VIEW_TRADE',this.state);
+
+            this.props.saveEditedTrade('VIEW_TRADE',tempState);
             alert("Form submitted");
         } else {
             alert(`Errors. Check your inputs`);
@@ -170,9 +166,6 @@ class SingleTradeCardEditMode extends Component
 function mapStateToProps(state) {
     return {
         tradeview : state.tradeview,
-        counterparties : state.counterparties,
-        commodities : state.commodities,
-        tradeLocations : state.tradeLocations
     };
 }
 

@@ -1,38 +1,42 @@
 const log4js = require('log4js');
-const logger = log4js.getLogger("TradeServiceController");
+const configure = require('./configure');
+
 const Trade = require('./trade.model');
 
+const logger = log4js.getLogger("TradeServiceController");
 module.exports = class TradeController {
+      searchTrades(req, res) {
+        logger.debug('What is my query' , req.query);
 
-    searchTrades(req, res) {
         const queryParameters = req.query;
         const searchParameters = {};
 
-        if(queryParameters["startDate"] !== undefined && queryParameters["startDate"] !== "") {
+        if(queryParameters["startDate"] !== undefined && queryParameters["startDate"] !== "0") {
             if(searchParameters["tradeDate"]) {
-                searchParameters["tradeDate"]["$gte"] = new Date(Number(queryParameters["startDate"])*1000);
+                searchParameters["tradeDate"]["$gte"] = new Date(queryParameters["startDate"]);
             } else {
                 searchParameters["tradeDate"] = {
-                    $gte: new Date(Number(queryParameters["startDate"])*1000)
+                    $gte: new Date(queryParameters["startDate"])
                 }
             }
         }
 
-        if(queryParameters["endDate"] !== undefined && queryParameters["endDate"] !== "") {
+        if(queryParameters["endDate"] !== undefined && queryParameters["endDate"] !== "0") {
             if(searchParameters["tradeDate"]) {
-                searchParameters["tradeDate"]["$lte"] = new Date(Number(queryParameters["endDate"])*1000);
+                searchParameters["tradeDate"]["$lte"] = new Date(queryParameters["endDate"]);
             } else {
                 searchParameters["tradeDate"] = {
-                    $gte: new Date(Number(queryParameters["endDate"])*1000)
+                    $lte: new Date(queryParameters["endDate"])
                 }
             }
         }
 
         if(queryParameters["commodity"] !== undefined && queryParameters["commodity"] !== "") {
-            searchParameters["commodityId"] = queryParameters["commodity"];
+            searchParameters["commodity"] = {$in : queryParameters["commodity"]};
         }
 
-        if(queryParameters["buy"] !== undefined && queryParameters["buy"] !== "") {
+        if(queryParameters["buy"] !== undefined && queryParameters["buy"] !== "0") {
+          logger.debug("is it coming inside?");
             if(searchParameters["side"]) {
                 if(searchParameters["side"]["$in"])
                     searchParameters["side"]["$in"].push("BUY");
@@ -45,7 +49,7 @@ module.exports = class TradeController {
             }
         }
 
-        if(queryParameters["sell"] !== undefined && queryParameters["sell"] !== "") {
+        if(queryParameters["sell"] !== undefined && queryParameters["sell"] !== "0") {
             if(searchParameters["side"]) {
                 if(searchParameters["side"]["$in"])
                     searchParameters["side"]["$in"].push("SELL");
@@ -58,14 +62,16 @@ module.exports = class TradeController {
             }
         }
 
-        if(queryParameters["counterpartyId"] !== undefined && queryParameters["counterpartyId"] !== "") {
-            searchParameters["counterpartyId"] = queryParameters["counterpartyId"];
+        if(queryParameters["counterparty"] !== undefined && queryParameters["counterparty"] !== "") {
+            searchParameters["counterparty"] = {$in : queryParameters["counterparty"]};
         }
 
         if(queryParameters["location"] !== undefined && queryParameters["location"] !== "") {
-            searchParameters["location"] = queryParameters["location"];
+              searchParameters["location"] = {$in : queryParameters["location"]};
         }
 
+        //searchParameters["trader"] = queryParameters["trader"];
+        console.log("query fired, my search parameters are :",searchParameters);
         Trade.find(searchParameters, (err, result) => {
             if(err) {
                 console.log("Record not found. Got some error - " + err);
@@ -87,6 +93,7 @@ module.exports = class TradeController {
     }
 
     editSingleTrade(req, res) {
+       console.log("am I reaching tradecontroller/editSingleTrade",req);
         Trade.update({tradeId: req.params.tradeId}, {$set: req.body}, (err, doc) => {
             if(err) {
                 res.status(500).json({error: "Encountered error during updating the trade: " + err});

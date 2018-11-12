@@ -19,7 +19,7 @@ module.exports.process = (action, registry, cb) => {
         }
 
         service = registry.get(action.service);
-
+        logger.debug('what is my action showing?',action);
         switch(action.intent) {
             case "searchTrades":
                 return request
@@ -59,5 +59,5 @@ module.exports.process = (action, registry, cb) => {
             break;
         }
 
-        
+
 }
