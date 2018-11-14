@@ -42,11 +42,11 @@ const TradeSchema = new mongoose.Schema({
     },
     tradeId: {
         type: Number,
-        required: true,
-        unique: true
+        required : true
     }
 });
 
+TradeSchema.index({ tradeId: 1 });
 module.exports = mongoose.model('Trade', TradeSchema);
 
 /***

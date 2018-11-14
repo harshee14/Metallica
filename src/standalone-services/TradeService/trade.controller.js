@@ -2,6 +2,7 @@ const log4js = require('log4js');
 const configure = require('./configure');
 
 const Trade = require('./trade.model');
+const Counter = require('./counter.model');
 
 const logger = log4js.getLogger("TradeServiceController");
 module.exports = class TradeController {
@@ -104,14 +105,25 @@ module.exports = class TradeController {
     }
 
     createTrade(req, res) {
-        const newTrade = new Trade(req.body);
-        newTrade.save((err) => {
-            if(err) {
-                res.status(500).json({result: "Error"});
-            } else {
-                res.status(200).json({result: "Successfully created trade"});
-            }
-        })
+
+      let nextCounter = Counter.findOneAndUpdate({id: "tradeId"}, {$inc: { seq: 1 }}, {new: true}, (err, doc) => {
+          if(err) {
+             logger.debug(doc);
+              res.status(500).json({error: "Encountered error during updating the COUNTER: " + err});
+          } else {
+            logger.debug(doc);
+            let nextSeq = doc.seq ;
+
+            const newTrade = new Trade({...req.body, tradeId : nextSeq});
+            newTrade.save((err,doc) => {
+                if(err) {
+                    res.status(500).json({result: "Error while creating trade: " + err});
+                } else {
+                    res.status(200).json({result: "Successfully created trade" , trade : doc});
+                }
+            })
+          }
+      });
     }
 
     deleteSingleTrade(req, res) {

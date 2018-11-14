@@ -22,19 +22,17 @@ export function saveEditedTrade(mode, trade) {
     };
 }
 
-export function saveCreatedTrade(mode, trade) {
+export function saveCreatedTrade(mode, createdTrade) {
 
-  console.log("what is the trade I am sending for creating",trade);
-  let servicePromise = request.put('/api/trade/createTrade')
-          // .query({
-          //   tradeId : trade.tradeId
-          // })
-          //.set('Content-Type', 'application/json')
-          //.send(JSON.stringify(trade))
-          .send(trade)
+  console.log("what is the trade I am sending for creating",createdTrade);
+  let servicePromise = request.post('/api/trade/createTrade')
+          .send(createdTrade)
           .then(
             res => {
               console.log("my created trade response",res);
+              let tradeId = res.body.trade.tradeId ;
+              let trade =  {...createdTrade,tradeId};
+
               return {mode,trade} ;
             }
           );
@@ -52,12 +50,23 @@ export function createTrade(mode) {
     };
 }
 
-export function deleteTrade(mode, trade) {
-    let packet = { mode: mode, trade: trade };
+export function deleteTrade(mode, deletedTrade) {
+    let packet = { mode: mode, trade: deletedTrade };
+    console.log("what is the trade I am sending for deletion",deletedTrade);
+    let servicePromise = request.delete('/api/trade/deleteTrade')
+            .query({
+              tradeId : deletedTrade.tradeId
+            })
+            .then(
+              res => {
+                console.log("my deleted trade response",res);
+                return {mode,trade: deletedTrade} ;
+              }
+            );
 
     return {
         type: 'DELETE_TRADE',
-        payload: packet
+        payload: servicePromise
     };
 }
 

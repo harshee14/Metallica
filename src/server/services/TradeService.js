@@ -55,7 +55,10 @@ module.exports.process = (action, registry, cb) => {
             case "deleteTrade":
                 return request
                     .delete(`http://${service.ip}:${service.port}/trade/${action.queryParameters.tradeId}`)
-                    .then(response => cb(response));
+                    .then(response => cb(response))
+                    .catch(err => {
+                        console.log('TRADE deletion failed : ',err);
+                    });
             break;
         }
 

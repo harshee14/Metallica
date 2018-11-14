@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const request = require('superagent');
 const routes = require('./trade.routes');
 const configure = require('./configure');
+const Counter = require('./counter.model');
 const Trade = require('./trade.model');
 
 const fs = require('fs');
@@ -21,6 +22,24 @@ const GATEWAY_PORT = "8080";
 
 mongoose.connect(`mongodb://127.0.0.1/trades`, { useNewUrlParser: true }).then((x) => {
     logger.info("Sucessfully connected to MongoDB.");
+
+    Counter.deleteMany({}, () => {
+        consoleLogger.debug("Cleared counter database.");
+            let data = {
+              id: "tradeId",
+              seq: 50
+            };
+            const counter = new Counter(data);
+            counter.save((err, docs) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log("Initialized counter data");
+                }
+            });
+
+    });
+
     Trade.deleteMany({}, () => {
         consoleLogger.debug("Cleared Trades database.");
         for(let index in dummyData) {

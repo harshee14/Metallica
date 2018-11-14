@@ -10,9 +10,6 @@ export default function(state = 'VIEW_TRADE', action)
         case 'CREATE_TRADE':
         return action.payload.mode;
 
-        case 'CANCEL_EDITED_TRADE':
-        return action.payload;
-
         case 'SAVE_EDITED_TRADE_FULFILLED':
         return action.payload.mode;
 
@@ -24,6 +21,9 @@ export default function(state = 'VIEW_TRADE', action)
 
         case 'SEARCH_TRADES_FULFILLED':
         return state;
+
+        case 'DELETE_TRADE_FULFILLED':
+        return state ;
 
     }
     return state ;

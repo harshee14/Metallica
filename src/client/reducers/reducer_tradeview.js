@@ -15,6 +15,9 @@ console.log('reducer_tradeview',action)
 
       case 'SEARCH_TRADES_FULFILLED':
         return null;
+
+      case 'DELETE_TRADE_FULFILLED':
+        return null;
     }
     return state ;
 }

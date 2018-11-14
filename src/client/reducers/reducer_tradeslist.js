@@ -24,16 +24,22 @@ export default function(state = {}, action) {
         }
 
         case 'SAVE_CREATED_TRADE_FULFILLED': {
-            let tradesCopy = state.trades.slice();
+
+          let tradesCopy = [];
+        if(state.hasOwnProperty('trades'))
+        {
+           tradesCopy = state.trades.slice();
+        }
             tradesCopy.push(action.payload.trade) ;
             return {
                 ...state,
                 selectedTradeId: action.payload.trade.tradeId,
                 trades: tradesCopy
             }
+
         }
 
-        case 'DELETE_TRADE': {
+        case 'DELETE_TRADE_FULFILLED': {
             return {
                 ...state,
                 selectedTradeId:0,
