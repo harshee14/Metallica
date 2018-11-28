@@ -1,5 +1,6 @@
 const express = require('express');
 const log4js = require('log4js');
+var amqp = require('amqplib/callback_api');
   log4js.configure('./logconfig.json');
 const request = require('superagent');
 const configure = require('./configure');
@@ -15,6 +16,8 @@ const SERVICE_NAME = "NotificationService";
 
 const GATEWAY_IP = "127.0.0.1";
 const GATEWAY_PORT = "8080";
+
+let amqpConn = null;
 
 const app = express();
 configure(app);
@@ -42,5 +45,31 @@ app.listen(port, () => {
         })
     }
 
+    const consume = (timeout) =>
+    {
+      console.log("what is my amqpconn",amqpConn);
+      if(amqpConn)
+      {
+            amqpConn.createChannel(function(err, ch) {
+              var q = 'hello';
+              ch.assertQueue(q, {durable: false});
+              ch.consume(q, function(msg){
+                console.log("Recieved message : ", JSON.parse(msg.content));
+              });
+
+          });
+      }
+
+      else {
+        amqp.connect('amqp://localhost', (err, conn) => {
+          if(err)
+              amqpConn = err;
+           else
+              amqpConn = conn;
+        });
+      }
+    }
+
     setInterval(announce, ANNOUNCE_TIMEOUT);
+    setInterval(consume, 5000);
 });

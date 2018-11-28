@@ -1,4 +1,6 @@
 const express = require('express');
+var amqp = require('amqplib/callback_api');
+
 const log4js = require('log4js');
   log4js.configure('./logconfig.json');
 const request = require('superagent');
@@ -15,6 +17,9 @@ const SERVICE_NAME = "MarketdataService";
 
 const GATEWAY_IP = "127.0.0.1";
 const GATEWAY_PORT = "8080";
+
+let amqpConn = null;
+
 
 const app = express();
 configure(app);
@@ -42,5 +47,46 @@ app.listen(port, () => {
         })
     }
 
+
+
+    const publish = (timeout) =>
+    {
+      console.log("what is my amqpconn",amqpConn);
+      if(amqpConn)
+      {
+            amqpConn.createChannel(function(err, ch) {
+              var q = 'hello';
+              ch.assertQueue(q, {durable: false});
+              let msg = {metalAndPrices : getUpdatedPrice()};
+              ch.sendToQueue(q, new Buffer(JSON.stringify(msg)));
+              console.log(" [x] Sent : " , msg);
+          });
+      }
+
+      else {
+        amqp.connect('amqp://localhost', (err, conn) => {
+          if(err)
+              amqpConn = err;
+           else
+              amqpConn = conn;
+        });
+      }
+    }
+
     setInterval(announce, ANNOUNCE_TIMEOUT);
+    setInterval(publish, 5000);
+
 });
+
+function getUpdatedPrice() {
+    // after integration prices will come from backend
+    var metalAndPrices =  [
+        {key:'Iron',price:Math.round(23 * (Math.random()-0.5))},
+        {key:'Gold',price:Math.round(100 * (Math.random()-0.5))},
+        {key:'Silver',price:Math.round(25 * (Math.random()-0.5))},
+        {key:'Alu',price:Math.round(46 * (Math.random()-0.5))},
+        {key:'Platinum',price:Math.round(15 * (Math.random()-0.5))},
+        {key:'Uranium',price:Math.round(87 * (Math.random()-0.5))}
+    ];
+    return metalAndPrices ;
+}
