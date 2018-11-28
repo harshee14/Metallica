@@ -1,6 +1,9 @@
 export default function(state = null, action) {
 console.log('reducer_tradeview',action)
   switch(action.type) {
+
+      case 'LOGOUT':
+        return null ;
       case 'VIEW_TRADE':
         return action.payload.trade;
 

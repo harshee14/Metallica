@@ -74,7 +74,7 @@ class SearchBar extends Component
 			sellSide : true,
 			counterparty : [],
 			location : [],
-      trader : "hbhatnagar@sapient.com"
+      trader : this.props.trader
 		};
 		this.handleBuySideChange = this.handleBuySideChange.bind(this);
 		this.handleSellSideChange = this.handleSellSideChange.bind(this);
@@ -198,8 +198,14 @@ class SearchBar extends Component
 	}
 }
 
+function mapStateToProps(state) {
+  return {
+    trader : state.userInfo.user.email
+  };
+}
+
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({searchTrades : searchTrades} , dispatch);
 }
 
-export default connect(null,mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps,mapDispatchToProps)(SearchBar);

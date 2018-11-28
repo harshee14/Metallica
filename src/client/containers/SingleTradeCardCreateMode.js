@@ -73,7 +73,7 @@ class SingleTradeCardCreateMode extends Component
             location : '',
             quantity : '',
             price : '',
-						trader : "hbhatnagar@sapient.com"
+						trader : this.props.trader
         };
 
         this.errors = {
@@ -270,5 +270,10 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({saveCreatedTrade : saveCreatedTrade} , dispatch);
 }
 
+function mapStateToProps(state) {
+  return {
+    trader : state.userInfo.user.email
+  };
+}
 
-export default connect(null,mapDispatchToProps)(SingleTradeCardCreateMode);
+export default connect(mapStateToProps,mapDispatchToProps)(SingleTradeCardCreateMode);

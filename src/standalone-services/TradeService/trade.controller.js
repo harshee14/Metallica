@@ -71,7 +71,7 @@ module.exports = class TradeController {
               searchParameters["location"] = {$in : queryParameters["location"]};
         }
 
-        //searchParameters["trader"] = queryParameters["trader"];
+        searchParameters["trader"] = queryParameters["trader"];
         console.log("query fired, my search parameters are :",searchParameters);
         Trade.find(searchParameters, (err, result) => {
             if(err) {

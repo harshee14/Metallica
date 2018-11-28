@@ -4,6 +4,13 @@ export default function(state = {}, action) {
   console.log("reducer_tradeslist | what is my payload",action);
 
     switch(action.type) {
+
+        case 'LOGOUT':
+        {
+          let nullState = {};
+          return nullState      
+        }
+
         case 'SEARCH_TRADES_FULFILLED':
         {
           console.log("reducer_tradeslist | search_trades | what is my payload",action.payload);
