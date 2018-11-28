@@ -25,6 +25,10 @@ export default function(state = 'VIEW_TRADE', action)
         case 'DELETE_TRADE_FULFILLED':
         return state ;
 
+        case 'LOGOUT':
+          return 'VIEW_TRADE'
+
+
     }
     return state ;
 }

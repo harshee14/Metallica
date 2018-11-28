@@ -1,5 +1,22 @@
 import request from 'superagent' ;
 
+export function login(response)
+{
+  return {
+            type: 'LOGIN',
+            payload: response
+        };
+}
+
+export function logout()
+{
+   let nullUser = { isAuthenticated: false, user: null, token: ''};
+   return {
+     type : 'LOGOUT',
+     payload : nullUser
+   };
+}
+
 export function saveEditedTrade(mode, trade) {
     let packet = { mode: mode, trade: trade };
     console.log("what is the trade I am sending for editing",trade.quantity);
