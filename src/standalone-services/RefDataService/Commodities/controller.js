@@ -6,7 +6,6 @@ const Commodity = require('./model');
 module.exports = class CommodityController {
 
     getAllCommodities(req, res) {
-       console.log('yashodhan');
         Commodity.find({}, (err, result) => {
             if(err) {
                 console.log("Commodity list not found. Got some error - " + err);

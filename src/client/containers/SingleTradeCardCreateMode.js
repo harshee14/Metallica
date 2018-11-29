@@ -161,14 +161,12 @@ class SingleTradeCardCreateMode extends Component
     doSubmit(e)
     {
         e.preventDefault();
-				console.log("how does my commodity look like?",this.state);
         if(this.handleValidation()){
 						let tempState = {
 							...this.state,
 						};
-						console.log("CreateTrade: my request state is :" ,tempState);
+
 	            this.props.saveCreatedTrade('VIEW_TRADE',tempState);
-	            alert("Form submitted");
         }else{
             alert(`Errors. Check your inputs`);
         }

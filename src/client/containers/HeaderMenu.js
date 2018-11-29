@@ -10,14 +10,11 @@ class HeaderMenu extends Component
 {
 	constructor(props) {
 		super(props);
-
 	}
 
 	render()
 	{
-		console.log('is it reaching here', this.props);
-		let user = this.props.userName ? this.props.userName : '' ;
-
+	 let user = this.props.userName ? this.props.userName : '' ;
  	 return (
 
          <div>

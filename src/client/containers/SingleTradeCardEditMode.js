@@ -68,11 +68,9 @@ class SingleTradeCardEditMode extends Component
 	doSubmit(e) {
         e.preventDefault();
 				let tempState = Object.assign({}, this.state);
-				console.log("my temp state",tempState);
+				
         if(this.handleValidation()){
-
             this.props.saveEditedTrade('VIEW_TRADE',tempState);
-            alert("Form submitted");
         } else {
             alert(`Errors. Check your inputs`);
         }

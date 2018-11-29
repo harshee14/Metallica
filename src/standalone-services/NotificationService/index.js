@@ -4,6 +4,8 @@ var amqp = require('amqplib/callback_api');
   log4js.configure('./logconfig.json');
 const request = require('superagent');
 const configure = require('./configure');
+const http = require("http");
+const socketIO = require("socket.io");
 
 const logger = log4js.getLogger("NotificationServiceIndex");
 logger.level = 'debug';
@@ -21,18 +23,10 @@ let amqpConn = null;
 
 const app = express();
 configure(app);
+const server = http.createServer(app);
+const io = socketIO(server);
 
-app.get('/notification', (req, res) => {
-    process(req, (err, res) => {
-        if(err)
-            res.err({result: "FAIL"});
-        else
-            res.json({result: "OK"});
-    })
-
-})
-
-app.listen(port, () => {
+server.listen(port, () => {
     logger.info(`NotificationService listening on ${port}`);
 
     const announce = (timeout) => {
@@ -45,31 +39,37 @@ app.listen(port, () => {
         })
     }
 
-    const consume = (timeout) =>
-    {
-      console.log("what is my amqpconn",amqpConn);
-      if(amqpConn)
-      {
-            amqpConn.createChannel(function(err, ch) {
-              var q = 'hello';
-              ch.assertQueue(q, {durable: false});
-              ch.consume(q, function(msg){
-                console.log("Recieved message : ", JSON.parse(msg.content));
-              });
-
-          });
-      }
-
-      else {
-        amqp.connect('amqp://localhost', (err, conn) => {
-          if(err)
-              amqpConn = err;
-           else
-              amqpConn = conn;
-        });
-      }
-    }
-
-    setInterval(announce, ANNOUNCE_TIMEOUT);
-    setInterval(consume, 5000);
+  setInterval(announce, ANNOUNCE_TIMEOUT);
 });
+
+io.on("connection", socket => {
+  console.log("New client socket created");
+  consumeMessage(io);
+});
+
+
+var consumeMessage = (io) =>
+{
+  console.log("what is my amqpconn",amqpConn);
+  if(amqpConn)
+  {
+        amqpConn.createChannel(function(err, ch) {
+          var q = 'hello';
+          ch.assertQueue(q, {durable: false});
+          ch.consume(q, function(msg){
+            console.log("Recieved message : ", JSON.parse(msg.content));
+              io.emit('Prices',JSON.parse(msg.content));
+          });
+
+      });
+  }
+
+  else {
+    amqp.connect('amqp://localhost', (err, conn) => {
+      if(err)
+          amqpConn = err;
+       else
+          amqpConn = conn;
+    });
+  }
+}

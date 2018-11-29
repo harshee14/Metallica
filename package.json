@@ -28,11 +28,7 @@
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
     "react-bootstrap-table-next": "^1.2.0",
-    "react-date-picker": "^6.12.1",
-    "react-date-picker-cs": "^0.1.28",
     "react-datepicker": "^1.6.0",
-    "react-datetime": "^2.15.0",
-    "react-day-picker": "^7.2.4",
     "react-dom": "^16.5.2",
     "react-google-login": "^4.0.0",
     "react-redux": "^5.0.7",
@@ -41,6 +37,8 @@
     "redux-promise": "^0.6.0",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.2.0",
     "superagent": "^4.0.0-beta.5"
   },
   "devDependencies": {

@@ -7,7 +7,6 @@ const Counter = require('./counter.model');
 const logger = log4js.getLogger("TradeServiceController");
 module.exports = class TradeController {
       searchTrades(req, res) {
-        logger.debug('What is my query' , req.query);
 
         const queryParameters = req.query;
         const searchParameters = {};
@@ -72,7 +71,6 @@ module.exports = class TradeController {
         }
 
         searchParameters["trader"] = queryParameters["trader"];
-        console.log("query fired, my search parameters are :",searchParameters);
         Trade.find(searchParameters, (err, result) => {
             if(err) {
                 console.log("Record not found. Got some error - " + err);
@@ -94,7 +92,7 @@ module.exports = class TradeController {
     }
 
     editSingleTrade(req, res) {
-       console.log("am I reaching tradecontroller/editSingleTrade",req);
+
         Trade.update({tradeId: req.params.tradeId}, {$set: req.body}, (err, doc) => {
             if(err) {
                 res.status(500).json({error: "Encountered error during updating the trade: " + err});

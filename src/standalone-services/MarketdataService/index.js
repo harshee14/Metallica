@@ -51,15 +51,14 @@ app.listen(port, () => {
 
     const publish = (timeout) =>
     {
-      console.log("what is my amqpconn",amqpConn);
+
       if(amqpConn)
       {
             amqpConn.createChannel(function(err, ch) {
               var q = 'hello';
               ch.assertQueue(q, {durable: false});
-              let msg = {metalAndPrices : getUpdatedPrice()};
+              let msg = getUpdatedPrice();
               ch.sendToQueue(q, new Buffer(JSON.stringify(msg)));
-              console.log(" [x] Sent : " , msg);
           });
       }
 

@@ -6,7 +6,6 @@ const TradeLocation = require('./model');
 module.exports = class TradeLocationController {
 
     getAllTradeLocations(req, res) {
-       console.log('yashodhan');
         TradeLocation.find({}, (err, result) => {
             if(err) {
                 console.log("TradeLocation list not found. Got some error - " + err);

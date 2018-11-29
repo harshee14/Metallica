@@ -1,23 +1,14 @@
 import { Grid, Row, Col } from 'react-bootstrap';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import HeaderMenu from './components/HeaderMenu';
+import HeaderMenu from './containers/HeaderMenu';
 import LoginPanel from './containers/LoginPage';
 import MarketPricesDisplayPanel from './containers/MarketPricesDisplayPanel';
 import './app.css';
 
 class App extends Component {
-  //  state = { username: null };
-
-    componentDidMount() {
-        // fetch('/api/getUsername')
-        //     .then(res => res.json())
-        //     .then(user => this.setState({ username: user.username }));
-    }
 
     render() {
-        //const username  = this.props.userName;
-      //  const username  = "harshee";
 
         const Tag = this.props.isAuthenticated ? <HeaderMenu /> : <LoginPanel />
         return (
@@ -43,8 +34,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    //userName : state.userInfo.userName
-    isAuthenticated : state.userInfo.isAuthenticated 
+
+    isAuthenticated : state.userInfo.isAuthenticated
   };
 }
 

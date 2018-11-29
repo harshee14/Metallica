@@ -23,8 +23,6 @@ module.exports.process = (action, registry, cb) => {
         return request
             .get(`http://${service.ip}:${service.port}/${action.queryParameters.entity}`)
             .then(response => {
-              console.log(Object.keys(response));
-              console.log(response.body);
                 if(response.status != 200)
                     return cb(response, null);
                 else

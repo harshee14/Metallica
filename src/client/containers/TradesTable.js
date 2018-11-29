@@ -76,13 +76,12 @@ class TradesTable extends Component
     }
 
     handleOnSelect = (row,isSelect) => {
-      console.log('what is my row on handleOnSelect',row);
       this.props.viewTrade('VIEW_TRADE',row);
     }
 
 
     render() {
-        console.log('TradesTable -> my tradeslist on rendering is :',this.props.tradeslist);
+      
         var selectRow = {
             mode: 'radio',
             clickToSelect: true,

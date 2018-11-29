@@ -42,7 +42,6 @@ module.exports.process = (action, registry, cb) => {
             break;
 
             case "createTrade":
-                console.log(action.body);
                 return request
                     .post(`http://${service.ip}:${service.port}/trade/`)
                     .set('Content-Type', 'application/json')

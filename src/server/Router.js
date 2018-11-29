@@ -58,7 +58,6 @@ module.exports.route = (app) => {
     });
 
     app.get('/api/refdata', (req, res) => {
-       console.log(req);
         const action = {
             service: 'RefDataService',
             queryParameters: req.query

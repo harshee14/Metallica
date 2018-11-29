@@ -30,8 +30,8 @@ class LoginPage extends Component {
         };
         fetch('http://localhost:4000/api/v1/auth/google', options).then(r => {
             const token = r.headers.get('x-auth-token');
+            console.log("what is my google api returning",r)
             r.json().then(user => {
-              console.log('what did google return',user);
                 if (token) {
                     this.props.login({isAuthenticated: true, user, token});
                 }

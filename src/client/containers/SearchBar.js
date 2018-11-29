@@ -15,7 +15,6 @@ request.get('/api/refdata?entity=counterparty&operation=getAllCounterparties')
           .query({})
           .then(
             res => {
-              console.log("my mapped counterparties :" ,res.body.counterparties);
               const counterparties =  res.body.counterparties ;
               const mappedCounterparties = counterparties.map(counterparty => {
                 return {
@@ -117,8 +116,7 @@ class SearchBar extends Component
                 sellSide : true,
                 counterparty : [],
                 location : []
-            }, () => {
-                console.log("Search bar after clearing", this.state);
+
             }
         );
 
@@ -134,9 +132,9 @@ class SearchBar extends Component
 			startDate :  (typeof this.state.startDate === "undefined") ? 0 : this.state.startDate.format("MM/DD/YYYY"),
 			endDate :  (typeof this.state.endDate === "undefined") ? 0 : this.state.endDate.format("MM/DD/YYYY")
 		};
-		console.log("SearchBar: my request state is :" ,tempState);
+
 		this.props.searchTrades(tempState);
-		alert("Form submitted");
+    
 	}
 
 

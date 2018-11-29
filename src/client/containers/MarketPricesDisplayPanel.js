@@ -1,42 +1,41 @@
 import {Row,Col,Panel} from 'react-bootstrap';
 import React, { Component } from 'react';
+import openSocket from "socket.io-client";
+const socket = openSocket("http://localhost:3002");
+
+function subscribeToPrices(callback) {
+  socket.on('Prices', notifiedPrices => callback(notifiedPrices));
+}
+
 
 class MarketPricesDisplayPanel extends Component {
+   _isMounted = false;
 
     constructor(props) {
         super(props)
+        this._isMounted = false;
         this.state = {
             metalAndPrices : [{key:'Iron',price:23},{key:'Gold',price:100},{key:'Silver',price:80},{key:'Alu',price:5},{key:'Platinum',price:150},{key:'Uranium',price:500}]
         };
-        this.getUpdatedPrice = this.getUpdatedPrice.bind(this);
+
     }
 
-    componentDidMount() {
-        this.timerID =  setInterval(() => {
-            this.setState({
-                metalAndPrices : this.getUpdatedPrice()
-            });
-        },10000);
-    }
+          componentDidMount() {
+               this._isMounted = true;
+               subscribeToPrices(metalAndPrices => {
+                 if(this._isMounted)
+                    this.setState({ metalAndPrices });
+               });
 
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
+        }
 
-    getUpdatedPrice() {
-        // after integration prices will come from backend
-        var metalAndPrices =  [
-            {key:'Iron',price:23 * (Math.random()-0.5)},
-            {key:'Gold',price:100 * (Math.random()-0.5)},
-            {key:'Silver',price:80 * (Math.random()-0.5)},
-            {key:'Alu',price:5 * (Math.random()-0.5)},
-            {key:'Platinum',price:150 * (Math.random()-0.5)},
-            {key:'Uranium',price:500 * (Math.random()-0.5)}
-        ];
-        return metalAndPrices ;
-    }
+       componentWillUnmount() {
+         this._isMounted = false;
+       }
+
 
     render() {
+       console.log("what is my state",this.state);
         return (
         <div>
             <Panel bsStyle="primary">

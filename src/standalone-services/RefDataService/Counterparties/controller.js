@@ -6,7 +6,6 @@ const Counterparty = require('./model');
 module.exports = class CounterpartyController {
 
     getAllCounterparties(req, res) {
-       console.log('yashodhan');
         Counterparty.find({}, (err, result) => {
             if(err) {
                 console.log("Counterparty list not found. Got some error - " + err);
