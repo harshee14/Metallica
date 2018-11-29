@@ -57,7 +57,6 @@ var consumeMessage = (io) =>
           var q = 'hello';
           ch.assertQueue(q, {durable: false});
           ch.consume(q, function(msg){
-            console.log("Recieved message : ", JSON.parse(msg.content));
               io.emit('Prices',JSON.parse(msg.content));
           });
 

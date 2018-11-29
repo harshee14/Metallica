@@ -35,7 +35,6 @@ class MarketPricesDisplayPanel extends Component {
 
 
     render() {
-       console.log("what is my state",this.state);
         return (
         <div>
             <Panel bsStyle="primary">
@@ -47,7 +46,7 @@ class MarketPricesDisplayPanel extends Component {
                     {
                         this.state.metalAndPrices.map((metalAndPrice, index) => {
                             return (
-                                <Col md={2}>
+                                <Col md={2} key = {metalAndPrice.key}>
                                     <Panel>
                                         <Panel.Heading>{metalAndPrice.key}</Panel.Heading>
                                         <Panel.Body>{Math.abs(Math.ceil(metalAndPrice.price,1))}</Panel.Body>

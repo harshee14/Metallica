@@ -1,5 +1,5 @@
 export default function(state = null, action) {
-console.log('reducer_tradeview',action)
+
   switch(action.type) {
 
       case 'LOGOUT':
