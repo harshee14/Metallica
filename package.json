@@ -5,7 +5,7 @@
   "main": "src/server/index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "npm run build && node src/server/index.js",
+    "prod": "npm run build && node src/server/index.js",
     "start-trade": "cd src/standalone-services/TradeService && npm start",
     "start-marketdata": "cd src/standalone-services/MarketdataService && npm start",
     "start-refdata": "cd src/standalone-services/RefDataService && npm start",
@@ -14,7 +14,7 @@
     "start-micro-services": "concurrently \"npm run start-user\" \"npm run start-trade\" \"npm run start-marketdata\" \"npm run start-refdata\" \"npm run start-notification\"",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Harshita Bhatnagar",
   "license": "ISC",

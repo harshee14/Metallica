@@ -28,8 +28,6 @@ Running the Micro services :
 
 From CMD Prompt , step into the project folder -> Metallica -> npm run start-micro-services
 
-Refer Metallica/package.json for independent micro services/client/server run commands
-
 Application client on :
 localhost:3000
 
@@ -52,5 +50,4 @@ Notification service hosted on :
 localhost:3002
 
 FYI :
-When the application starts ,dummy 40 trades and ref data are already saved in DB for demonstration purpose
 Prices served from Market data are randomly generated prices as of now.
